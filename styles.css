@@ -1,55 +1,48 @@
-/* Reset some basic elements for a clean look */
+/* styles.css */
 body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
 }
 
-/* Set a font family for the entire body */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #eee;
     line-height: 1.6;
 }
 
-/* Define a container for the resume to center it on the page */
 .resume-container {
     display: flex;
     width: 90%;
     max-width: 1200px;
-    min-height: 100vh; /* Full height of the viewport */
-    margin: 10px auto; /* Centering the container */
+    min-height: 100vh;
+    margin: 10px auto;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box-shadow for a subtle depth effect */
-    overflow: hidden; /* Ensures no content will overflow */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
-/* Left column for the profile image */
 .left-column {
-    width: 200px; /* Fixed width for the profile image column */
-    background: #f2f2f2; /* Light grey background */
-    padding: 20px; /* Spacing around the content */
-    display: flex; /* Enables flexbox for children alignment */
-    justify-content: center; /* Center-align flex items horizontally */
-    align-items: start; /* Align items from the start (top for column flex) */
+    width: 200px;
+    background: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center image vertically */
+    flex-direction: column; /* Stack flex items vertically */
 }
 
-/* Right column for the CV content */
 .right-column {
-    flex-grow: 1; /* Takes up the remaining space */
-    padding: 20px; /* Spacing around the content */
+    flex-grow: 1;
+    padding: 20px;
 }
-
-/* Style for the profile image */
 
 .profile-image {
-    border-radius: 10px; /* Adjust the border-radius as you see fit */
-    width: auto; /* Remove fixed width or 'max-width' */
-    height: auto; /* Maintain the aspect ratio */
-    max-height: 200px; /* You can limit the height to ensure it doesn't become too large */
+    border-radius: 10px;
+    width: auto; /* Scale image width automatically */
+    height: auto; /* Scale image height automatically */
+    max-height: 200px; /* Maximum image height */
 }
 
-
-/* Spacing and styling for headers and text */
 h1, h2, h3 {
     color: #333;
 }
@@ -64,20 +57,18 @@ h2 {
 }
 
 ul {
-    list-style-type: none; /* Removes default list styles */
+    list-style-type: none;
 }
 
 ul li {
     padding-left: 1em;
-    text-indent: -1em; /* Corrects text position due to padding */
+    text-indent: -1em;
 }
 
-/* Add spacing to list items */
 ul li:not(:last-child) {
     margin-bottom: 0.25em;
 }
 
-/* Responsive design for smaller devices */
 @media (max-width: 768px) {
     .resume-container {
         flex-direction: column;
@@ -88,8 +79,6 @@ ul li:not(:last-child) {
     }
 
     .left-column {
-        padding-bottom: 1em; /* Spacing below image when stacked on small screens */
+        padding-bottom: 1em;
     }
 }
-
-/* Add more custom styles as you need */
