@@ -39,8 +39,8 @@ body {
 
 .profile-image {
     border-radius: 10px; /* Keep the rounded corners as per your design */
-    width: auto; /* Use the image's natural width */
-    height: auto; /* Use the image's natural height */
+    width: 50%; /* Use the image's natural width */
+    height: 100%; /* Use the image's natural height */
 }
 
 
