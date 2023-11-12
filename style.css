@@ -1,0 +1,89 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+}
+
+.resume-container {
+    display: flex;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.left-column {
+    flex: 1; /* adjust the width as needed */
+    padding: 20px;
+    background-color: #f9f9f9; /* different background color if you like */
+}
+
+.right-column {
+    flex: 2; /* adjust the width as needed */
+    padding: 20px;
+}
+
+.profile-image {
+    width: 100%; /* make sure the image is not bigger than the column */
+    height: auto;
+    border-radius: 10px; /* rounded corners if you like */
+}
+
+.resume-section header, 
+.resume-section section {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+a {
+    color: #017bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li::before {
+    content: '•';
+    color: #017bff;
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+.contact a {
+    display: block; /* Makes the email addresses stack on top of each other */
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .resume-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-section {
+        margin-bottom: 20px;
+    }
+
+    .profile-image {
+        width: 120px; /* Smaller size for mobile */
+    }
+}
