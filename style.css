@@ -15,20 +15,21 @@ body {
 }
 
 .left-column {
-    flex: 1; /* adjust the width as needed */
+    width: 35%; /* or any other proportion you see fit */
     padding: 20px;
     background-color: #f9f9f9; /* different background color if you like */
+    text-align: center; /* center image in div */
 }
 
 .right-column {
-    flex: 2; /* adjust the width as needed */
+    width: 65%; /* remaining proportion */
     padding: 20px;
 }
 
 .profile-image {
-    width: 100%; /* make sure the image is not bigger than the column */
+    max-width: 100%; /* make sure image is responsive */
     height: auto;
-    border-radius: 10px; /* rounded corners if you like */
+    border-radius: 10px; /* rounded corners */
 }
 
 .resume-section header, 
