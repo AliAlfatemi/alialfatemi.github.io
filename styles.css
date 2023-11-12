@@ -1,13 +1,21 @@
-/* styles.css */
-body, h1, h2, h3, p, ul {
+/* Reset some basic elements for a clean look */
+body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
+    list-style-position: inside;
 }
 
+ul {
+    margin-left: 1em; /* This gives space to show bullet points */
+    list-style-type: disc; /* This ensures the disc type bullet points are shown */
+}
+
+/* Set a font family for the entire body */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #eee;
     line-height: 1.6;
+    padding-left: 20px; /* Add padding to the left of the body to ensure space for bullet points */
 }
 
 .resume-container {
