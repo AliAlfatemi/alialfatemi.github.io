@@ -44,7 +44,7 @@ body {
 /* Style for the profile image */
 .profile-image {
     border-radius: 10px; /* Rounds the corners of the image */
-    width: 150px; /* Example fixed width */
+    width: 50%; /* Example fixed width 150px;*/
     height: auto; /* Auto height to maintain aspect ratio */
 }
 
