@@ -37,10 +37,11 @@ body {
 }
 
 
+
 .profile-image {
-    border-radius: 10px; /* Keep the rounded corners as per your design */
-    width: 50%; /* Use the image's natural width */
-    height: 100%; /* Use the image's natural height */
+    border-radius: 10px; /* Rounds the corners of the image */
+    width: 150px; /* Example fixed width */
+    height: auto; /* Auto height to maintain aspect ratio */
 }
 
 
