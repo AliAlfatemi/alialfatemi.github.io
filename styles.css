@@ -37,11 +37,11 @@ body {
 }
 
 .profile-image {
-    border-radius: 10px;
-    width: auto; /* Scale image width automatically */
-    height: auto; /* Scale image height automatically */
-    max-height: 200px; /* Maximum image height */
+    border-radius: 10px; /* Keep the rounded corners as per your design */
+    width: auto; /* Use the image's natural width */
+    height: auto; /* Use the image's natural height */
 }
+
 
 h1, h2, h3 {
     color: #333;
