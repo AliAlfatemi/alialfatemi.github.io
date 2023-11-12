@@ -43,8 +43,8 @@ body {
 
 /* Style for the profile image */
 .profile-image {
-    border-radius: 10px; /* Rounds the corners of the image */
-    width: 50%; /* Example fixed width 150px;*/
+    border-radius: 20px; /* Rounds the corners of the image */
+    width: 100%; /* Example fixed width 150px;*/
     height: auto; /* Auto height to maintain aspect ratio */
 }
 
