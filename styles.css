@@ -1,54 +1,63 @@
-/* Reset some basic elements for a clean look */
+/* Reset basic elements for a clean look */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
 }
 
-/* Set a font family for the entire body */
+/* Set font family and background for the body */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #eee;
     line-height: 1.6;
-    padding-left: 20px; /* Add padding to the left of the body to ensure space for bullet points */
+    padding-left: 20px;
 }
 
-/* Define a container for the resume to center it on the page */
-.resume-container {
+/* Style for the image container at the top */
+.image-container {
     display: flex;
-    width: 90%;
-    max-width: 1200px;
-    min-height: 100vh; /* Full height of the viewport */
-    margin: 10px auto; /* Centering the container */
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Box-shadow for a subtle depth effect */
-    overflow: hidden; /* Ensures no content will overflow */
-}
-
-/* Left column for the profile image */
-.left-column {
-    width: 200px; /* Fixed width for the profile image column */
-    background: #f2f2f2; /* Light grey background */
-    padding: 20px; /* Spacing around the content */
-    display: flex; /* Enables flexbox for children alignment */
-    justify-content: center; /* Center-align flex items horizontally */
-    align-items: center; /* Center image vertically */
-    flex-direction: column; /* Stack flex items vertically */
-}
-
-/* Right column for the CV content */
-.right-column {
-    flex-grow: 1; /* Takes up the remaining space */
-    padding: 20px; /* Spacing around the content */
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+    padding: 20px;
 }
 
 /* Style for the profile image */
 .profile-image {
-    border-radius: 40px; /* Rounds the corners of the image */
-    width: 250px; /* Example fixed width 150px;*/
-    height: auto; /* Auto height to maintain aspect ratio */
+    border-radius: 40px;
+    width: 250px;
+    height: auto;
 }
 
-/* Spacing and styling for headers and text */
+/* Container for the resume */
+.resume-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 10px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Left column styles */
+.left-column {
+    width: 200px;
+    background: #f2f2f2;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Right column styles */
+.right-column {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Styling headers and text */
 h1, h2, h3 {
     color: #333;
 }
@@ -64,26 +73,35 @@ h2 {
 
 /* Publication list styles */
 #publications ul {
-    list-style-type: disc; /* Adds disc bullets to publication list */
-    margin-left: 40px; /* Space for bullet points */
-    padding-left: 0; /* Reset padding-left if previously set */
+    list-style-type: disc;
+    margin-left: 40px;
+    padding-left: 0;
 }
 
 #publications li {
-    margin-bottom: 10px; /* Space between list items */
+    margin-bottom: 10px;
 }
 
 /* Responsive design for smaller devices */
 @media (max-width: 768px) {
+    .image-container {
+        width: auto;
+        padding-bottom: 1em;
+    }
     .resume-container {
-        flex-direction: column;
-    }
+    flex-direction: column;
+}
 
-    .left-column, .right-column {
-        width: auto; /* Full width on small screens */
-    }
+.left-column, .right-column {
+    width: auto;
+}
 
-    .left-column {
-        padding-bottom: 1em; /* Spacing below image when stacked on small screens */
-    }
+.left-column {
+    order: 2; /* Places the left column below the right column on small screens */
+    padding-bottom: 1em;
+}
+
+.right-column {
+    order: 1; /* Places the right column above the left column on small screens */
+}
 }
