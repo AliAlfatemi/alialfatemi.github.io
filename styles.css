@@ -55,10 +55,10 @@ body {
 
 /* Style for the profile image */
 .profile-image {
-    border-radius: 40px;
-    width: 220px; /* Adjust the width as needed */
+    border-radius: 50px;
+    width: 240px; /* Adjust the width as needed */
     height: auto;
-    margin-bottom: 20px; /* Space below the image */
+    margin-bottom: 40px; /* Space below the image */
 }
 
 
