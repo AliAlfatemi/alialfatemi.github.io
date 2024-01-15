@@ -45,7 +45,7 @@ body {
 
 /* Left column for the profile image */
 .left-column {
-    width: 200px;
+    width: 220px;
     background: #f2f2f2;
     padding: 20px;
     display: flex;
@@ -56,7 +56,7 @@ body {
 /* Style for the profile image */
 .profile-image {
     border-radius: 40px;
-    width: 200px; /* Adjust the width as needed */
+    width: 220px; /* Adjust the width as needed */
     height: auto;
     margin-bottom: 20px; /* Space below the image */
 }
