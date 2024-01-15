@@ -40,16 +40,27 @@ body {
     overflow: hidden;
 }
 
-/* Left column styles */
+
+
+
+/* Left column for the profile image */
 .left-column {
     width: 200px;
     background: #f2f2f2;
     padding: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
+
+/* Style for the profile image */
+.profile-image {
+    border-radius: 40px;
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    margin-bottom: 20px; /* Space below the image */
+}
+
 
 /* Right column styles */
 .right-column {
