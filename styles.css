@@ -26,10 +26,12 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .header-text {
     flex-grow: 1;
+    max-width: 600px;
 }
 
 .header-text h1 {
@@ -53,6 +55,12 @@ body {
 }
 
 /* Profile Image */
+.profile-image {
+    flex-shrink: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
 .profile-image img {
     width: 150px;
     height: auto;
@@ -86,12 +94,13 @@ ul li {
 @media (max-width: 768px) {
     .header-section {
         flex-direction: column;
-        align-items: center;
         text-align: center;
     }
 
     .profile-image img {
         margin-top: 20px;
+        width: 120px;
+        height: auto;
     }
 
     .contact-links a {
