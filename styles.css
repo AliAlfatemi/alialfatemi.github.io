@@ -69,6 +69,19 @@ body {
 .contact-links a:hover {
     text-decoration: underline;
 }
+
+/* Profile Image */
+.profile-image-container {
+    text-align: right;
+}
+
+.profile-image {
+    width: 220px;  /* Larger image */
+    height: auto;
+    border-radius: 50%;
+    border: 4px solid #ddd;
+}
+
 /* Research Section Styling */
 #research {
     text-align: center;  /* Center-align the content */
@@ -87,18 +100,6 @@ body {
     max-width: 900px;
     margin: 0 auto;
     color: #333;
-}
-
-/* Profile Image */
-.profile-image-container {
-    text-align: right;
-}
-
-.profile-image {
-    width: 220px;  /* Larger image */
-    height: auto;
-    border-radius: 50%;
-    border: 4px solid #ddd;
 }
 
 /* Section Styles */
