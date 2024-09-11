@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* Reset basic styles */
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
@@ -23,22 +23,23 @@ body {
 /* Header Section */
 .header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 50px;
-    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    text-align: left;
 }
 
-.header-left {
-    max-width: 65%;
+.name-bio {
+    max-width: 60%;
 }
 
-.header-left h1 {
+.name-bio h1 {
     font-size: 36px;
+    text-align: left;
     margin-bottom: 10px;
 }
 
-.header-left p {
+.name-bio p {
     margin-bottom: 20px;
 }
 
@@ -54,11 +55,12 @@ body {
 }
 
 /* Profile Image */
-.header-right {
+.profile-image-container {
+    max-width: 200px;
     text-align: right;
 }
 
-.header-right .profile-image {
+.profile-image {
     width: 150px;
     height: auto;
     border-radius: 50%;
@@ -87,23 +89,23 @@ ul li {
     line-height: 1.5;
 }
 
-/* Responsive Styles */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .header {
         flex-direction: column;
         text-align: center;
     }
 
-    .header-left {
+    .name-bio {
         max-width: 100%;
     }
 
-    .header-right {
-        margin-top: 20px;
+    .profile-image-container {
         text-align: center;
+        margin-top: 20px;
     }
 
-    .header-right .profile-image {
+    .profile-image {
         width: 120px;
     }
 
