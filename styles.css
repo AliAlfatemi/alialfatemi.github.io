@@ -17,21 +17,21 @@ body {
     line-height: 1.6;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed to flex-start to align content at top */
+    overflow: auto; /* Ensures scrolling on smaller screens */
 }
 
 /* Stretching container to take full page */
 .resume-container {
     display: flex;
-    flex-direction: column; /* Column layout for smaller devices */
+    flex-direction: row; /* Ensuring row layout for larger screens */
     width: 100%;
-    height: auto;
     max-width: 1200px;
     margin: 0;
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: visible; /* Allow content to expand without being hidden */
+    overflow: visible; /* Ensure content overflows without hiding */
 }
 
 /* Left Column Styling */
@@ -97,6 +97,7 @@ body {
     padding: 50px;
     overflow: visible; /* Ensure content is visible */
     min-height: 100vh; /* Ensures the column takes full height */
+    background-color: #fff;
 }
 
 .right-column h2 {
@@ -122,6 +123,13 @@ ul {
 
 ul li {
     margin-bottom: 10px;
+}
+
+/* Clearfix to ensure proper content flow */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Highlighting message */
