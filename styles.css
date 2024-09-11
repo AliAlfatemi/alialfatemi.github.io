@@ -15,7 +15,7 @@ body {
 
 /* Container */
 .container {
-    max-width: 1000px;
+    max-width: 1200px;  /* Wider to match the design */
     margin: 0 auto;
     padding: 20px;
 }
@@ -25,23 +25,30 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
     text-align: center;
+    margin-bottom: 50px;
 }
 
 .name-bio {
     max-width: 60%;
-    margin: 0 auto;
+    text-align: left;
 }
 
 .name-bio h1 {
     font-size: 36px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 10px;
 }
 
 .name-bio p {
+    font-size: 18px;
     margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-links {
+    text-align: left;
+    font-size: 16px;
 }
 
 .contact-links a {
@@ -61,7 +68,7 @@ body {
 }
 
 .profile-image {
-    width: 180px;  /* Larger image */
+    width: 200px;
     height: auto;
     border-radius: 50%;
     border: 4px solid #ddd;
@@ -98,6 +105,7 @@ ul li {
 
     .name-bio {
         max-width: 100%;
+        text-align: center;
     }
 
     .profile-image-container {
