@@ -60,6 +60,22 @@ body {
     text-decoration: underline;
 }
 
+/* Social Icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    opacity: 0.8;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
 /* Right Column Styling */
 .right-column {
     flex-grow: 1;
