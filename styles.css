@@ -26,13 +26,13 @@ body {
     justify-content: center;  /* Center the content horizontally */
     align-items: center;
     text-align: center;
-    flex-direction: column;  /* Stack name and image */
+    flex-direction: row;  /* Horizontal layout for name and image */
     margin-bottom: 50px;
 }
 
 .name-bio {
-    max-width: 80%;
-    text-align: center;
+    max-width: 60%;
+    text-align: left;  /* Left-align the name, bio, and contact links */
 }
 
 .name-bio h1 {
@@ -69,7 +69,7 @@ body {
 
 /* Profile Image */
 .profile-image-container {
-    margin-top: 20px;
+    margin-left: 40px;  /* Add some space between bio and image */
 }
 
 .profile-image {
