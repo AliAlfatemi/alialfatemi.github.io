@@ -31,7 +31,7 @@ body {
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
+    overflow: visible; /* Allow content to expand without being hidden */
 }
 
 /* Left Column Styling */
@@ -95,7 +95,8 @@ body {
 .right-column {
     flex-grow: 1;
     padding: 50px;
-    overflow-y: auto;
+    overflow: visible; /* Ensure content is visible */
+    min-height: 100vh; /* Ensures the column takes full height */
 }
 
 .right-column h2 {
@@ -150,6 +151,7 @@ ul li {
     .right-column {
         width: 100%;
         padding: 30px;
+        min-height: auto; /* Remove fixed height for better responsiveness */
     }
 }
 
