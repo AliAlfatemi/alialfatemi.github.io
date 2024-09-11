@@ -26,7 +26,7 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 50px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .header-text {
@@ -58,7 +58,6 @@ body {
 .profile-image {
     flex-shrink: 0;
     text-align: center;
-    margin-top: 20px;
 }
 
 .profile-image img {
@@ -94,6 +93,7 @@ ul li {
 @media (max-width: 768px) {
     .header-section {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
