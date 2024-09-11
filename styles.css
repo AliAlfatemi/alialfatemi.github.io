@@ -5,17 +5,28 @@ body, h1, h2, p, ul, li {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
     color: #333;
     line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Stretching container to take full page */
 .resume-container {
     display: flex;
-    max-width: 1000px;
-    margin: 40px auto;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0;
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -27,8 +38,11 @@ body {
     width: 250px;
     background-color: #2c3e50;
     color: white;
-    padding: 30px 20px;
+    padding: 40px 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profile-image {
@@ -79,11 +93,12 @@ body {
 /* Right Column Styling */
 .right-column {
     flex-grow: 1;
-    padding: 40px;
+    padding: 50px;
+    overflow-y: auto; /* Allows scrolling if the content overflows */
 }
 
 .right-column h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 15px;
     color: #2c3e50;
     border-bottom: 2px solid #1abc9c;
@@ -118,17 +133,65 @@ ul li {
     display: inline-block;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
     .resume-container {
         flex-direction: column;
+        height: auto; /* Adjust for better fitting on tablets */
     }
 
-    .left-column, .right-column {
+    .left-column {
         width: 100%;
+        text-align: center;
+        padding: 20px;
     }
 
     .right-column {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .right-column {
         padding: 20px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .right-column {
+        padding: 15px;
+    }
+
+    .left-column {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .right-column h2 {
+        font-size: 18px;
+    }
+
+    .right-column p {
+        font-size: 14px;
     }
 }
