@@ -1,118 +1,87 @@
-/* Reset basic elements for a clean look */
+/* Reset */
 body, h1, h2, h3, p, ul, li {
     margin: 0;
     padding: 0;
 }
 
-/* Set font family and background for the body */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #eee;
-    line-height: 1.6;
-    padding-left: 20px;
+    background-color: #f5f5f5;
+    line-height: 1.8;
 }
 
-/* Style for the image container at the top */
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #f2f2f2;
-    padding: 20px;
-}
-
-/* Style for the profile image */
-.profile-image {
-    border-radius: 40px;
-    width: 250px;
-    height: auto;
-}
-
-/* Container for the resume */
 .resume-container {
     display: flex;
-    width: 90%;
     max-width: 1200px;
-    min-height: 100vh;
-    margin: 10px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border-radius: 10px;
 }
 
-
-
-
-/* Left column for the profile image */
 .left-column {
-    width: 220px;
-    background: #f2f2f2;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 250px;
+    background-color: #f2f2f2;
+    padding: 30px 20px;
+    text-align: center;
 }
 
-/* Style for the profile image */
 .profile-image {
-    border-radius: 50px;
-    width: 240px; /* Adjust the width as needed */
-    height: auto;
-    margin-bottom: 40px; /* Space below the image */
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
 }
 
-
-/* Right column styles */
-.right-column {
-    flex-grow: 1;
-    padding: 20px;
-}
-
-/* Styling headers and text */
-h1, h2, h3 {
-    color: #333;
+.contact-info {
+    margin-top: 20px;
 }
 
 h1 {
-    margin-bottom: 0.5em;
+    font-size: 24px;
+    color: #333;
 }
 
 h2 {
-    margin-top: 1em;
-    margin-bottom: 0.3em;
-}
-
-/* Publication list styles */
-#publications ul {
-    list-style-type: disc;
-    margin-left: 40px;
-    padding-left: 0;
-}
-
-#publications li {
+    font-size: 20px;
+    color: #555;
     margin-bottom: 10px;
 }
 
-/* Responsive design for smaller devices */
-@media (max-width: 768px) {
-    .image-container {
-        width: auto;
-        padding-bottom: 1em;
-    }
-    .resume-container {
-    flex-direction: column;
-}
-
-.left-column, .right-column {
-    width: auto;
-}
-
-.left-column {
-    order: 2; /* Places the left column below the right column on small screens */
-    padding-bottom: 1em;
-}
-
 .right-column {
-    order: 1; /* Places the right column above the left column on small screens */
+    padding: 30px;
+    flex-grow: 1;
 }
+
+.right-column section {
+    margin-bottom: 20px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+.skills ul, #publications ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.skills ul li, #publications ul li {
+    padding-bottom: 10px;
+}
+
+/* Adjusting for mobile responsiveness */
+@media (max-width: 768px) {
+    .resume-container {
+        flex-direction: column;
+    }
+
+    .left-column {
+        width: 100%;
+    }
+
+    .right-column {
+        width: 100%;
+    }
 }
