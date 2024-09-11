@@ -69,6 +69,25 @@ body {
 .contact-links a:hover {
     text-decoration: underline;
 }
+/* Research Section Styling */
+#research {
+    text-align: center;  /* Center-align the content */
+    margin-bottom: 40px;
+}
+
+#research h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #000;  /* Use black for a strong heading */
+}
+
+#research p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #333;
+}
 
 /* Profile Image */
 .profile-image-container {
