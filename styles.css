@@ -67,34 +67,42 @@ body {
     text-decoration: underline;
 }
 
+
+
 /* Profile Image */
 .profile-image-container {
     margin-left: 70px;  /* Add space between bio and image */
 }
 
 .profile-image {
-    width: 300px;
+    width: 400px;  /* Increase the size to 400px */
     height: auto;
     border-radius: 70%;
     border: 6px solid #ddd;
 }
 
-/* Left-aligned sections */
-section {
-    text-align: left;  /* Left-align the Research and other sections */
-    margin-bottom: 40px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .name-bio {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .profile-image {
+        width: 250px;  /* Adjust for smaller screens */
+    }
+
+    .contact-links a {
+        display: block;
+        margin: 10px 0;
+    }
 }
 
-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #0073b1;
-}
-
-section p, ul {
-    font-size: 18px;
-    line-height: 1.6;
-}
 
 /* List Styling */
 ul {
