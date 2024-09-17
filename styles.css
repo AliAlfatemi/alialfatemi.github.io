@@ -70,15 +70,16 @@ body {
 
 
 /* Profile Image */
+/* Profile Image */
 .profile-image-container {
-    margin-left: 70px;  /* Add space between bio and image */
+    margin-left: 50px;  /* Adjust the space between bio and image */
 }
 
 .profile-image {
-    width: 600px;  /* Increase the size to 600px */
+    width: 450px;  /* Set the image size to 450px */
     height: auto;
-    border: 6px solid #ddd;
-    border-radius: 0;  /* Remove circular effect */
+    border: 4px solid #ddd;  /* Slightly thinner border for aesthetics */
+    border-radius: 0;  /* Keep the image rectangular */
 }
 
 /* Responsive Adjustments */
@@ -94,7 +95,7 @@ body {
     }
 
     .profile-image {
-        width: 300px;  /* Adjust for smaller screens */
+        width: 250px;  /* Adjust to 250px for smaller screens */
     }
 
     .contact-links a {
@@ -102,3 +103,4 @@ body {
         margin: 10px 0;
     }
 }
+
