@@ -71,48 +71,14 @@ body {
 
 /* Profile Image */
 .profile-image-container {
-    margin-left: 100px;  /* Add space between bio and image */
+    margin-left: 70px;  /* Add space between bio and image */
 }
 
 .profile-image {
-    width: 600px;  /* Increase the size to 400px */
+    width: 600px;  /* Increase the size to 600px */
     height: auto;
-    border-radius: 100%;
-    border: 10px solid #ddd;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 1000px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .name-bio {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .profile-image {
-        width: 450px;  /* Adjust for smaller screens */
-    }
-
-    .contact-links a {
-        display: block;
-        margin: 500px 0;
-    }
-}
-
-
-/* List Styling */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-ul li {
-    margin-bottom: 15px;
-    line-height: 1.5;
+    border: 6px solid #ddd;
+    border-radius: 0;  /* Remove circular effect */
 }
 
 /* Responsive Adjustments */
@@ -128,11 +94,11 @@ ul li {
     }
 
     .profile-image {
-        width: 300px;
+        width: 300px;  /* Adjust for smaller screens */
     }
 
     .contact-links a {
         display: block;
-        margin: 50px 0;
+        margin: 10px 0;
     }
 }
