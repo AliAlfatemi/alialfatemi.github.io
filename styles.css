@@ -10,6 +10,10 @@ body {
     background-color: #fff;
     color: #333;
     line-height: 1.6;
+    height: 100vh; /* Ensure the body takes full height of the viewport */
+    display: flex; /* Flexbox to center content */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
     padding: 40px;
 }
 
@@ -18,6 +22,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    text-align: center; /* Ensure all content is centered */
 }
 
 /* Header Section - Name and Image (Centered) */
@@ -25,19 +30,18 @@ body {
     display: flex;
     justify-content: center;  /* Center the name, bio, and image */
     align-items: center;
-    text-align: center;
-    flex-direction: row;
+    flex-direction: column; /* Stack bio and image vertically */
     margin-bottom: 50px;
 }
 
 .name-bio {
-    max-width: 60%;
+    max-width: 100%;
     text-align: center;
 }
 
 .name-bio h1 {
     font-size: 36px;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Add space under title */
 }
 
 .name-bio p {
@@ -54,6 +58,7 @@ body {
 
 .contact-links {
     font-size: 16px;
+    margin-top: 15px;
 }
 
 .contact-links a {
@@ -67,35 +72,21 @@ body {
     text-decoration: underline;
 }
 
-
-
-/* Profile Image */
 /* Profile Image */
 .profile-image-container {
-    margin-left: 30px;  /* Adjust the space between bio and image */
+    margin-top: 30px;  /* Adjust the space between bio and image */
 }
 
 .profile-image {
-    width: 350px;  /* Set the image size to 350px */
+    width: 200px;  /* Adjust the image size */
     height: auto;
-    border: 4px solid #ddd;  /* Slightly thinner border */
-    border-radius: 0;  /* Keep the image rectangular */
+    border: 4px solid #ddd;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .name-bio {
-        max-width: 100%;
-        text-align: center;
-    }
-
     .profile-image {
-        width: 200px;  /* Adjust to 200px for smaller screens */
+        width: 150px;  /* Smaller screens image size */
     }
 
     .contact-links a {
@@ -103,4 +94,3 @@ body {
         margin: 10px 0;
     }
 }
-
