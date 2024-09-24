@@ -9,13 +9,12 @@ body {
 
 /* Container for the whole page */
 .container {
-    width: 60%;  /* Slightly wider layout for balance */
-    margin: 40px auto;  /* Add margin on top and bottom for spacing */
+    width: 60%;  /* Balanced width */
+    margin: 40px auto;  /* Centered horizontally with space from the top */
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 1000px; /* Ensure a max width */
-    text-align: left;  /* Align text to the left */
+    max-width: 1000px;
 }
 
 /* Header section (Name, Bio, Profile Image) */
@@ -24,35 +23,34 @@ body {
     flex-direction: column;
     align-items: center;
     margin-bottom: 30px;
-    text-align: center;
+    text-align: center; /* Centers the text */
 }
 
 .name-bio {
     margin-bottom: 20px;
-    max-width: 600px;  /* Limit the width of text */
+    max-width: 600px; /* Restricts the width of the text for better readability */
+    text-align: center; /* Ensure the text is centered */
 }
 
 .name-bio h1 {
     margin: 0;
     font-size: 42px;
     color: #003366; /* Deep Learning-themed dark blue */
-    text-align: left; /* Text aligned to the left */
 }
 
 .name-bio p {
     font-size: 18px;
     line-height: 1.5;
     color: #333;
-    text-align: left; /* Text aligned to the left */
 }
 
 .highlight {
     font-weight: bold;
-    color: #ff4500; /* Highlighted in an energetic orange/red */
+    color: red; /* This sentence will be red */
 }
 
 .contact-links {
-    text-align: left; /* Ensure links are left-aligned */
+    text-align: center; /* Centering the contact links */
 }
 
 .contact-links a {
@@ -80,7 +78,7 @@ body {
 .profile-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fits perfectly */
+    object-fit: cover;
 }
 
 /* Deep Learning/LLM-themed background */
