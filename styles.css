@@ -10,7 +10,7 @@ body {
     background-color: #fff;
     color: #333;
     line-height: 1.6;
-    height: 100vh; /* Ensure the body takes full height of the viewport */
+    height: 100vh; /* Full viewport height */
     display: flex; /* Flexbox to center content */
     justify-content: center; /* Horizontally center */
     align-items: center; /* Vertically center */
@@ -19,29 +19,24 @@ body {
 
 /* Container */
 .container {
-    max-width: 1200px;
+    max-width: 800px; /* Limit the width of the content */
     margin: 0 auto;
     padding: 20px;
-    text-align: center; /* Ensure all content is centered */
+    text-align: center; /* Center all content */
 }
 
 /* Header Section - Name and Image (Centered) */
 .header {
     display: flex;
-    justify-content: center;  /* Center the name, bio, and image */
+    flex-direction: column; /* Stack name, bio, and image vertically */
+    justify-content: center;
     align-items: center;
-    flex-direction: column; /* Stack bio and image vertically */
     margin-bottom: 50px;
-}
-
-.name-bio {
-    max-width: 100%;
-    text-align: center;
 }
 
 .name-bio h1 {
     font-size: 36px;
-    margin-bottom: 20px; /* Add space under title */
+    margin-bottom: 20px;
 }
 
 .name-bio p {
@@ -58,7 +53,6 @@ body {
 
 .contact-links {
     font-size: 16px;
-    margin-top: 15px;
 }
 
 .contact-links a {
@@ -74,11 +68,11 @@ body {
 
 /* Profile Image */
 .profile-image-container {
-    margin-top: 30px;  /* Adjust the space between bio and image */
+    margin-top: 30px;
 }
 
 .profile-image {
-    width: 200px;  /* Adjust the image size */
+    width: 200px;
     height: auto;
     border: 4px solid #ddd;
 }
@@ -86,7 +80,7 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .profile-image {
-        width: 150px;  /* Smaller screens image size */
+        width: 150px;
     }
 
     .contact-links a {
