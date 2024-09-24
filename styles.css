@@ -32,7 +32,7 @@ body {
 .name-bio h1 {
     margin: 0;
     font-size: 40px;
-    color: #007acc; /* AI-inspired theme color */
+    color: #003366; /* Deep Learning-themed dark blue */
 }
 
 .name-bio p {
@@ -43,11 +43,11 @@ body {
 
 .highlight {
     font-weight: bold;
-    color: #ff6600; /* Highlighted in a contrasting AI-themed orange */
+    color: #ff4500; /* Highlighted in an energetic orange/red */
 }
 
 .contact-links a {
-    color: #007acc;
+    color: #003366;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
@@ -60,21 +60,26 @@ body {
 
 /* Profile image */
 .profile-image-container {
-    width: 200px;
-    height: 200px;
-}
-
-.profile-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 220px;
+    height: 220px;
+    overflow: hidden; /* Ensures that the zoomed-in image stays within bounds */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* AI-themed background */
+.profile-image {
+    width: 120%;
+    height: auto;
+    transform: scale(1.1); /* Zoom in slightly */
+    object-fit: cover;
+}
+
+/* Deep Learning/LLM-themed background */
 body {
-    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient with AI/tech-inspired colors */
+    background: radial-gradient(circle, #002244, #003366); /* Darker, neural network-like gradient */
+    background-image: url('ai-pattern.png'); /* Optional: Add a neural network or LLM abstract background pattern */
+    background-blend-mode: overlay;
+    background-size: cover;
 }
 
 /* Responsive design for smaller screens */
