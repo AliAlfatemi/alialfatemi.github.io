@@ -5,21 +5,17 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    display: flex;
-    justify-content: center; /* Centers the entire container vertically */
-    align-items: center;
-    height: 100vh; /* Makes the container take full vertical space */
 }
 
 /* Container for the whole page */
 .container {
-    width: 50%;  /* Narrower width for a more centered layout */
-    margin: auto;
+    width: 60%;  /* Slightly wider layout for balance */
+    margin: 40px auto;  /* Add margin on top and bottom for spacing */
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Ensure max width for better readability */
-    text-align: center; /* Centers all text */
+    max-width: 1000px; /* Ensure a max width */
+    text-align: left;  /* Align text to the left */
 }
 
 /* Header section (Name, Bio, Profile Image) */
@@ -33,24 +29,30 @@ body {
 
 .name-bio {
     margin-bottom: 20px;
-    max-width: 600px;  /* Limit text width for easier reading */
+    max-width: 600px;  /* Limit the width of text */
 }
 
 .name-bio h1 {
     margin: 0;
     font-size: 42px;
     color: #003366; /* Deep Learning-themed dark blue */
+    text-align: left; /* Text aligned to the left */
 }
 
 .name-bio p {
     font-size: 18px;
     line-height: 1.5;
     color: #333;
+    text-align: left; /* Text aligned to the left */
 }
 
 .highlight {
     font-weight: bold;
     color: #ff4500; /* Highlighted in an energetic orange/red */
+}
+
+.contact-links {
+    text-align: left; /* Ensure links are left-aligned */
 }
 
 .contact-links a {
@@ -67,18 +69,18 @@ body {
 
 /* Profile image */
 .profile-image-container {
-    width: 350px;  /* Increased size */
-    height: 350px; /* Make sure it’s square */
+    width: 350px;  /* Larger image size */
+    height: 350px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px; /* Add spacing below the image */
+    margin-bottom: 20px;
 }
 
 .profile-image {
-    width: 110%; /* Slightly zoomed-in for focus */
-    height: 110%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fits perfectly */
 }
 
 /* Deep Learning/LLM-themed background */
@@ -95,7 +97,7 @@ body {
     .container {
         width: 80%;  /* More width for smaller screens */
     }
-    
+
     .profile-image-container {
         width: 300px;
         height: 300px; /* Adjust the image size for smaller screens */
