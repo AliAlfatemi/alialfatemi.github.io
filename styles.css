@@ -90,7 +90,49 @@ body {
     margin: 0;
 }
 
-/* Responsive design for smaller screens */
+/* Bio Section Styling */
+#bio {
+    margin-top: 50px;
+}
+
+.bio-header h1 {
+    font-size: 36px;
+    color: #003366;  /* Dark blue for a professional feel */
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.divider {
+    border: 0;
+    height: 3px;
+    background: linear-gradient(to right, #007acc, #00c6ff); /* Gradient for tech-themed styling */
+    margin: 0 auto;
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.bio-content {
+    font-size: 18px;
+    color: #555;  /* Slightly lighter color for the main text */
+    padding: 0 20px;
+    text-align: justify;  /* Better readability */
+}
+
+.bio-content strong {
+    color: #003366;  /* Emphasized text in bold, professional blue */
+}
+
+.bio-content a {
+    color: #ff6600;  /* Orange color for links */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bio-content a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
     .container {
         width: 80%;  /* More width for smaller screens */
@@ -99,5 +141,13 @@ body {
     .profile-image-container {
         width: 300px;
         height: 300px; /* Adjust the image size for smaller screens */
+    }
+
+    .bio-header h1 {
+        font-size: 28px;
+    }
+
+    .bio-content {
+        font-size: 16px;
     }
 }
