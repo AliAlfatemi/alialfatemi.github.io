@@ -46,7 +46,7 @@ body {
 
 .highlight {
     font-weight: bold;
-    color: red; /* This sentence will be red */
+    color: #ff6600; /* Changed to a bold orange color */
 }
 
 .contact-links {
