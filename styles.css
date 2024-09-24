@@ -50,13 +50,16 @@ body {
 }
 
 .profile-image-container {
-    width: 120px;
+    width: 200px;  /* Increase the width to make the image larger */
+    height: 200px; /* Set a fixed height to make it square */
 }
 
 .profile-image {
     width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100%; /* Ensure the image takes up the entire container */
+    object-fit: cover; /* Makes the image scale properly inside the square */
+    border-radius: 10px; /* Optional: To give the square slightly rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Maintain the shadow effect */
 }
 
 /* Section headings */
