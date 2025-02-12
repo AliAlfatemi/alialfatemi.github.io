@@ -1,37 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali Alfatemi - Bio</title>
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Link to external styles -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Ali Alfatemi - Bio</title>
+
+  <!-- Google Fonts (same as index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome (icons) -->
+  <link 
+    rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main CSS (unchanged) -->
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <!-- Main container -->
-    <div class="container">
-        <!-- Bio Section -->
-        <section id="bio">
-            <header class="bio-header">
-                <h1>About Me</h1>
-                <hr class="divider">
-            </header>
-            <article class="bio-content">
-                <p>
-                    My name is <strong>Ali Alfatemi</strong>, and I am a Ph.D. candidate in <strong>Computer Science</strong> at <strong>Fordham University</strong>. My research focuses on creating advanced AI solutions.
-                </p>
-                <p>
-                    I began my academic career in <strong>Bioinformatics</strong>, working on computational methods for analyzing biological data. In the first year of my Ph.D., I transitioned into <strong>Computer Vision</strong>, focusing on image analysis and machine learning. This work laid the foundation for my current research in developing <strong>deep learning algorithms</strong> for cybersecurity, specifically in <strong>intrusion detection</strong>.
-                </p>
-                <p>
-                    I am looking for research internship opportunities for <strong>Summer 2025</strong>.  If you’re interested in learning more about my work or exploring collaboration opportunities, please feel free to <a href="mailto:aalfatemi@fordham.edu">contact me</a>.
-                </p>
 
-            </article>
-        </section>
+  <!-- =====================
+       NAVIGATION
+       (Same header style)
+  ====================== -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="nav-left">
+        <!-- Same or different headshot if you prefer -->
+        <img src="images/ali.jpg" alt="Ali Alfatemi" class="nav-profile-img" />
+        <span class="nav-brand">ALI ALFATEMI</span>
+      </div>
+      <div class="nav-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <!-- Link back to main site (index.html) or to your main nav items -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="index.html#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
+        <li><a href="index.html#research"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="index.html#publications"><i class="fas fa-book"></i> Publications</a></li>
+        <li><a href="index.html#patents"><i class="fas fa-file-signature"></i> Patents</a></li>
+        <li><a href="index.html#service"><i class="fas fa-handshake"></i> Service</a></li>
+        <li><a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
     </div>
+  </header>
+
+  <!-- =====================
+       HERO SECTION
+       (same style as "Home")
+  ====================== -->
+  <section class="hero">
+    <!-- Particles container -->
+    <div id="particles-js"></div>
+
+    <div class="hero-content">
+      <h1>Bio of <strong>Ali Alfatemi</strong></h1>
+      <p class="hero-subtitle">
+        Ph.D. Candidate at Fordham University
+      </p>
+      <p class="hero-desc">
+        Specializing in <strong>Large Language Models (LLMs)</strong>, 
+        <strong>AI for Network Security</strong>, 
+        <strong>Machine Learning</strong>, and 
+        <strong>Computer Vision</strong>. 
+        Currently seeking research internships for <strong>Summer 2025</strong>!
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================
+       BACKGROUND
+  ====================== -->
+  <section id="background" class="section">
+    <div class="section-container">
+      <h2>Background</h2>
+      <p>
+        I’m a Ph.D. candidate at Fordham University, focusing on bridging advanced 
+        AI techniques (particularly Large Language Models) with secure, 
+        robust networking infrastructures. Over the years, 
+        I’ve been exploring the synergy of <strong>Deep Learning</strong>, 
+        <strong>Computer Vision</strong>, and <strong>Network Security</strong> 
+        to create innovative solutions for next-gen communication systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================
+       EDUCATION
+  ====================== -->
+  <section id="education" class="section">
+    <div class="section-container">
+      <h2>Education</h2>
+
+      <!-- PhD -->
+      <div style="margin-bottom: 1.5rem;">
+        <h3>Ph.D. in Computer Science (2022–Present)</h3>
+        <p>Fordham University, New York, USA</p>
+        <ul>
+          <li>Focus: AI for Network Security</li>
+        </ul>
+      </div>
+
+      <!-- Masters -->
+      <div style="margin-bottom: 1.5rem;">
+        <h3>M.S. in Computer Science (2018–2021)</h3>
+        <p>South China University of Technology, Guangzhou, China</p>
+        <ul>
+          <li>Thesis: Cancer subtyping by integration of multiomics data on the Grassmann manifold</li>
+        </ul>
+      </div>
+
+      <!-- Bachelors -->
+      <div>
+        <h3>B.S. in Computer Science (2008–2012)</h3>
+        <p>Thamar University, Dhamar, Yemen</p>
+        <ul>
+          <li>Thesis: An Analyzer for Secure Information Flow in Android Application</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       GOALS
+  ====================== -->
+  <section id="goals" class="section">
+    <div class="section-container">
+      <h2>Goals</h2>
+      <p>
+        My immediate goal is to leverage cutting-edge AI and deep learning techniques 
+        to protect critical infrastructure from evolving cyber threats. 
+        I’m actively seeking <strong>research internships</strong> for <strong>Summer 2025</strong>, 
+        where I can collaborate with experts and advance pioneering research.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================
+       CONTACT
+  ====================== -->
+  <section id="contact" class="section">
+    <div class="section-container">
+      <h2>Contact</h2>
+      <p>
+        <strong>Email:</strong> 
+        <a href="mailto:aalfatemi@fordham.edu">aalfatemi@fordham.edu</a>
+      </p>
+      <p>
+        Let’s connect on 
+        <a href="https://www.linkedin.com/in/ali-alfatemi/" target="_blank">LinkedIn</a>, or 
+        explore my <a href="https://github.com/AliAlfatemi" target="_blank">GitHub</a> 
+        and <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================
+       FOOTER
+  ====================== -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Ali Alfatemi. All rights reserved.</p>
+  </footer>
+
+  <!-- ================
+       JS
+  ================= -->
+  <!-- 1) Particles.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+
+  <!-- 2) main.js (toggle + year) -->
+  <script src="js/main.js"></script>
+
+  <!-- 3) White net config in FRONT (HIGH Z-INDEX) -->
+  <script src="js/particles-config.js"></script>
 </body>
 </html>
-
