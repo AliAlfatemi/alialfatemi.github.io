@@ -17,7 +17,7 @@
     rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-..."
-    crossorigin="anonymous" 
+    crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
 
@@ -28,19 +28,19 @@
 
   <!-- =====================
        NAVIGATION
-       (Same header style)
+       (same header style)
   ====================== -->
   <header class="header">
     <div class="nav-container">
       <div class="nav-left">
-        <!-- Same or different headshot if you prefer -->
+        <!-- Use your hero photo or the same as index -->
         <img src="images/ali.jpg" alt="Ali Alfatemi" class="nav-profile-img" />
         <span class="nav-brand">ALI ALFATEMI</span>
       </div>
       <div class="nav-toggle" onclick="toggleMenu()">
         <i class="fas fa-bars"></i>
       </div>
-      <!-- Link back to main site (index.html) or to your main nav items -->
+      <!-- Link back to main site (index.html) or keep normal nav items -->
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html#home"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="index.html#projects"><i class="fas fa-folder-open"></i> Projects</a></li>
@@ -55,14 +55,27 @@
 
   <!-- =====================
        HERO SECTION
-       (same style as "Home")
+       (with small bio image)
   ====================== -->
   <section class="hero">
     <!-- Particles container -->
     <div id="particles-js"></div>
 
     <div class="hero-content">
-      <h1>Bio of <strong>Ali Alfatemi</strong></h1>
+      <!-- Insert a small image, e.g., 150px wide, with margins -->
+      <img 
+        src="images/ali.jpg" 
+        alt="Ali Alfatemi Bio" 
+        style="
+          width: 180px; 
+          border-radius: 10px; 
+          margin-bottom: 1.2rem; 
+          margin-right: 1.2rem;
+          float: left;
+        "
+      >
+
+      <h1>My <strong>Bio</strong></h1>
       <p class="hero-subtitle">
         Ph.D. Candidate at Fordham University
       </p>
@@ -93,41 +106,6 @@
     </div>
   </section>
 
-  <!-- =====================
-       EDUCATION
-  ====================== -->
-  <!-- <section id="education" class="section">
-    <div class="section-container">
-      <h2>Education</h2> -->
-
-      <!-- PhD -->
-      <!-- <div style="margin-bottom: 1.5rem;">
-        <h3>Ph.D. in Computer Science (2022–Present)</h3>
-        <p>Fordham University, New York, USA</p>
-        <ul>
-          <li>Focus: AI for Network Security</li>
-        </ul>
-      </div> -->
-
-      <!-- Masters -->
-      <!-- <div style="margin-bottom: 1.5rem;">
-        <h3>M.S. in Computer Science (2018–2021)</h3>
-        <p>South China University of Technology, Guangzhou, China</p>
-        <ul>
-          <li>Thesis: Cancer subtyping by integration of multiomics data on the Grassmann manifold</li>
-        </ul>
-      </div> -->
-
-      <!-- Bachelors -->
-      <!-- <div>
-        <h3>B.S. in Computer Science (2008–2012)</h3>
-        <p>Thamar University, Dhamar, Yemen</p>
-        <ul>
-          <li>Thesis: An Analyzer for Secure Information Flow in Android Application</li>
-        </ul>
-      </div>
-    </div>
-  </section> -->
 
   <!-- =====================
        GOALS
