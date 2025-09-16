@@ -1,254 +1,512 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Ali Alfatemi — Ph.D. Candidate & Teaching Fellow, Fordham University</title>
+  <meta name="description" content="Ali Alfatemi — Ph.D. Candidate & Teaching Fellow at Fordham University. Research in AI for Network Security, Machine Learning, and Computer Vision." />
+  <link rel="canonical" href="https://alialfatemi.github.io/">
 
-% =============================================================================
-% moderncv setup
-% =============================================================================
-\moderncvstyle{classic}
-\moderncvcolor{blue}
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
-% =============================================================================
-% pdfLaTeX-safe packages (dark mode toggle)
-% =============================================================================
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[scale=0.8]{geometry}
-\usepackage[unicode]{hyperref}
-\usepackage{xcolor}
-\usepackage{pagecolor}
-\usepackage{CJKutf8}   % for wrapping the Chinese patent title only
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-% ----- Dark mode toggle -----
-\newif\ifdarkmode
-\darkmodetrue       % << set to \darkmodefalse for a light/print version
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
 
-% Accent colors (tuned for dark)
-\ifdarkmode
-  \pagecolor[rgb]{0.07,0.08,0.10}   % near-black background
-  \color{white}                      % main text color
-  \definecolor{linkcol}{RGB}{125,205,255}
-  \definecolor{color1}{RGB}{125,205,255} % moderncv primary
-  \definecolor{color2}{RGB}{210,210,210} % moderncv secondary
-\else
-  \definecolor{linkcol}{RGB}{0,84,159}
-  % optionally override color1/color2 for light mode
-\fi
-\hypersetup{colorlinks=true, linkcolor=linkcol, urlcolor=linkcol, citecolor=linkcol}
+  <!-- Social cards -->
+  <meta property="og:title" content="Ali Alfatemi — Ph.D. Candidate & Teaching Fellow, Fordham University">
+  <meta property="og:description" content="Research in AI for Network Security, Machine Learning, Computer Vision.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://alialfatemi.github.io/images/og-card.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://alialfatemi.github.io/images/og-card.jpg">
+  <link rel="icon" href="/images/favicon.png" sizes="32x32">
 
-% =============================================================================
-% personal data
-% =============================================================================
-\name{Ali}{Alfatemi}
-\title{Ph.D. Candidate \& Teaching Fellow \quad|\quad AI for Network Security, Computer Vision \& Machine Learning}
-\address{}{ }{}
-\phone[mobile]{+1 (917) 370-1456}
-\email{aalfatemi@fordham.edu}
-\social[linkedin]{ali-alfatemi}
-\social[github]{AliAlfatemi}
-\social[google]{5INwJxIAAAAJ} % Google Scholar id
-\homepage{https://alialfatemi.github.io}
+  <!-- Structured data (Person) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Alfatemi",
+    "jobTitle": "Ph.D. Candidate & Teaching Fellow",
+    "affiliation": {"@type":"CollegeOrUniversity","name":"Fordham University"},
+    "email": "mailto:aalfatemi@fordham.edu",
+    "image": "images/ali.jpg",
+    "sameAs": [
+      "https://www.linkedin.com/in/ali-alfatemi/",
+      "https://github.com/AliAlfatemi",
+      "https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao"
+    ],
+    "url": "https://alialfatemi.github.io/"
+  }
+  </script>
 
-\begin{document}
-\makecvtitle
-\vspace*{-0.75em}
+  <!-- Optional: structured data for a key paper -->
+  <script type="application/ld+json">
+  {
+   "@context": "https://schema.org",
+   "@type": "ScholarlyArticle",
+   "name": "Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition",
+   "author": [{"@type":"Person","name":"Ali Alfatemi"}],
+   "isPartOf": {"@type":"Periodical","name":"Signal, Image and Video Processing"},
+   "datePublished": "2025",
+   "identifier": {"@type":"PropertyValue","propertyID":"DOI","value":"10.1007/s11760-025-04758-5"},
+   "url": "https://doi.org/10.1007/s11760-025-04758-5"
+  }
+  </script>
 
-% =============================================================================
-% EDUCATION
-% =============================================================================
-\section{Education}
-\cventry{2022--Present}{Ph.D. in Computer Science}{Fordham University}{New York, NY}{}{
-\begin{itemize}\itemsep0.25em
-  \item Research focus: AI for Network Security (LLMs, Computer Vision, Deep Learning, ML).
-  \item Projects include GNSS spoofing/jamming detection for smart transportation systems.
-\end{itemize}
+  <!-- Minimal inline additions (dark mode + tiny bits) -->
+  <style>
+    :root { --bg:#ffffff; --fg:#111; --muted:#666; --card:#fafafa; --link:#0a66c2; --border:#e6e6e6; }
+    html[data-theme="dark"] { --bg:#0f1217; --fg:#e7e7e7; --muted:#a9b0bb; --card:#141922; --link:#63a4ff; --border:#283141; }
+    body { background:var(--bg); color:var(--fg); }
+    .header,.section,.footer { background:var(--bg); color:var(--fg); }
+    a { color:var(--link); }
+    .theme-toggle { background:none;border:0;margin-left:.6rem;cursor:pointer;font-size:1.1rem;color:inherit; }
+    .news-list { margin:.5rem 0 0; padding-left:1rem; }
+    .news-list li { margin:.25rem 0; }
+    .btn.tiny { padding:.25rem .5rem; font-size:.85rem; border:1px solid var(--border); }
+    pre.bibtex { white-space:pre; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.9rem; }
+    .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus { left:1rem; top:1rem; width:auto; height:auto; padding:.5rem 1rem; background:#ffd; color:#111; z-index:9999; }
+    .nav-container { align-items:center; }
+  </style>
+</head>
+<body>
+
+  <!-- Skip to content (accessibility) -->
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <!-- =====================
+       NAVIGATION
+  ====================== -->
+  <header class="header" role="banner">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="images/ali.jpg" alt="Portrait of Ali Alfatemi" class="nav-profile-img" loading="lazy" />
+        <span class="nav-brand">ALI ALFATEMI</span>
+      </div>
+      <div style="display:flex;align-items:center;">
+        <button class="nav-toggle" onclick="toggleMenu()" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
+        <li><a href="#projects"><i class="fas fa-folder-open" aria-hidden="true"></i> Projects</a></li>
+        <li><a href="#research"><i class="fas fa-flask" aria-hidden="true"></i> Research</a></li>
+        <li><a href="#appointments"><i class="fas fa-briefcase" aria-hidden="true"></i> Appointments</a></li>
+        <li><a href="#teaching"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Teaching</a></li>
+        <li><a href="#publications"><i class="fas fa-book" aria-hidden="true"></i> Publications</a></li>
+        <li><a href="#patents"><i class="fas fa-file-signature" aria-hidden="true"></i> Patents</a></li>
+        <li><a href="#service"><i class="fas fa-handshake" aria-hidden="true"></i> Service</a></li>
+        <li><a href="#contact"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- =====================
+       HERO SECTION
+  ====================== -->
+  <section id="home" class="hero">
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1>Hello, I’m <strong>Ali Alfatemi</strong></h1>
+      <p class="hero-subtitle">
+        Ph.D. Candidate &amp; Teaching Fellow, <strong>Computer &amp; Information Science</strong>, Fordham University.
+      </p>
+      <p class="hero-desc">
+        Research interests: AI for Network Security, Large Language Models, Machine Learning, and Computer Vision.
+      </p>
+      <div class="hero-btns">
+        <a href="mailto:aalfatemi@fordham.edu" class="btn cta-btn"><i class="fas fa-envelope"></i> Email</a>
+        <a href="https://www.linkedin.com/in/ali-alfatemi/" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/AliAlfatemi" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+        <a href="/Ali_Alfatemi_CV.pdf" class="btn cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> CV</a>
+        <a href="bio.html" class="btn cta-btn"><i class="fas fa-user"></i> Bio</a>
+      </div>
+      <a href="#projects" class="btn cta-main-btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- =====================
+       NEWS
+  ====================== -->
+  <section class="section" aria-label="News">
+    <div class="section-container">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><strong>Sep 2025:</strong> Paper accepted at <em>IEEE GLOBECOM 2025 (CISS)</em>.</li>
+        <li><strong>Sep 2025:</strong> <em>Foreground-Centric Learning</em> VOR online — <a href="https://doi.org/10.1007/s11760-025-04758-5" target="_blank" rel="noopener">DOI</a>.</li>
+        <li><strong>May 2025:</strong> KES 2025 paper accepted (LLM-on-prem DDoS mitigation).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================
+       PROJECTS
+  ====================== -->
+  <section id="projects" class="section">
+    <div class="section-container">
+      <h2>Current Projects</h2>
+      <div class="project">
+        <h3>Securing Smart Transportation Systems</h3>
+        <p>
+          Developing AI-powered defenses against GNSS spoofing and jamming to protect drones and smart vehicles.
+          <a href="https://www.csu.edu/cas/CINSER/projects.htm" target="_blank" rel="noopener noreferrer">Learn more at the CSU project page</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================
+       RESEARCH
+  ====================== -->
+  <section id="research" class="section">
+    <div class="section-container">
+      <h2>Research Interests</h2>
+      <p>
+        Large Language Models (LLMs), AI for Network Security, Machine Learning, Computer Vision.
+      </p>
+    </div>
+  </section>
+
+  <!-- =====================
+       APPOINTMENTS
+  ====================== -->
+  <section id="appointments" class="section">
+    <div class="section-container">
+      <h2>Appointments</h2>
+      <ul>
+        <li><strong>Teaching Fellow</strong>, Fordham University — Sep 2025–Present</li>
+        <li><strong>AI Summer Research Fellow</strong>, Fordham University — Jun 2025–Aug 2025</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================
+       TEACHING
+  ====================== -->
+  <section id="teaching" class="section">
+    <div class="section-container">
+      <h2>Teaching</h2>
+      <ul>
+        <li>Labs/recitations in Computer & Information Science; mentoring undergraduate ML/AI projects. (Add courses once assigned.)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =====================
+       PUBLICATIONS
+  ====================== -->
+  <section id="publications" class="section">
+    <div class="section-container">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Majjed Al-Qatf, Senthil Kumar Jagatheesaperumal. <br>
+          <em>Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition.</em>
+          <strong>Signal, Image and Video Processing</strong> (Springer), 2025.
+          <a href="https://doi.org/10.1007/s11760-025-04758-5" target="_blank" rel="noopener">[Paper]</a>
+          <a href="https://github.com/AliAlfatemi/warbler_yolo" target="_blank" rel="noopener">[Code &amp; resources]</a>
+          <button class="btn tiny" onclick="copyBib('bib-sivp')">Copy BibTeX</button>
+          <pre id="bib-sivp" class="bibtex" hidden>
+@article{alfatemi2025foreground,
+  title={Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition},
+  author={Alfatemi, Ali and Rahouti, Mohamed and Al-Qatf, Majjed and Jagatheesaperumal, Senthil Kumar},
+  journal={Signal, Image and Video Processing},
+  year={2025},
+  doi={10.1007/s11760-025-04758-5}
 }
-\cventry{2018--2021}{M.S. in Computer Science}{South China University of Technology}{Guangzhou, China}{}{
-\begin{itemize}\itemsep0.25em
-  \item Thesis: \emph{Cancer subtyping by integration of multiomics data on the Grassmann manifold}.
-\end{itemize}
+          </pre>
+        </li>
+
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Aiman Solyman, Mohammed Aledhari. <br>
+          <em>ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection.</em>
+          <strong>2025 International Wireless Communications and Mobile Computing (IWCMC)</strong>, IEEE, pp. 1144–1149, 2025.
+          <a href="https://ieeexplore.ieee.org/abstract/document/11059701" target="_blank" rel="noopener">[Paper]</a>
+          <button class="btn tiny" onclick="copyBib('bib-protomaml')">Copy BibTeX</button>
+          <pre id="bib-protomaml" class="bibtex" hidden>
+@inproceedings{alfatemi2025protomaml,
+  title={ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection},
+  author={Alfatemi, Ali and Rahouti, Mohamed and Bhuiyan, Zakirul Alam and Solyman, Aiman and Aledhari, Mohammed},
+  booktitle={2025 International Wireless Communications and Mobile Computing (IWCMC)},
+  pages={1144--1149},
+  year={2025},
+  organization={IEEE}
 }
-\cventry{2008--2012}{B.S. in Computer Science}{Thamar University}{Dhamar, Yemen}{}{
-\begin{itemize}\itemsep0.25em
-  \item Thesis: \emph{An Analyzer for Secure Information Flow in Android Applications}.
-\end{itemize}
-}
+          </pre>
+        </li>
 
-% =============================================================================
-% APPOINTMENTS & EXPERIENCE
-% =============================================================================
-\section{Appointments \& Experience}
-\cventry{Sep 2025--Present}{Teaching Fellow}{Fordham University}{Bronx, NY}{}{
-\begin{itemize}\itemsep0.25em
-  \item Teaching and mentoring in Computer \& Information Science; supporting lab instruction and course delivery.
-\end{itemize}
-}
-\cventry{Jun 2025--Aug 2025}{AI Summer Research Fellow}{Fordham University}{New York, NY (Hybrid)}{}{
-\begin{itemize}\itemsep0.25em
-  \item Research on LLM-enhanced intrusion detection and robust ML for network security.
-\end{itemize}
-}
-\cventry{Jun 2023--Aug 2023}{Professional Development Intern}{IBM}{United States}{}{}
-\cventry{Oct 2021--Feb 2022}{Student Intern}{Tsinghua Shenzhen International Graduate School}{Shenzhen, China}{}{
-\begin{itemize}\itemsep0.25em
-  \item Medical image analysis; mitochondria segmentation with Python/MATLAB.
-\end{itemize}
-}
-\cventry{2014--2018}{Network Administrator}{Islamic Bank of Yemen}{Sana'a, Yemen}{}{}
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Ruhul Amin, Sarah ALJamal, Kaiqi Xiong, Yufeng Xin. <br>
+          <em>Advancing DDoS Attack Detection: A Synergistic Approach Using Deep Residual Neural Networks and Synthetic Oversampling.</em>
+          arXiv preprint arXiv:2401.03116, 2024.
+          <a href="https://arxiv.org/abs/2401.03116" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-% =============================================================================
-% RESEARCH INTERESTS
-% =============================================================================
-\section{Research Interests}
-\cvitem{}{AI for Network Security, Large Language Models (LLMs), Machine Learning, Computer Vision, Robust Deep Learning, Data-Centric AI.}
+        <li>
+          <strong>Ali Alfatemi</strong>, Hong Peng, Wentao Rong, Bin Zhang, Hongmin Cai. <br>
+          <em>Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold.</em>
+          <strong>BMC Medical Informatics and Decision Making</strong> 22(1), 190, 2022.
+          <a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01938-y" target="_blank" rel="noopener">[Paper]</a>
+          <a href="https://github.com/AliAlfatemi/PCAG" target="_blank" rel="noopener">[Code]</a>
+        </li>
 
-% =============================================================================
-% SELECTED PUBLICATIONS
-% =============================================================================
-\section{Selected Publications}
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Frank Hsu, Christina Schweikert. <br>
+          <em>Advancing NCAA March Madness Forecasts Through Deep Learning and Combinatorial Fusion Analysis.</em>
+          Intelligent Systems Conference, 2024.
+          <a href="https://link.springer.com/chapter/10.1007/978-3-031-66431-1_38" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\subsection{Journal \& Conference}
-\cvitem{}{\textbf{A. Alfatemi}, M. Rahouti, M. Al-Qatf, S. K. Jagatheesaperumal,
-``Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition,''
-\emph{Signal, Image and Video Processing} (Springer), 2025.
-\href{https://doi.org/10.1007/s11760-025-04758-5}{DOI} \;|\;
-\href{https://github.com/AliAlfatemi/warbler_yolo}{Code}.}
+        <li>
+          <strong>Ali Alfatemi</strong>, Diogo Oliveira, Mohamed Rahouti, Abdelatif Hafid, Nasir Ghani. <br>
+          <em>Precision DDoS Detection Through Gaussian Noise-Augmented Neural Networks.</em>
+          2024 15th International Conference on Network of the Future (NoF), pp. 178–185.
+          <a href="https://ieeexplore.ieee.org/document/10741358" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{\textbf{A. Alfatemi}, M. Rahouti, Z. A. Bhuiyan, A. Solyman, M. Aledhari,
-``ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection,''
-\emph{2025 International Wireless Communications and Mobile Computing (IWCMC)}, IEEE, pp.~1144--1149, 2025.
-\href{https://ieeexplore.ieee.org/abstract/document/11059701}{IEEE Xplore}.}
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, D. Frank Hsu, Christina Schweikert, Nasir Ghani, Aiman Solyman, Mohammad I. Saryuddin Assaqty. <br>
+          <em>Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion and Combinatorial Analysis.</em>
+          <strong>Journal of Network and Systems Management</strong> 33(1), article 8, 2025.
+          <a href="https://doi.org/10.1007/s10922-024-09882-0" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{\textbf{A. Alfatemi}, M. Rahouti, D. F. Hsu, C. Schweikert, N. Ghani, A. Solyman, M. I. S. Assaqty,
-``Identifying Distributed Denial of Service Attacks through Multi-Model Deep Learning Fusion and Combinatorial Analysis,''
-\emph{Journal of Network and Systems Management} 33(1), article~8, 2025.
-\href{https://doi.org/10.1007/s10922-024-09882-0}{DOI}.}
+        <li>
+          <strong>Ali Alfatemi</strong>, Sarah A.L. Jamal, Nasim Paykari, Mohamed Rahouti, Abdellah Chehri. <br>
+          <em>Multi-Label Classification with Deep Learning and Manual Data Collection for Identifying Similar Bird Species.</em>
+          <strong>Procedia Computer Science</strong> 246, 558–565, 2024.
+          <a href="https://doi.org/10.1016/j.procs.2024.09.461" target="_blank" rel="noopener">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S187705092402502X" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{ \textbf{A. Alfatemi}, D. Oliveira, M. Rahouti, A. Hafid, N. Ghani,
-``Precision DDoS Detection through Gaussian Noise-Augmented Neural Networks,''
-\emph{2024 15th International Conference on Network of the Future (NoF)}, pp.~178--185, 2024.
-\href{https://ieeexplore.ieee.org/document/10741358}{IEEE Xplore}.}
+        <li>
+          <strong>Ali Alfatemi</strong>, Sarah A.L. Jamal, Nasim Paykari, Mohamed Rahouti, Ruhul Amin, Abdellah Chehri. <br>
+          <em>Refining Bird Species Identification Through GAN-Enhanced Data Augmentation and Deep Learning Models.</em>
+          <strong>Procedia Computer Science</strong> 246, 548–557, 2024.
+          <a href="https://doi.org/10.1016/j.procs.2024.09.460" target="_blank" rel="noopener">[DOI]</a>
+          <a href="https://www.sciencedirect.com/science/article/pii/S1877050924025018" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{ F. Martinez, M. Mapkar, \textbf{A. Alfatemi}, M. Rahouti, Y. Xin, K. Xiong, N. Ghani,
-``Redefining DDoS Attack Detection Using a Dual-Space Prototypical Network-Based Approach,''
-\emph{2024 IEEE ICCCN}, pp.~1--9, 2024. doi: 10.1109/ICCCN61486.2024.10637509.
-\href{https://ieeexplore.ieee.org/document/10637509}{IEEE Xplore}.}
+        <li>
+          Nasim Paykari, <strong>Ali Alfatemi</strong>, Damian Lyons, Mohamed Rahouti. <br>
+          <em>Integrating Robotic Navigation with Blockchain: A Novel PoS-Based Approach for Heterogeneous Robotic Teams.</em>
+          2024 21st International Conference on Ubiquitous Robots (UR).
+          <a href="https://arxiv.org/abs/2505.15954" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{ \textbf{A. Alfatemi}, H. Peng, W. Rong, B. Zhang, H. Cai,
-``Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold,''
-\emph{BMC Medical Informatics and Decision Making} 22(1):190, 2022.
-\href{https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01938-y}{Paper} \;|\;
-\href{https://github.com/AliAlfatemi/PCAG}{Code}.}
+        <li>
+          Aiman Solyman, Marco Zappatore, Wang Zhenyu, Zeinab Mahmoud, <strong>Ali Alfatemi</strong>, Ashraf Osman Ibrahim. <br>
+          <em>Optimizing the Impact of Data Augmentation for Low-Resource Grammatical Error Correction.</em>
+          <strong>Journal of King Saud University – Computer and Information Sciences</strong> 35(6), 101572, 2023.
+          <a href="https://www.sciencedirect.com/science/article/pii/S131915782300126X" target="_blank" rel="noopener">[Paper]</a>
+          <a href="https://github.com/aimanmutasem/GECDA" target="_blank" rel="noopener">[Code]</a>
+        </li>
 
-\cvitem{}{ \textbf{A. Alfatemi}, M. Rahouti, F. Hsu, C. Schweikert,
-``Advancing NCAA March Madness Forecasts Through Deep Learning and Combinatorial Fusion Analysis,''
-\emph{Intelligent Systems Conference}, 2024.
-\href{https://link.springer.com/chapter/10.1007/978-3-031-66431-1_38}{Paper}.}
+        <li>
+          Zeinab Mahmoud, Chunlin Li, Marco Zappatore, Aiman Solyman, <strong>Ali Alfatemi</strong>, Ashraf Osman Ibrahim. <br>
+          <em>Semi-Supervised Learning and Bidirectional Decoding for Effective Grammar Correction in Low-Resource Scenarios.</em>
+          <strong>PeerJ Computer Science</strong> 9, e1639, 2023.
+          <a href="https://peerj.com/articles/cs-1639/" target="_blank" rel="noopener">[Paper]</a>
+          <a href="https://github.com/Zainabobied/SLBDEGC" target="_blank" rel="noopener">[Code]</a>
+        </li>
 
-\cvitem{}{ \textbf{A. Alfatemi}, S. A. L. Jamal, N. Paykari, M. Rahouti, A. Chehri,
-``Multi-Label Classification with Deep Learning and Manual Data Collection for Identifying Similar Bird Species,''
-\emph{Procedia Computer Science} 246, 558--565, 2024.
-\href{https://doi.org/10.1016/j.procs.2024.09.461}{DOI}.}
+        <li>
+          S. K. Jagatheesaperumal, Mohamed Rahouti, <strong>Ali Alfatemi</strong>, N. Ghani, V. K. Quy. <br>
+          <em>Enabling Trustworthy Federated Learning in Industrial IoT: Bridging the Gap Between Interpretability and Robustness.</em>
+          <strong>IEEE Internet of Things Magazine</strong> 7(5), 38–44, 2024.
+          <a href="https://ieeexplore.ieee.org/abstract/document/10643986" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{ \textbf{A. Alfatemi}, S. A. L. Jamal, N. Paykari, M. Rahouti, R. Amin, A. Chehri,
-``Refining Bird Species Identification through GAN-Enhanced Data Augmentation and Deep Learning Models,''
-\emph{Procedia Computer Science} 246, 548--557, 2024.
-\href{https://doi.org/10.1016/j.procs.2024.09.460}{DOI}.}
+        <li>
+          A. Hafid, M. Ebrahim, <strong>Ali Alfatemi</strong>, Mohamed Rahouti, D. Oliveira. <br>
+          <em>Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators.</em>
+          arXiv preprint arXiv:2407.11786, 2024.
+          <a href="https://arxiv.org/abs/2407.11786" target="_blank" rel="noopener">[Preprint]</a>
+        </li>
 
-\cvitem{}{ S. K. Jagatheesaperumal, M. Rahouti, \textbf{A. Alfatemi}, N. Ghani, V. K. Quy,
-``Enabling Trustworthy Federated Learning in Industrial IoT: Bridging the Gap Between Interpretability and Robustness,''
-\emph{IEEE Internet of Things Magazine} 7(5), 38--44, 2024.
-\href{https://ieeexplore.ieee.org/abstract/document/10643986}{Paper}.}
+        <li>
+          Fernando Martinez, Mariyam Mapkar, <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Yufeng Xin, Kaiqi Xiong, Nasir Ghani. <br>
+          <em>Redefining DDoS Attack Detection Using a Dual-Space Prototypical Network-Based Approach.</em>
+          2024 33rd International Conference on Computer Communications and Networks (ICCCN), pp. 1–9.
+          doi: 10.1109/ICCCN61486.2024.10637509.
+          <a href="https://ieeexplore.ieee.org/document/10637509/authors#authors" target="_blank" rel="noopener">[Paper]</a>
+        </li>
 
-\cvitem{}{ A. Solyman, M. Zappatore, W. Zhenyu, Z. Mahmoud, \textbf{A. Alfatemi}, A. O. Ibrahim,
-``Optimizing the Impact of Data Augmentation for Low-Resource Grammatical Error Correction,''
-\emph{Journal of King Saud University--Computer and Information Sciences} 35(6):101572, 2023.
-\href{https://www.sciencedirect.com/science/article/pii/S131915782300126X}{Paper} \;|\;
-\href{https://github.com/aimanmutasem/GECDA}{Code}.}
+        <li>
+          Mohammad Iqbal Saryuddin Assaqty, Ying Gao, <strong>Ali Alfatemi</strong>, Ashraf Osman Ibrahim, A. W. Abulfaraj, F. Binzagr. <br>
+          <em>PBEMS: A Permissioned Blockchain-Based Equipment Maintenance System in Smart Manufacturing.</em>
+          <em>Preprints</em>, 2023.
+          <a href="https://www.preprints.org/manuscript/202310.0437/v2" target="_blank" rel="noopener">[Preprint]</a>
+        </li>
 
-\cvitem{}{ Z. Mahmoud, C. Li, M. Zappatore, A. Solyman, \textbf{A. Alfatemi}, A. O. Ibrahim,
-``Semi-Supervised Learning and Bidirectional Decoding for Effective Grammar Correction in Low-Resource Scenarios,''
-\emph{PeerJ Computer Science} 9:e1639, 2023.
-\href{https://peerj.com/articles/cs-1639/}{Paper} \;|\;
-\href{https://github.com/Zainabobied/SLBDEGC}{Code}.}
+        <li>
+          Nasim Paykari, Razieh Jokar, <strong>Ali Alfatemi</strong>, Damian Lyons, Mohamed Rahouti. <br>
+          <em>Optimizing Control Strategies for Wheeled Mobile Robots Using Fuzzy Type I and II Controllers and Parallel Distributed Compensation.</em>
+          arXiv preprint arXiv:2409.17161, 2024.
+          <a href="https://arxiv.org/abs/2409.17161" target="_blank" rel="noopener">[Preprint]</a>
+        </li>
 
-\cvitem{}{ Z. Mahmoud, N. Kryvinska, M. Abdalsalm, A. Solyman, \textbf{A. Alfatemi}, A. Musyafa,
-``Toward Utilizing Bidirectional Multi-Head Attention Technique for Automatic Correction of Grammatical Errors,''
-\emph{IAENG International Journal of Computer Science} 51(11), 2024.
-\href{https://www.iaeng.org/IJCS/issues_v51/issue_11/IJCS_51_11_19.pdf}{Paper} \;|\;
-\href{https://github.com/Zainabobied/ArabicGEC}{Code}.}
+        <li>
+          Mohammed Aledhari, Mohamed Rahouti, <strong>Ali Alfatemi</strong>. <br>
+          <em>Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data.</em>
+          arXiv preprint arXiv:2411.05880, 2024.
+          <a href="https://arxiv.org/abs/2411.05880" target="_blank" rel="noopener">[Preprint]</a>
+        </li>
 
-\subsection{Preprints}
-\cvitem{}{ \textbf{A. Alfatemi}, M. Rahouti, R. Amin, S. ALJamal, K. Xiong, Y. Xin,
-``Advancing DDoS Attack Detection: A Synergistic Approach Using Deep Residual Neural Networks and Synthetic Oversampling,''
-arXiv:2401.03116, 2024.
-\href{https://arxiv.org/abs/2401.03116}{Preprint}.}
+        <li>
+          Zeinab Mahmoud, Natalia Kryvinska, Mohammed Abdalsalm, Aiman Solyman, <strong>Ali Alfatemi</strong>, Ahmad Musyafa. <br>
+          <em>Toward Utilizing Bidirectional Multi-Head Attention Technique for Automatic Correction of Grammatical Errors.</em>
+          <strong>IAENG International Journal of Computer Science</strong> 51(11), 2024.
+          <a href="https://www.iaeng.org/IJCS/issues_v51/issue_11/IJCS_51_11_19.pdf" target="_blank" rel="noopener">[Paper]</a>
+          <a href="https://github.com/Zainabobied/ArabicGEC" target="_blank" rel="noopener">[Code]</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-\cvitem{}{ A. Hafid, M. Ebrahim, \textbf{A. Alfatemi}, M. Rahouti, D. Oliveira,
-``Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators,''
-arXiv:2407.11786, 2024.
-\href{https://arxiv.org/abs/2407.11786}{Preprint}.}
+  <!-- =====================
+       ACCEPTED PAPERS
+  ====================== -->
+  <section id="accepted-papers" class="section">
+    <div class="section-container">
+      <h2>Accepted Papers</h2>
+      <ul>
+        <li>
+          <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Aiman Solyman, Abdellah Chehri. <br>
+          <em>A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks.</em> <br>
+          <strong>IEEE GLOBECOM 2025</strong>, Communication and Information Systems Security (CISS) Symposium.
+        </li>
+        <li>
+          Henok Wondimu, <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Abdellah Chehri, Paweł Weichbroth, Nasir Ghani. <br>
+          <em>Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis.</em> <br>
+          <strong>KES 2025</strong>.
+        </li>
+      </ul>
+    </div>
+  </section>
 
-\cvitem{}{ M. Aledhari, M. Rahouti, \textbf{A. Alfatemi},
-``Towards Equitable ASD Diagnostics: A Comparative Study of Machine and Deep Learning Models Using Behavioral and Facial Data,''
-arXiv:2411.05880, 2024.
-\href{https://arxiv.org/abs/2411.05880}{Preprint}.}
+  <!-- =====================
+       PATENTS
+  ====================== -->
+  <section id="patents" class="section">
+    <div class="section-container">
+      <h2>Patents</h2>
+      <ul>
+        <li>
+          <strong>Ali Alfatemi</strong>. <br>
+          <em>一种基于多组学数据集的癌症亚型识别方法及系统</em>. CN113537358B. Filed 2021-07-19; Issued 2023-09-01.
+          <a href="https://patents.google.com/patent/CN113537358B/en" target="_blank" rel="noopener">[Patent]</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-\cvitem{}{ N. Paykari, R. Jokar, \textbf{A. Alfatemi}, D. Lyons, M. Rahouti,
-``Optimizing Control Strategies for Wheeled Mobile Robots Using Fuzzy Type I and II Controllers and Parallel Distributed Compensation,''
-arXiv:2409.17161, 2024.
-\href{https://arxiv.org/abs/2409.17161}{Preprint}.}
+  <!-- =====================
+       SERVICE
+  ====================== -->
+  <section id="service" class="section">
+    <div class="section-container">
+      <h2>Service</h2>
+      <h3>Reviewer</h3>
+      <ul>
+        <li><a href="https://www.sciencedirect.com/journal/information-fusion" target="_blank" rel="noopener">Information Fusion</a></li>
+        <li><a href="https://www.sigapp.org/sac/sac2024/" target="_blank" rel="noopener">SAC 2024</a></li>
+        <li><a href="https://2024.ieeewcci.org/" target="_blank" rel="noopener">IEEE WCCI 2024</a></li>
+        <li><a href="https://www.sciencedirect.com/journal/egyptian-informatics-journal" target="_blank" rel="noopener">Egyptian Informatics Journal</a></li>
+        <li><a href="https://dl.acm.org/journal/isjgp" target="_blank" rel="noopener">Information Security Journal</a></li>
+        <li><a href="https://www.springer.com/journal/11227" target="_blank" rel="noopener">The Journal of Supercomputing</a></li>
+        <li><a href="https://link.springer.com/journal/10462" target="_blank" rel="noopener">Artificial Intelligence Review</a></li>
+        <li><a href="https://link.springer.com/journal/10586" target="_blank" rel="noopener">Cluster Computing</a></li>
+        <li><a href="https://2025.ijcnn.org/" target="_blank" rel="noopener">The 2025 International Joint Conference on Neural Networks (IJCNN 2025)</a></li>
+        <li>I have also served as a reviewer for various other reputable journals and conferences.</li>
+      </ul>
+    </div>
+  </section>
 
-\subsection{Accepted \& Forthcoming}
-\cvitem{}{\textbf{IEEE GLOBECOM 2025 (CISS Symposium)}:
-\textbf{A. Alfatemi}, M. Rahouti, Z. A. Bhuiyan, A. Solyman, A. Chehri,
-``A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks.''}
+  <!-- =====================
+       CONTACT
+  ====================== -->
+  <section id="contact" class="section">
+    <div class="section-container">
+      <h2>Contact</h2>
+      <p>Interested in collaborating or have questions? Let’s connect.</p>
+      <p><strong>Email:</strong> <a href="mailto:aalfatemi@fordham.edu">aalfatemi@fordham.edu</a></p>
+    </div>
+  </section>
 
-\cvitem{}{\textbf{KES 2025}:
-H. Wondimu, \textbf{A. Alfatemi}, M. Rahouti, A. Chehri, P. Weichbroth, N. Ghani,
-``Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis.''}
+  <!-- =====================
+       FOOTER
+  ====================== -->
+  <footer class="footer" role="contentinfo">
+    <p>&copy; <span id="year"></span> Ali Alfatemi. All rights reserved. ·
+      <a href="/Ali_Alfatemi_CV.pdf" target="_blank" rel="noopener">CV</a>
+    </p>
+  </footer>
 
-% =============================================================================
-% PATENTS
-% =============================================================================
-\section{Patents}
-\cvitem{}{%
-\textbf{A. Alfatemi.} %
-\begin{CJK*}{UTF8}{gbsn}一种基于多组学数据集的癌症亚型识别方法及系统\end{CJK*}
-\,(A method and system for cancer subtype identification based on multi-omics datasets), %
-\textbf{CN113537358B}. Filed: 2021-07-19; Issued: 2023-09-01. %
-\href{https://patents.google.com/patent/CN113537358B/en}{Link}.}
+  <!-- ================
+       JS
+  ================= -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/particles-config.js" defer></script>
 
-% =============================================================================
-% SERVICE
-% =============================================================================
-\section{Service}
-\cvitem{Reviewer}{\emph{Information Fusion}; SAC 2024; IEEE WCCI 2024; \emph{Egyptian Informatics Journal};
-\emph{Information Security Journal}; \emph{The Journal of Supercomputing}; \emph{Artificial Intelligence Review};
-\emph{Cluster Computing}; IJCNN 2025.}
+  <!-- Inline helpers: dark mode + BibTeX copy + year fallback -->
+  <script>
+  (function initTheme(){
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        document.documentElement.setAttribute('data-theme', saved);
+      } else {
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      }
+    } catch(e) {}
+  })();
+  function toggleTheme(){
+    const root = document.documentElement;
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e) {}
+  }
+  function copyBib(id){
+    const el = document.getElementById(id);
+    if (!el) return;
+    const txt = (el.textContent || el.innerText).trim();
+    if (!navigator.clipboard) {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = txt;
+      document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      alert('BibTeX copied!');
+      return;
+    }
+    navigator.clipboard.writeText(txt).then(()=>alert('BibTeX copied!'));
+  }
+  // Year fallback if main.js didn't set it
+  (function ensureYear(){
+    const y = document.getElementById('year');
+    if (y && !y.textContent) y.textContent = new Date().getFullYear();
+  })();
+  </script>
 
-% =============================================================================
-% TECHNICAL SKILLS
-% =============================================================================
-\section{Technical Skills}
-\cvitem{Programming}{Python, C/C++, Bash}
-\cvitem{ML/DL}{PyTorch, TensorFlow, scikit-learn}
-\cvitem{Vision}{OpenCV, YOLO/Ultralytics, TorchVision}
-\cvitem{Ops}{Git, Linux, HPC/Batch}
-\cvitem{Data}{Large-scale data handling, augmentation, GANs/diffusion}
-
-% =============================================================================
-% PROJECTS
-% =============================================================================
-\section{Projects}
-\cventry{Current}{Securing Smart Transportation Systems}{Fordham University \& CSU}{}{}{
-\begin{itemize}\itemsep0.25em
-  \item AI-powered defenses against GNSS spoofing and jamming for drones and smart vehicles.
-\end{itemize}
-}
-
-% =============================================================================
-% REFERENCES
-% =============================================================================
-\section{References}
-\cvitem{}{Available upon request.}
-
-\end{document}
+  <noscript>
+    <p style="text-align:center;padding:1rem">This site works best with JavaScript enabled.</p>
+  </noscript>
+</body>
+</html>
