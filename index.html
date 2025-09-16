@@ -12,10 +12,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome (icons) -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-  <!-- Main CSS -->
+  <!-- Base CSS -->
   <link rel="stylesheet" href="css/styles.css" />
 
   <!-- Social cards -->
@@ -46,7 +46,7 @@
   }
   </script>
 
-  <!-- Optional: structured data for a key paper -->
+  <!-- Structured data (key paper) -->
   <script type="application/ld+json">
   {
    "@context": "https://schema.org",
@@ -60,26 +60,74 @@
   }
   </script>
 
-  <!-- Minimal inline additions (dark mode + tiny bits) -->
+  <!-- Layout + dark mode overrides -->
   <style>
-    :root { --bg:#ffffff; --fg:#111; --muted:#666; --card:#fafafa; --link:#0a66c2; --border:#e6e6e6; }
-    html[data-theme="dark"] { --bg:#0f1217; --fg:#e7e7e7; --muted:#a9b0bb; --card:#141922; --link:#63a4ff; --border:#283141; }
+    /* palette & layout */
+    :root { --bg:#ffffff; --fg:#111; --muted:#666; --link:#0a66c2; --border:#e6e6e6; --maxw:1100px; }
+    html[data-theme="dark"] { --bg:#0f1217; --fg:#ffffff; --muted:#b7c0cc; --link:#b6d3ff; --border:#2a3446; }
     body { background:var(--bg); color:var(--fg); }
-    .header,.section,.footer { background:var(--bg); color:var(--fg); }
+
+    .nav-container,
+    .section-container,
+    .footer > p { width:min(var(--maxw), 100% - 2rem); margin:0 auto; }
+
+    /* header / brand spacing */
+    .header { position:sticky; top:0; z-index:1000; background:var(--bg); }
+    .nav-container { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.6rem 0; }
+    .nav-left { display:flex; align-items:center; gap:.75rem; min-width:0; }
+    .nav-profile-img { width:36px; height:36px; border-radius:50%; object-fit:cover; }
+    .nav-brand { font-weight:700; letter-spacing:.02em; white-space:nowrap; }
+    .nav-actions { display:flex; align-items:center; gap:.6rem; }
+    .nav-toggle, .theme-toggle { background:none; border:0; cursor:pointer; color:inherit; font-size:1.15rem; line-height:1; }
+
+    .nav-links { display:flex; align-items:center; gap:1.25rem; overflow:auto; }
+    .nav-links a { color:var(--fg); text-decoration:none; opacity:.92; }
+    .nav-links a:hover { opacity:1; }
+
+    /* remove white panels in dark mode */
+    html[data-theme="dark"] .section,
+    html[data-theme="dark"] .section-container,
+    html[data-theme="dark"] .project,
+    html[data-theme="dark"] .hero-content,
+    html[data-theme="dark"] .card { background:transparent !important; box-shadow:none !important; border:0 !important; }
+
+    /* text & links */
     a { color:var(--link); }
-    .theme-toggle { background:none;border:0;margin-left:.6rem;cursor:pointer;font-size:1.1rem;color:inherit; }
+    html[data-theme="dark"] p,
+    html[data-theme="dark"] li,
+    html[data-theme="dark"] i,
+    html[data-theme="dark"] .hero-desc,
+    html[data-theme="dark"] .hero-subtitle { color:var(--fg); }
+
     .news-list { margin:.5rem 0 0; padding-left:1rem; }
     .news-list li { margin:.25rem 0; }
+
     .btn.tiny { padding:.25rem .5rem; font-size:.85rem; border:1px solid var(--border); }
-    pre.bibtex { white-space:pre; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.9rem; }
+    pre.bibtex { white-space:pre; font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.9rem; color:var(--fg); background:transparent; padding:.5rem; border-radius:6px; border:1px solid var(--border); }
+
+    /* teaching (simple) */
+    .teaching-list { list-style:none; padding:0; margin:0; display:grid; gap:.8rem; }
+    .teaching-list li {
+      display:flex; flex-wrap:wrap; align-items:center; gap:.5rem;
+      border:1px solid var(--border); border-radius:12px; padding:.7rem 1rem; background:transparent;
+    }
+    .course-name { font-weight:600; }
+    .chip {
+      font-size:.85rem; padding:.15rem .55rem; border:1px solid var(--border);
+      border-radius:999px; color:var(--muted);
+    }
+    html[data-theme="dark"] .chip { color:var(--fg); opacity:.85; border-color:var(--border); }
+
+    /* accessibility */
     .skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
     .skip-link:focus { left:1rem; top:1rem; width:auto; height:auto; padding:.5rem 1rem; background:#ffd; color:#111; z-index:9999; }
-    .nav-container { align-items:center; }
+
+    @media (max-width: 640px){ .nav-brand { white-space:normal; } .nav-links { gap:.9rem; } }
   </style>
 </head>
 <body>
 
-  <!-- Skip to content (accessibility) -->
+  <!-- Skip to content -->
   <a class="skip-link" href="#home">Skip to content</a>
 
   <!-- =====================
@@ -91,14 +139,16 @@
         <img src="images/ali.jpg" alt="Portrait of Ali Alfatemi" class="nav-profile-img" loading="lazy" />
         <span class="nav-brand">ALI ALFATEMI</span>
       </div>
-      <div style="display:flex;align-items:center;">
-        <button class="nav-toggle" onclick="toggleMenu()" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars" aria-hidden="true"></i>
-        </button>
+      <div class="nav-actions">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
           <i class="fas fa-moon" aria-hidden="true"></i>
         </button>
+        <button class="nav-toggle" onclick="toggleMenu()" aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
       </div>
+    </div>
+    <div class="nav-container" style="padding-top:0;">
       <ul class="nav-links" id="navLinks">
         <li><a href="#home"><i class="fas fa-home" aria-hidden="true"></i> Home</a></li>
         <li><a href="#projects"><i class="fas fa-folder-open" aria-hidden="true"></i> Projects</a></li>
@@ -114,24 +164,19 @@
   </header>
 
   <!-- =====================
-       HERO SECTION
+       HERO
   ====================== -->
   <section id="home" class="hero">
     <div id="particles-js" aria-hidden="true"></div>
-
     <div class="hero-content">
       <h1>Hello, I’m <strong>Ali Alfatemi</strong></h1>
-      <p class="hero-subtitle">
-        Ph.D. Candidate &amp; Teaching Fellow, <strong>Computer &amp; Information Science</strong>, Fordham University.
-      </p>
-      <p class="hero-desc">
-        Research interests: AI for Network Security, Large Language Models, Machine Learning, and Computer Vision.
-      </p>
+      <p class="hero-subtitle">Ph.D. Candidate &amp; Teaching Fellow, <strong>Computer &amp; Information Science</strong>, Fordham University.</p>
+      <p class="hero-desc">Research interests: AI for Network Security, Large Language Models, Machine Learning, and Computer Vision.</p>
       <div class="hero-btns">
         <a href="mailto:aalfatemi@fordham.edu" class="btn cta-btn"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://www.linkedin.com/in/ali-alfatemi/" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://github.com/AliAlfatemi" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" class="btn cta-btn" target="_blank" rel="noopener noreferrer"><i class="fas fa-graduation-cap"></i> Scholar</a>
+        <a href="https://www.linkedin.com/in/ali-alfatemi/" class="btn cta-btn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/AliAlfatemi" class="btn cta-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" class="btn cta-btn" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
         <a href="/Ali_Alfatemi_CV.pdf" class="btn cta-btn" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> CV</a>
         <a href="bio.html" class="btn cta-btn"><i class="fas fa-user"></i> Bio</a>
       </div>
@@ -163,7 +208,7 @@
         <h3>Securing Smart Transportation Systems</h3>
         <p>
           Developing AI-powered defenses against GNSS spoofing and jamming to protect drones and smart vehicles.
-          <a href="https://www.csu.edu/cas/CINSER/projects.htm" target="_blank" rel="noopener noreferrer">Learn more at the CSU project page</a>.
+          <a href="https://www.csu.edu/cas/CINSER/projects.htm" target="_blank" rel="noopener">Learn more at the CSU project page</a>.
         </p>
       </div>
     </div>
@@ -175,9 +220,7 @@
   <section id="research" class="section">
     <div class="section-container">
       <h2>Research Interests</h2>
-      <p>
-        Large Language Models (LLMs), AI for Network Security, Machine Learning, Computer Vision.
-      </p>
+      <p>Large Language Models (LLMs), AI for Network Security, Machine Learning, Computer Vision.</p>
     </div>
   </section>
 
@@ -195,13 +238,17 @@
   </section>
 
   <!-- =====================
-       TEACHING
+       TEACHING (simple)
   ====================== -->
   <section id="teaching" class="section">
     <div class="section-container">
       <h2>Teaching</h2>
-      <ul>
-        <li>Labs/recitations in Computer & Information Science; mentoring undergraduate ML/AI projects. (Add courses once assigned.)</li>
+      <ul class="teaching-list">
+        <li>
+          <span class="course-name">CISC 1100 R03 — Structures of Computer Science</span>
+          <span class="chip">Fall 2025</span>
+          <span class="chip">Fordham University</span>
+        </li>
       </ul>
     </div>
   </section>
@@ -219,15 +266,6 @@
           <strong>Signal, Image and Video Processing</strong> (Springer), 2025.
           <a href="https://doi.org/10.1007/s11760-025-04758-5" target="_blank" rel="noopener">[Paper]</a>
           <a href="https://github.com/AliAlfatemi/warbler_yolo" target="_blank" rel="noopener">[Code &amp; resources]</a>
-          <button class="btn tiny" onclick="copyBib('bib-sivp')">Copy BibTeX</button>
-          <pre id="bib-sivp" class="bibtex" hidden>
-@article{alfatemi2025foreground,
-  title={Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition},
-  author={Alfatemi, Ali and Rahouti, Mohamed and Al-Qatf, Majjed and Jagatheesaperumal, Senthil Kumar},
-  journal={Signal, Image and Video Processing},
-  year={2025},
-  doi={10.1007/s11760-025-04758-5}
-}
           </pre>
         </li>
 
@@ -236,16 +274,7 @@
           <em>ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection.</em>
           <strong>2025 International Wireless Communications and Mobile Computing (IWCMC)</strong>, IEEE, pp. 1144–1149, 2025.
           <a href="https://ieeexplore.ieee.org/abstract/document/11059701" target="_blank" rel="noopener">[Paper]</a>
-          <button class="btn tiny" onclick="copyBib('bib-protomaml')">Copy BibTeX</button>
-          <pre id="bib-protomaml" class="bibtex" hidden>
-@inproceedings{alfatemi2025protomaml,
-  title={ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection},
-  author={Alfatemi, Ali and Rahouti, Mohamed and Bhuiyan, Zakirul Alam and Solyman, Aiman and Aledhari, Mohammed},
-  booktitle={2025 International Wireless Communications and Mobile Computing (IWCMC)},
-  pages={1144--1149},
-  year={2025},
-  organization={IEEE}
-}
+
           </pre>
         </li>
 
@@ -452,61 +481,49 @@
        FOOTER
   ====================== -->
   <footer class="footer" role="contentinfo">
-    <p>&copy; <span id="year"></span> Ali Alfatemi. All rights reserved. ·
-      <a href="/Ali_Alfatemi_CV.pdf" target="_blank" rel="noopener">CV</a>
-    </p>
+    <p>&copy; <span id="year"></span> Ali Alfatemi. All rights reserved. · <a href="/Ali_Alfatemi_CV.pdf" target="_blank" rel="noopener">CV</a></p>
   </footer>
 
-  <!-- ================
-       JS
-  ================= -->
+  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/particles-config.js" defer></script>
 
-  <!-- Inline helpers: dark mode + BibTeX copy + year fallback -->
+  <!-- Inline helpers -->
   <script>
   (function initTheme(){
     try {
       const saved = localStorage.getItem('theme');
-      if (saved) {
-        document.documentElement.setAttribute('data-theme', saved);
-      } else {
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      else {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
       }
-    } catch(e) {}
+    } catch(e){}
   })();
   function toggleTheme(){
     const root = document.documentElement;
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try { localStorage.setItem('theme', next); } catch(e) {}
+    try { localStorage.setItem('theme', next); } catch(e){}
   }
   function copyBib(id){
     const el = document.getElementById(id);
     if (!el) return;
     const txt = (el.textContent || el.innerText).trim();
-    if (!navigator.clipboard) {
-      // fallback
+    if (!navigator.clipboard){
       const ta = document.createElement('textarea');
-      ta.value = txt;
-      document.body.appendChild(ta);
-      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
-      alert('BibTeX copied!');
-      return;
+      ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      alert('BibTeX copied!'); return;
     }
     navigator.clipboard.writeText(txt).then(()=>alert('BibTeX copied!'));
   }
-  // Year fallback if main.js didn't set it
   (function ensureYear(){
     const y = document.getElementById('year');
     if (y && !y.textContent) y.textContent = new Date().getFullYear();
   })();
   </script>
 
-  <noscript>
-    <p style="text-align:center;padding:1rem">This site works best with JavaScript enabled.</p>
-  </noscript>
+  <noscript><p style="text-align:center;padding:1rem">This site works best with JavaScript enabled.</p></noscript>
 </body>
 </html>
