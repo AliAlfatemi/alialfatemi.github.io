@@ -1,288 +1,362 @@
-/* -------------------------
-   RESET & BASE
--------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-  }
-  
-  /* Links */
-  a {
-    text-decoration: none;
-    color: #d48faf;
-    transition: color 0.2s;
-  }
-  a:hover {
-    color: #0d6efd;
-  }
-  
-  /* -------------------------
-     NAVBAR
-  -------------------------- */
-  .header {
-    background: #262626;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0.5rem 1rem;
-  }
-  .nav-left {
-    display: flex;
-    align-items: center;
-  }
-  .nav-profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 0.75rem;
-    border: 2px solid #fff;
-    object-fit: cover;
-  }
-  .nav-brand {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #fff;
-  }
-  
-  /* Nav links */
+/* =========================
+   1. RESET & BASE
+   ========================= */
+
+/* Use a more modern reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Define theme variables */
+  --bg: #f9f9f9;
+  --bg-section: #ffffff;
+  --fg: #1a1a1a;
+  --fg-muted: #555;
+  --accent: #0d6efd;
+  --accent-hover: #0a58ca;
+  --border: #dee2e6;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --max-width: 1100px;
+}
+
+html[data-theme="dark"] {
+  --bg: #121212;
+  --bg-section: #1e1e1e;
+  --fg: #e1e1e1;
+  --fg-muted: #999;
+  --accent: #4dabf7;
+  --accent-hover: #74c0fc;
+  --border: #333;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+/* =========================
+   2. LAYOUT & HELPERS
+   ========================= */
+
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-card {
+  background-color: var(--bg-section);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* =========================
+   3. HEADER & NAVIGATION
+   ========================= */
+.header {
+  background-color: var(--bg-section);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 65px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.nav-brand-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--fg);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--fg);
+  font-weight: 500;
+  opacity: 0.8;
+  text-decoration: none;
+}
+.nav-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.nav-toggle, .theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--fg);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  display: none; /* Hidden on desktop */
+}
+.theme-toggle {
+  display: block; /* Always visible */
+}
+
+/* =========================
+   4. HERO SECTION
+   ========================= */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #111; /* Fallback */
+  background-image: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #fff;
+  padding: 3rem 1.5rem;
+  overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.hero h1 strong {
+  color: #a7c7e7; /* Light blue accent */
+}
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+.hero-desc {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   5. CONTENT SECTIONS
+   ========================= */
+
+/* Publication List */
+.publication-list {
+  list-style: none;
+  padding-left: 0;
+}
+.publication-item {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+.publication-item p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.publication-item strong {
+  color: var(--fg); /* Make your name stand out based on theme */
+}
+.publication-links a {
+  margin-right: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Service List */
+.service-list {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+.service-list li {
+  margin-bottom: 0.5rem;
+  break-inside: avoid-column;
+}
+
+/* =========================
+   6. FOOTER
+   ========================= */
+.footer {
+  background-color: var(--bg-section);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   7. RESPONSIVE DESIGN
+   ========================= */
+@media (max-width: 992px) {
   .nav-links {
-    list-style: none;
+    display: none; /* Hide link list */
+    position: absolute;
+    top: 65px; /* Height of header */
+    right: 0;
+    width: 100%;
+    background-color: var(--bg-section);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .nav-links.active {
     display: flex;
-    align-items: center;
   }
   .nav-links li {
-    margin-left: 1.5rem;
+    padding: 0.75rem 0;
   }
-  .nav-links a {
-    color: #ccc;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: color 0.2s ease;
-  }
-  .nav-links a:hover {
-    color: #fff;
-  }
-  
-  /* Hamburger (mobile) */
   .nav-toggle {
-    display: none;
-    font-size: 1.3rem;
-    color: #fff;
-    cursor: pointer;
+    display: block; /* Show hamburger */
   }
-  
-  @media (max-width: 768px) {
-    .nav-links {
-      position: absolute;
-      top: 60px;
-      right: 0;
-      background: #1f1f1f;
-      width: 200px;
-      flex-direction: column;
-      padding: 1rem;
-      height: 0;
-      overflow: hidden;
-      transition: height 0.3s ease;
-    }
-    .nav-links.show {
-      height: 220px;
-    }
-    .nav-links li {
-      margin-left: 0;
-      margin-bottom: 1rem;
-    }
-    .nav-toggle {
-      display: block;
-    }
+  .service-list {
+    columns: 1;
   }
-  
-  /* -------------------------
-     HERO
-  -------------------------- */
-  /* #particles-js on top */
-  #particles-js {
-    position: absolute;  /* inside .hero */
-    top: 0; 
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999; /* lines appear above text */
-    pointer-events: none; /* let user click behind the lines */
-  }
-  
-  .hero {
-    position: relative;
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* teal->green gradient */
-    background: linear-gradient(to right, #00a8ec, #00c79f);
-    color: #fff;
-    padding: 3rem 1rem;
-    overflow: hidden;
-  }
-  
-  .hero-content {
-    position: relative;
-    z-index: 1; /* below the lines */
-    max-width: 800px;
-  }
-  
-  /* Hero text */
+}
+
+@media (max-width: 768px) {
   .hero h1 {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
-  }
-  .hero h1 strong {
-    color: #fff; 
   }
   .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 400;
+    font-size: 1.1rem;
   }
-  .hero-desc {
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    opacity: 0.9;
-    color: #fff;
+  .section-card {
+    padding: 1.5rem;
   }
-  
-  /* CTA buttons in hero */
-  .hero-btns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+  .section-title {
+    font-size: 1.8rem;
   }
-  
-  .btn.cta-btn {
-    background: #ff9f00;
-    color: #fff;
-    font-weight: 600;
-    padding: 0.6rem 1rem;
-    border-radius: 0.4rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  .btn.cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-  
-  .btn.cta-main-btn {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    border-radius: 2rem;
-    background: #ff9f00;
-    color: #fff;
-    font-weight: 700;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .btn.cta-main-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
-  }
-  
-  /* -------------------------
-     SECTION WRAPPERS
-  -------------------------- */
-  .section {
-    background: #fff;
-    margin: 2rem auto;
-    border-radius: 8px;
-    max-width: 1100px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    padding: 2rem;
-  }
-  
-  .section-container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
-  /* HEADINGS (unchanged) */
-  .section h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    background: linear-gradient(to right, #ff9f00, #ffca28);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Publications, lists, etc. */
-  .publication {
-    margin-bottom: 1.5rem;
-  }
-  .publication p {
-    line-height: 1.5;
-    font-weight: 400;
-    margin-bottom: 1rem;
-    color: #444;
-  }
-  .publication strong {
-    color: #0d6efd; /* Bolder color for your name */
-  }
-  ul {
-    list-style: disc;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    color: #555;
-  }
-  
-  /* Footer */
-  .footer {
-    background: #eee;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    color: #666;
-    border-top: 1px solid #ccc;
-  }
-  .footer p {
-    font-size: 0.9rem;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-    .hero-subtitle {
-      font-size: 1.1rem;
-    }
-    .hero-desc {
-      font-size: 0.95rem;
-    }
-  }
-  
+}
