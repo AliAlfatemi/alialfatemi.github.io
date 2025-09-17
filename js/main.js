@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const sunIcon = 'fa-sun';
 
   const getTheme = () => {
-    // Check localStorage first, then system preference
-    return localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Check localStorage first, then default to 'dark'
+    return localStorage.getItem('theme') || 'dark';
   };
 
   const applyTheme = (theme) => {
