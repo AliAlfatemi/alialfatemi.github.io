@@ -62,6 +62,37 @@ ul {
   list-style-position: inside;
 }
 
+
+/* im*/
+/* --- Polished publication figure card --- */
+.pub-figure {
+  margin: 1.2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: var(--shadow);
+  max-width: 90%;
+}
+html[data-theme="dark"] .pub-figure {
+  background: rgba(255, 255, 255, 0.05);
+}
+.pub-figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+  height: auto;
+  border-radius: 6px;
+}
+.pub-figure figcaption{
+  font-size: 0.95rem;
+  text-align: center;
+  opacity: .85;
+  margin-top: .75rem;
+  line-height: 1.5;
+}
+
+
 /* =========================
    2. LAYOUT & HELPERS
    ========================= */
