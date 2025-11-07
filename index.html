@@ -2,40 +2,660 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Ali Alfatemi</title>
   <meta name="description" content="Ali Alfatemi — Ph.D. Candidate at Fordham University. Research in AI for Network Security, Large Language Models, and Computer Vision." />
   <link rel="canonical" href="https://alialfatemi.github.io/">
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Favicon Placeholder -->
+  <link rel="icon" href="https://placehold.co/32x32/0d6efd/ffffff?text=A" sizes="32x32">
 
-  <link rel="icon" href="/images/favicon.png" sizes="32x32">
-  
+  <!-- Embedded Styles -->
   <style>
+    /* =========================
+      1. RESET & BASE
+      ========================= */
+
+    /* Use a more modern reset */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      /* Define theme variables */
+      --bg: #f9f9f9;
+      --bg-section: #ffffff;
+      --fg: #1a1a1a;
+      --fg-muted: #555;
+      --accent: #0d6efd;
+      --accent-hover: #0a58ca;
+      --border: #dee2e6;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --max-width: 1100px;
+      
+      /* Variables for component styles */
+      --background-color: var(--bg);
+      --card-bg: var(--bg-section);
+      --border-color: var(--border);
+      --primary: var(--accent);
+    }
+
+    html[data-theme="dark"] {
+      --bg: #121212;
+      --bg-section: #1e1e1e;
+      --fg: #e1e1e1;
+      --fg-muted: #999;
+      --accent: #4dabf7;
+      --accent-hover: #74c0fc;
+      --border: #333;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+
+      /* Variables for component styles */
+      --background-color: var(--bg);
+      --card-bg: var(--bg-section);
+      --border-color: var(--border);
+      --primary: var(--accent);
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      list-style-position: inside;
+    }
+
+    /* ——— Modern publication card ——— */
+    .pub-card {
+      border: 1px solid var(--border-color);
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .pub-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+    }
+
+    .pub-meta {
+      margin: .35rem 0 .75rem;
+      font-size: .975rem;
+      line-height: 1.6;
+    }
+
+    .pub-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      padding: .3rem .6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-color);
+      background: rgba(127, 127, 127, .06);
+    }
+
+    html[data-theme="dark"] .badge {
+      background: rgba(255, 255, 255, .05);
+    }
+
+    /* buttons under title */
+    .pub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin: .5rem 0 1rem;
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem .8rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: background .15s ease, color .15s ease;
+    }
+
+    .btn-pill:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ——— Figure ——— */
+    .pub-figure-modern {
+      margin: 0;
+      padding: 0;
+      position: relative;
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    html[data-theme="dark"] .pub-figure-modern {
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .pub-figure-modern .img-wrap {
+      position: relative;
+      overflow: hidden;
+      max-height: 540px;
+      /* keep page tight */
+    }
+
+    .pub-figure-modern img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      transition: transform .25s ease;
+      cursor: pointer;
+    }
+
+    .pub-figure-modern:hover img {
+      transform: scale(1.01);
+    }
+
+    .pub-figure-modern figcaption {
+      padding: .8rem 1rem;
+      font-size: .95rem;
+      text-align: center;
+      opacity: .9;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* ——— Lightbox ——— */
+    .lb {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .lb[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .lb-content {
+      max-width: min(1080px, 92vw);
+      max-height: 88vh;
+      position: relative;
+    }
+
+    .lb-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+    }
+
+    .lb-caption {
+      color: #fff;
+      opacity: .9;
+      margin-top: .6rem;
+      text-align: center;
+      font-size: .95rem;
+    }
+
+    .lb-close {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .25);
+      cursor: pointer;
+      transition: background .15s ease, transform .15s ease;
+    }
+
+    .lb-close:hover {
+      background: rgba(255, 255, 255, .2);
+      transform: scale(1.03);
+    }
+
+    /* spacing harmony with your list */
+    .publication-list>.publication-item+.publication-item {
+      margin-top: 1.25rem;
+    }
+
+
+    /* =========================
+      2. LAYOUT & HELPERS
+      ========================= */
+
+    .container {
+      max-width: var(--max-width);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section-card {
+      background-color: var(--bg-section);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* =========================
+      3. HEADER & NAVIGATION
+      ========================= */
+    .header {
+      background-color: var(--bg-section);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 65px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-profile-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .nav-brand-name {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--fg);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      font-weight: 500;
+      opacity: 0.8;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-toggle,
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--fg);
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      display: none;
+      /* Hidden on desktop */
+    }
+
+    .theme-toggle {
+      display: block;
+      /* Always visible */
+    }
+
+    /* =========================
+      4. HERO SECTION
+      ========================= */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #111;
+      /* Fallback */
+      background-image: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+      padding: 3rem 1.5rem;
+      overflow: hidden;
+    }
+
+    #particles-js {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 strong {
+      color: #a7c7e7;
+      /* Light blue accent */
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid transparent;
+    }
+    
+    .btn:hover {
+        text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+      5. CONTENT SECTIONS
+      ========================= */
+
+    /* Publication List */
+    .publication-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .publication-item {
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--accent);
+    }
+    
+    /* Apply special card styles only to .pub-card */
+    .publication-item.pub-card {
+        border-left: none;
+        padding-left: 1.25rem;
+    }
+
+    .publication-item p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .publication-item strong {
+      color: var(--fg);
+      /* Make your name stand out based on theme */
+    }
+
+    .publication-links a {
+      margin-right: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .publication-links a:hover {
+        text-decoration: none;
+    }
+
+    /* Service List */
+    .service-list {
+      columns: 2;
+      -webkit-columns: 2;
+      -moz-columns: 2;
+    }
+
+    .service-list li {
+      margin-bottom: 0.5rem;
+      break-inside: avoid-column;
+    }
+
+    /* =========================
+      6. FOOTER
+      ========================= */
+    .footer {
+      background-color: var(--bg-section);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      color: var(--fg-muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+      7. RESPONSIVE DESIGN
+      ========================= */
+    @media (max-width: 992px) {
+      .nav-links {
+        display: none;
+        /* Hide link list */
+        position: absolute;
+        top: 65px;
+        /* Height of header */
+        right: 0;
+        width: 100%;
+        background-color: var(--bg-section);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        padding: 1rem 0;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        padding: 0.75rem 0;
+      }
+
+      .nav-toggle {
+        display: block;
+        /* Show hamburger */
+      }
+
+      .service-list {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .section-card {
+        padding: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+    }
+    
+    /* =========================
+      8. COMPONENT STYLES (from inline)
+      ========================= */
+      
     .announcement-card {
       background-color: var(--accent);
       color: #fff;
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
-      margin-top: -2rem; /* Pulls it up slightly into the hero section's space */
+      margin-top: -2rem;
+      /* Pulls it up slightly into the hero section's space */
       position: relative;
       z-index: 10;
       box-shadow: var(--shadow);
     }
+
     html[data-theme="dark"] .announcement-card {
-        background: linear-gradient(to right, #4dabf7, #3646a2);
+      background: linear-gradient(to right, #4dabf7, #3646a2);
     }
+
     .announcement-card h2 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
     }
+
     .announcement-card p {
       font-size: 1.1rem;
       opacity: 0.95;
@@ -43,95 +663,107 @@
 
     /* News Timeline Styles */
     .news-timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem 0;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 0;
     }
+
     .news-timeline::after {
-        content: '';
-        position: absolute;
-        width: 3px;
-        background-color: var(--accent);
-        top: 20px;
-        bottom: 20px;
-        left: 40px;
-        margin-left: -1.5px;
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: var(--accent);
+      top: 20px;
+      bottom: 20px;
+      left: 40px;
+      margin-left: -1.5px;
     }
+
     html[data-theme="dark"] .news-timeline::after {
-        background-color: var(--primary);
+      background-color: var(--primary);
     }
+
     .news-item {
-        padding: 10px 40px;
-        position: relative;
-        background-color: inherit;
-        width: 100%;
-        padding-left: 90px;
-        padding-right: 25px;
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 100%;
+      padding-left: 90px;
+      padding-right: 25px;
     }
+
     .news-item:last-child {
-        margin-bottom: 0;
+      margin-bottom: 0;
     }
+
     .news-icon {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        left: 16px;
-        background-color: var(--background-color);
-        border: 3px solid var(--accent);
-        top: 25px;
-        border-radius: 50%;
-        z-index: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.2rem;
-        color: var(--accent);
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      left: 16px;
+      background-color: var(--background-color);
+      border: 3px solid var(--accent);
+      top: 25px;
+      border-radius: 50%;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--accent);
     }
+
     html[data-theme="dark"] .news-icon {
-        border-color: var(--primary);
-        color: var(--primary);
+      border-color: var(--primary);
+      color: var(--primary);
     }
+
     .news-content {
-        padding: 1.5rem;
-        background-color: var(--card-bg);
-        position: relative;
-        border-radius: 8px;
-        border: 1px solid var(--border-color);
+      padding: 1.5rem;
+      background-color: var(--card-bg);
+      position: relative;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
     }
+
     .news-date {
-        font-weight: bold;
-        color: var(--accent);
-        display: block;
-        margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
+
     html[data-theme="dark"] .news-date {
-        color: var(--primary);
+      color: var(--primary);
     }
+
     .news-content p {
-        margin: 0;
-        line-height: 1.6;
+      margin: 0;
+      line-height: 1.6;
     }
   </style>
 </head>
+
 <body>
 
   <header class="header" role="banner">
     <div class="nav-container container">
       <a href="#home" class="nav-brand">
-        <img src="images/ali.jpg" alt="Portrait of Ali Alfatemi" class="nav-profile-img" />
+        <!-- Placeholder for ali.jpg -->
+        <img src="https://placehold.co/40x40/a7c7e7/1e3c72?text=AA" alt="Portrait of Ali Alfatemi" class="nav-profile-img" />
         <span class="nav-brand-name">ALI ALFATEMI</span>
       </a>
       <div class="nav-menu">
         <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#availability">Availability</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+          <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#availability">Availability</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
         </nav>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
           <i class="fas fa-moon"></i>
@@ -161,36 +793,36 @@
       <section id="news" class="section">
         <h2 class="section-title">Latest News</h2>
         <div class="section-card">
-            <div class="news-timeline">
-                <!-- <div class="news-item">
-                    <div class="news-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="news-content">
-                        <span class="news-date">October 9, 2025</span>
-                        <p>Our paper, "Enhancing DDoS Detection for Edge Networks with Noise-Tolerant Shallow Neural Networks," has been officially accepted for publication in <strong>IEEE Transactions on Computational Social Systems</strong>.</p>
-                    </div>
-                </div> -->
-                <div class="news-item">
-                    <div class="news-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="news-content">
-                        <span class="news-date">September 29, 2025</span>
-                        <p>Excited that our paper, "Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J," has been accepted for <strong>Oral Presentation</strong> at the <strong>AIPR 2025 Workshop</strong>.</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <div class="news-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="news-content">
-                        <span class="news-date">September 1, 2025</span>
-                        <p>Our paper, "A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks," has been accepted to the <strong>IEEE GLOBECOM 2025 CISS Symposium</strong>.</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <div class="news-icon"><i class="fas fa-trophy"></i></div>
-                    <div class="news-content">
-                        <span class="news-date">May 21, 2025</span>
-                        <p>Pleased to announce our paper, "Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis," has been accepted at <strong>KES 2025</strong>.</p>
-                    </div>
-                </div>
+          <div class="news-timeline">
+            <!-- <div class="news-item">
+                  <div class="news-icon"><i class="fas fa-file-alt"></i></div>
+                  <div class="news-content">
+                      <span class="news-date">October 9, 2025</span>
+                      <p>Our paper, "Enhancing DDoS Detection for Edge Networks with Noise-Tolerant Shallow Neural Networks," has been officially accepted for publication in <strong>IEEE Transactions on Computational Social Systems</strong>.</p>
+                  </div>
+              </div> -->
+            <div class="news-item">
+              <div class="news-icon"><i class="fas fa-trophy"></i></div>
+              <div class="news-content">
+                <span class="news-date">September 29, 2025</span>
+                <p>Excited that our paper, "Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J," has been accepted for <strong>Oral Presentation</strong> at the <strong>AIPR 2025 Workshop</strong>.</p>
+              </div>
             </div>
+            <div class="news-item">
+              <div class="news-icon"><i class="fas fa-trophy"></i></div>
+              <div class="news-content">
+                <span class="news-date">September 1, 2025</span>
+                <p>Our paper, "A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks," has been accepted to the <strong>IEEE GLOBECOM 2025 CISS Symposium</strong>.</p>
+              </div>
+            </div>
+            <div class="news-item">
+              <div class="news-icon"><i class="fas fa-trophy"></i></div>
+              <div class="news-content">
+                <span class="news-date">May 21, 2025</span>
+                <p>Pleased to announce our paper, "Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis," has been accepted at <strong>KES 2025</strong>.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -209,10 +841,10 @@
           <h2 class="section-title">Research</h2>
           <p style="text-align: center;">I am passionate about leveraging advanced computational techniques to solve complex problems in cybersecurity and artificial intelligence. My primary research interests include:</p>
           <ul>
-              <li>AI for Network Security</li>
-              <li>Large Language Models (LLMs)</li>
-              <li>Machine Learning & Deep Learning</li>
-              <li>Computer Vision</li>
+            <li>AI for Network Security</li>
+            <li>Large Language Models (LLMs)</li>
+            <li>Machine Learning & Deep Learning</li>
+            <li>Computer Vision</li>
           </ul>
         </div>
       </section>
@@ -222,42 +854,42 @@
         <div class="section-card">
           <ul class="publication-list">
             <!-- <li class="publication-item">
-              <p><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Mohammed Aledhari, Gwanggil Jeon. "Enhancing DDoS Detection for Edge Networks with Noise-Tolerant Shallow Neural Networks in Computational Social Systems." To appear in <em>IEEE Transactions on Computational Social Systems</em>, 2025.</p>
-            </li> -->
-          <li class="publication-item pub-card">
-            <p class="pub-title">
-              <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri,
-              Mohammed Aledhari, Gwanggil Jeon.
-              “Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems.”
-              <em>IEEE Transactions on Computational Social Systems</em>, Early Access, pp. 1–14, 2025.
-            </p>
-          
-            <div class="pub-badges">
-              <span class="badge"><i class="fas fa-journal-whills"></i> IEEE TCSS</span>
-              <span class="badge"><i class="fas fa-check-circle"></i> Early Access</span>
-              <span class="badge"><i class="fas fa-hashtag"></i> DOI: 10.1109/TCSS.2025.3620674</span>
-            </div>
-          
-            <div class="pub-actions">
-              <a class="btn-pill" href="https://ieeexplore.ieee.org/document/11230065" target="_blank" rel="noopener">
-                <i class="fas fa-file-alt"></i> Paper
-              </a>
-              <a class="btn-pill" href="https://doi.org/10.1109/TCSS.2025.3620674" target="_blank" rel="noopener">
-                <i class="fas fa-link"></i> DOI
-              </a>
-            </div>
-          
-            <figure class="pub-figure-modern">
-              <div class="img-wrap">
-                <img src="images/picpip.png" alt="DDoS threat model and traffic flow diagram"
-                     data-lightbox="tcss-ddos" data-caption="High-level depiction of the DDoS threat model and traffic flow referenced in the TCSS article." />
+                  <p><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Mohammed Aledhari, Gwanggil Jeon. "Enhancing DDoS Detection for Edge Networks with Noise-Tolerant Shallow Neural Networks in Computational Social Systems." To appear in <em>IEEE Transactions on Computational Social Systems</em>, 2025.</p>
+                </li> -->
+            <li class="publication-item pub-card">
+              <p class="pub-title">
+                <strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri,
+                Mohammed Aledhari, Gwanggil Jeon.
+                “Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems.”
+                <em>IEEE Transactions on Computational Social Systems</em>, Early Access, pp. 1–14, 2025.
+              </p>
+
+              <div class="pub-badges">
+                <span class="badge"><i class="fas fa-journal-whills"></i> IEEE TCSS</span>
+                <span class="badge"><i class="fas fa-check-circle"></i> Early Access</span>
+                <span class="badge"><i class="fas fa-hashtag"></i> DOI: 10.1109/TCSS.2025.3620674</span>
               </div>
-              <figcaption>
-                High-level depiction of the DDoS threat model and traffic flow referenced in the TCSS article.
-                <span style="opacity:.75">Click image to expand.</span>
-              </figcaption>
-            </figure>
-          </li>
+
+              <div class="pub-actions">
+                <a class="btn-pill" href="https://ieeexplore.ieee.org/document/11230065" target="_blank" rel="noopener">
+                  <i class="fas fa-file-alt"></i> Paper
+                </a>
+                <a class="btn-pill" href="https://doi.org/10.1109/TCSS.2025.3620674" target="_blank" rel="noopener">
+                  <i class="fas fa-link"></i> DOI
+                </a>
+              </div>
+
+              <figure class="pub-figure-modern">
+                <div class="img-wrap">
+                  <!-- Placeholder for picpip.png -->
+                  <img src="images/picpip.png" alt="DDoS threat model and traffic flow diagram" data-lightbox="tcss-ddos" data-caption="High-level depiction of the DDoS threat model and traffic flow referenced in the TCSS article." />
+                </div>
+                <figcaption>
+                  High-level depiction of the DDoS threat model and traffic flow referenced in the TCSS article.
+                  <span style="opacity:.75">Click image to expand.</span>
+                </figcaption>
+              </figure>
+            </li>
 
 
 
@@ -293,7 +925,7 @@
                 <a href="https://link.springer.com/chapter/10.1007/978-3-031-66431-1_38" target="_blank" rel="noopener">[Paper]</a>
               </div>
             </li>
-             <li class="publication-item">
+            <li class="publication-item">
               <p><strong>Ali Alfatemi</strong>, Diogo Oliveira, Mohamed Rahouti, Abdelatif Hafid, Nasir Ghani. "Precision DDoS Detection Through Gaussian Noise-Augmented Neural Networks." <em>2024 15th International Conference on Network of the Future (NoF)</em>, pp. 178–185.</p>
               <div class="publication-links">
                 <a href="https://ieeexplore.ieee.org/document/10741358" target="_blank" rel="noopener">[Paper]</a>
@@ -330,7 +962,7 @@
                 <a href="https://github.com/aimanmutasem/GECDA" target="_blank" rel="noopener">[Code]</a>
               </div>
             </li>
-             <li class="publication-item">
+            <li class="publication-item">
               <p>Zeinab Mahmoud, et al. "Semi-Supervised Learning and Bidirectional Decoding for Effective Grammar Correction in Low-Resource Scenarios." <em>PeerJ Computer Science</em> 9, e1639, 2023.</p>
               <div class="publication-links">
                 <a href="https://peerj.com/articles/cs-1639/" target="_blank" rel="noopener">[Paper]</a>
@@ -370,41 +1002,356 @@
       <section id="service" class="section">
         <h2 class="section-title">Professional Service</h2>
         <div class="section-card">
-            <p style="text-align: center; margin-bottom: 1.5rem;">I am an active contributor to the academic community as a peer reviewer for several reputable journals and conferences:</p>
-            <ul class="service-list">
-                <li>Information Fusion</li>
-                <li>SAC 2024</li>
-                <li>IEEE WCCI 2024</li>
-                <li>The Journal of Supercomputing</li>
-                <li>Artificial Intelligence Review</li>
-                <li>Cluster Computing</li>
-                <li>IJCNN 2025</li>
-                <li>And many others...</li>
-            </ul>
+          <p style="text-align: center; margin-bottom: 1.5rem;">I am an active contributor to the academic community as a peer reviewer for several reputable journals and conferences:</p>
+          <ul class="service-list">
+            <li>Information Fusion</li>
+            <li>SAC 2024</li>
+            <li>IEEE WCCI 2024</li>
+            <li>The Journal of Supercomputing</li>
+            <li>Artificial Intelligence Review</li>
+            <li>Cluster Computing</li>
+            <li>IJCNN 2025</li>
+            <li>And many others...</li>
+          </ul>
         </div>
       </section>
 
       <section id="contact" class="section">
         <h2 class="section-title">Get In Touch</h2>
         <div class="section-card" style="text-align: center;">
-            <p>I'm always open to discussing new research, projects, or collaboration opportunities. <br>Feel free to reach out!</p>
-            <a href="mailto:aalfatemi@fordham.edu" class="btn btn-primary" style="margin-top: 1.5rem;"><i class="fas fa-envelope"></i> aalfatemi@fordham.edu</a>
-            <div class="hero-btns" style="margin-top: 1.5rem;">
-                <a href="https://www.linkedin.com/in/ali-alfatemi/" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://github.com/AliAlfatemi" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
-            </div>
+          <p>I'm always open to discussing new research, projects, or collaboration opportunities. <br>Feel free to reach out!</p>
+          <a href="mailto:aalfatemi@fordham.edu" class="btn btn-primary" style="margin-top: 1.5rem;"><i class="fas fa-envelope"></i> aalfatemi@fordham.edu</a>
+          <div class="hero-btns" style="margin-top: 1.5rem;">
+            <a href="https://www.linkedin.com/in/ali-alfatemi/" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/AliAlfatemi" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ&hl=en&oi=ao" class="btn btn-secondary" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Scholar</a>
+          </div>
         </div>
       </section>
 
-    </div> </main>
+    </div>
+  </main>
 
   <footer class="footer" role="contentinfo">
     <p>&copy; <span id="year"></span> Ali Alfatemi. All Rights Reserved.</p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/particles-config.js" defer></script>
+  <!-- 1. Particle.js library -->
+  <script src="https://cdn.jsdelivr.net/gh/VincentGarreau/particles.js/particles.min.js"></script>
+
+  <!-- 2. Main application logic (Embedded) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /* =========================
+         0) Helpers
+      ==========================*/
+      const prefersDark = () =>
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      const reducedMotion = () =>
+        window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* =========================
+         1) Mobile Menu Toggle + A11y
+      ==========================*/
+      const navToggle = document.getElementById('nav-toggle');
+      const navLinks = document.getElementById('navLinks');
+
+      const closeMenu = () => {
+        if (!navLinks) return;
+        navLinks.classList.remove('active');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      };
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active');
+          const isExpanded = navLinks.classList.contains('active');
+          navToggle.setAttribute('aria-expanded', String(isExpanded));
+        });
+
+        // Close on link click (single-page nav UX)
+        navLinks.addEventListener('click', (e) => {
+          const a = e.target.closest('a[href^="#"]');
+          if (a) closeMenu();
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+          if (!navLinks.classList.contains('active')) return;
+          const clickedInsideMenu = e.target.closest('#navLinks, #nav-toggle');
+          if (!clickedInsideMenu) closeMenu();
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeMenu();
+        });
+      }
+
+      /* =========================
+         2) Theme Toggle (system-aware, persisted)
+      ==========================*/
+      const themeToggle = document.getElementById('theme-toggle');
+      const moonIcon = 'fa-moon';
+      const sunIcon = 'fa-sun';
+
+      const getTheme = () => {
+        // If saved, use it; otherwise follow system preference
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') return saved;
+        return prefersDark() ? 'dark' : 'light';
+      };
+
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (themeToggle) {
+          const iconClass = theme === 'dark' ? sunIcon : moonIcon;
+          const i = themeToggle.querySelector('i');
+          if (i) i.className = `fas ${iconClass}`;
+          themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+          themeToggle.title = themeToggle.getAttribute('aria-label');
+        }
+      };
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
+          applyTheme(newTheme);
+        });
+      }
+      // Initialize theme and watch for system change (if user hasn't explicitly chosen)
+      let userSet = !!localStorage.getItem('theme');
+      applyTheme(getTheme());
+      if (!userSet && window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+        });
+      }
+
+      /* =========================
+         3) Smooth Scroll for in-page anchors
+      ==========================*/
+      document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]:not([href="#"])');
+        if (!link) return;
+        const id = link.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+
+        e.preventDefault();
+        const behavior = reducedMotion() ? 'auto' : 'smooth';
+        
+        // Calculate offset for sticky header
+        const headerOffset = 70; // Height of sticky header + a little buffer
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: behavior
+        });
+        
+        // Update URL hash without jumping
+        if (history.pushState) {
+            history.pushState(null, null, `#${id}`);
+        } else {
+            location.hash = `#${id}`;
+        }
+      });
+
+      /* =========================
+         4) Publication Figure Lightbox (no deps)
+            - Works on any <img data-lightbox data-caption="...">
+      ==========================*/
+      // Make images focusable & announceable
+      document.querySelectorAll('img[data-lightbox]').forEach(img => {
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        if (!img.getAttribute('aria-label')) {
+          img.setAttribute('aria-label', 'Expand image');
+        }
+      });
+
+      // Build overlay once
+      const overlay = document.createElement('div');
+      overlay.className = 'lb';
+      overlay.setAttribute('aria-hidden', 'true');
+      overlay.innerHTML = `
+        <div class="lb-content" role="dialog" aria-modal="true">
+          <button class="lb-close" aria-label="Close (Esc)"><i class="fas fa-times"></i></button>
+          <img alt="">
+          <div class="lb-caption"></div>
+        </div>`;
+      document.body.appendChild(overlay);
+
+      const lbImg = overlay.querySelector('img');
+      const lbCap = overlay.querySelector('.lb-caption');
+      const lbClose = overlay.querySelector('.lb-close');
+      let lastFocusedElement; // To restore focus
+
+      const openLB = (src, cap, el) => {
+        lastFocusedElement = el || document.activeElement;
+        lbImg.src = src;
+        lbImg.alt = cap || 'Expanded image';
+        lbCap.textContent = cap || '';
+        overlay.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lbClose.focus();
+      };
+      
+      const closeLB = () => {
+        overlay.setAttribute('aria-hidden', 'true');
+        lbImg.src = ''; 
+        lbImg.alt = '';
+        lbCap.textContent = '';
+        document.body.style.overflow = '';
+        if(lastFocusedElement) lastFocusedElement.focus();
+      };
+
+      // Open on click or Enter
+      document.addEventListener('click', (e) => {
+        const t = e.target.closest('img[data-lightbox]');
+        if (t) openLB(t.src, t.dataset.caption, t);
+        if (e.target === overlay) closeLB(); // Close on overlay click
+      });
+      
+      document.addEventListener('keydown', (e) => {
+        // Close on Escape
+        if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') {
+            closeLB();
+        }
+        
+        // Open on Enter or Space
+        const t = document.activeElement;
+        if ((e.key === 'Enter' || e.key === ' ') && t && t.matches('img[data-lightbox]')) {
+          e.preventDefault();
+          openLB(t.src, t.dataset.caption, t);
+        }
+      });
+      lbClose.addEventListener('click', closeLB);
+
+      /* =========================
+         5) Footer Year
+      ==========================*/
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    });
+  </script>
+
+  <!-- 3. Particle.js config (Embedded) -->
+  <script>
+    if (document.getElementById('particles-js')) {
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 40,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 200,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    }
+  </script>
+
 </body>
 </html>
