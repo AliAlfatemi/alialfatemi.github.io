@@ -20,7 +20,6 @@
        1. RESET & BASE
        ========================= */
 
-    /* Use a more modern reset */
     *,
     *::before,
     *::after {
@@ -138,7 +137,6 @@
       background: rgba(255, 255, 255, .05);
     }
 
-    /* buttons under title */
     .pub-actions {
       display: flex;
       flex-wrap: wrap;
@@ -165,7 +163,6 @@
       color: #fff;
     }
 
-    /* ——— Figure ——— */
     .pub-figure-modern {
       margin: 0;
       padding: 0;
@@ -185,7 +182,6 @@
       position: relative;
       overflow: hidden;
       max-height: 540px;
-      /* keep page tight */
     }
 
     .pub-figure-modern img {
@@ -268,11 +264,9 @@
       transform: scale(1.03);
     }
 
-    /* spacing harmony with your list */
-    .publication-list>.publication-item+.publication-item {
+    .publication-list > .publication-item + .publication-item {
       margin-top: 1.25rem;
     }
-
 
     /* =========================
        2. LAYOUT & HELPERS
@@ -392,12 +386,10 @@
       font-size: 1.5rem;
       padding: 0.5rem;
       display: none;
-      /* Hidden on desktop */
     }
 
     .theme-toggle {
       display: block;
-      /* Always visible */
     }
 
     /* =========================
@@ -411,7 +403,6 @@
       justify-content: center;
       text-align: center;
       background-color: #111;
-      /* Fallback */
       background-image: linear-gradient(to right, #1e3c72, #2a5298);
       color: #fff;
       padding: 3rem 1.5rem;
@@ -441,7 +432,6 @@
 
     .hero h1 strong {
       color: #a7c7e7;
-      /* Light blue accent */
     }
 
     .hero-subtitle {
@@ -477,7 +467,7 @@
     }
     
     .btn:hover {
-        text-decoration: none;
+      text-decoration: none;
     }
 
     .btn-primary {
@@ -508,7 +498,6 @@
        5. CONTENT SECTIONS
        ========================= */
 
-    /* Publication List */
     .publication-list {
       list-style: none;
       padding-left: 0;
@@ -520,10 +509,9 @@
       border-left: 3px solid var(--accent);
     }
     
-    /* Apply special card styles only to .pub-card */
     .publication-item.pub-card {
-        border-left: none;
-        padding-left: 1.25rem;
+      border-left: none;
+      padding-left: 1.25rem;
     }
 
     .publication-item p {
@@ -533,7 +521,6 @@
 
     .publication-item strong {
       color: var(--fg);
-      /* Make your name stand out based on theme */
     }
 
     .publication-links a {
@@ -543,10 +530,9 @@
     }
     
     .publication-links a:hover {
-        text-decoration: none;
+      text-decoration: none;
     }
 
-    /* Service List */
     .service-list {
       columns: 2;
       -webkit-columns: 2;
@@ -577,10 +563,8 @@
     @media (max-width: 992px) {
       .nav-links {
         display: none;
-        /* Hide link list */
         position: absolute;
         top: 65px;
-        /* Height of header */
         right: 0;
         width: 100%;
         background-color: var(--bg-section);
@@ -600,7 +584,6 @@
 
       .nav-toggle {
         display: block;
-        /* Show hamburger */
       }
 
       .service-list {
@@ -627,7 +610,7 @@
     }
     
     /* =========================
-       8. COMPONENT STYLES (from inline)
+       8. COMPONENT STYLES
        ========================= */
        
     .announcement-card {
@@ -637,7 +620,6 @@
       padding: 2rem;
       text-align: center;
       margin-top: -2rem;
-      /* Pulls it up slightly into the hero section's space */
       position: relative;
       z-index: 10;
       box-shadow: var(--shadow);
@@ -750,12 +732,13 @@
         <span class="nav-brand-name">ALI ALFATEMI</span>
       </a>
       <div class="nav-menu">
-        <nav>
+        <nav aria-label="Main navigation">
           <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#news">News</a></li>
             <li><a href="#availability">Availability</a></li>
             <li><a href="#research">Research</a></li>
+            <li><a href="#teaching">Teaching</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -775,7 +758,7 @@
       <div id="particles-js" aria-hidden="true"></div>
       <div class="hero-content">
         <h1>Hello, I’m <strong>Ali Alfatemi</strong></h1>
-        <p class="hero-subtitle">Ph.D. Candidate & Teaching Fellow in Computer & Information Science at Fordham University.</p>
+        <p class="hero-subtitle">Ph.D. Candidate &amp; Teaching Fellow in Computer &amp; Information Science at Fordham University.</p>
         <p class="hero-desc">My research focuses on AI for Network Security, Large Language Models, Machine Learning, and Computer Vision.</p>
         <div class="hero-btns">
           <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope"></i> Contact Me</a>
@@ -803,45 +786,19 @@
                 <p>Our paper, "A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks," has been accepted to the <strong>IEEE GLOBECOM 2025 CISS Symposium</strong>.</p>
               </div>
             </div>
-            <!-- <div class="news-item">
+            <!--
+            <div class="news-item">
               <div class="news-icon"><i class="fas fa-trophy"></i></div>
               <div class="news-content">
                 <span class="news-date">May 21, 2025</span>
                 <p>Pleased to announce our paper, "Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis," has been accepted at <strong>KES 2025</strong>.</p>
               </div>
             </div>
-          </div> -->
+            -->
+          </div>
         </div>
       </section>
 
-
-
-
-      <section id="teaching" class="section">
-        <h2 class="section-title">Teaching</h2>
-        <div class="section-card">
-            <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem;">CISC 1100 R03: Structures of Computer Science</h3>
-                <p style="color: var(--fg-muted); margin-bottom: 1rem;">
-                    <strong>Fall 2025</strong> at Fordham University (Rose Hill Campus)
-                </p>
-                
-                <div class="teaching-details-row">
-                    <span><i class="far fa-clock"></i> Mon & Thu, 5:30–6:45 PM</span>
-                    <span><i class="fas fa-map-marker-alt"></i> JMH 330</span>
-                    <span><i class="fas fa-chalkboard-user"></i> Office Hours: Mon & Thu, 4:30–5:30 PM (JMH 333)</span>
-                </div>
-
-                <p style="margin-bottom: 0.5rem;">
-                    This is an introductory course in the discrete structures used in computer and information technology. Emphasis is placed on the ability to solve problems and develop logical thinking.
-                </p>
-                <p style="font-size: 0.95rem;">
-                    <strong>Topics covered:</strong> Sets, Functions, Elementary Combinatorics, Discrete Probability, Logic, Boolean Algebra, Recursion, and Graphs.
-                </p>
-            </div>
-        </div>
-      </section>
-      
       <section id="availability" class="section">
         <div class="announcement-card">
           <h2><i class="fas fa-bullhorn"></i> Seeking Opportunities</h2>
@@ -851,7 +808,6 @@
         </div>
       </section>
 
-
       <section id="research" class="section">
         <div class="section-card">
           <h2 class="section-title">Research</h2>
@@ -859,8 +815,24 @@
           <ul>
             <li>AI for Network Security</li>
             <li>Large Language Models (LLMs)</li>
-            <li>Machine Learning & Deep Learning</li>
+            <li>Machine Learning &amp; Deep Learning</li>
             <li>Computer Vision</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="teaching" class="section">
+        <div class="section-card">
+          <h2 class="section-title">Teaching</h2>
+          <p style="text-align: center; margin-bottom: 1.5rem;">
+            In <strong>Fall 2025</strong>, I am teaching <strong>CISC 1100 R03: Structures of Computer Science</strong> at Fordham University (Rose Hill campus).
+          </p>
+          <ul>
+            <li><strong>Meeting times:</strong> Mon &amp; Thu, 5:30–6:45 PM, John Mulcahy Hall (JMH) 330</li>
+            <li><strong>Office hours:</strong> Mon &amp; Thu, 4:30–5:30 PM in JMH 333 (and by appointment)</li>
+            <li><strong>Course focus:</strong> Introductory discrete structures for computer science, including sets, functions, logic, combinatorics, discrete probability, recursion, and graphs, with an emphasis on problem solving and logical reasoning.</li>
+            <li><strong>Textbook:</strong> <em>Fundamentals of Discrete Structures</em>, D. M. Lyons et al., 2nd edition.</li>
+            <li><strong>Course project:</strong> Students model a well-defined problem using course concepts and implement a working software solution.</li>
           </ul>
         </div>
       </section>
@@ -1010,8 +982,7 @@
             <li class="publication-item">
                 <p>Z. Mahmoud, N. Kryvinska, M. Abdalsalm, A. Solyman, <strong>Ali Alfatemi</strong>, et al. "Toward Utilizing Bidirectional Multi-head Attention Technique for Automatic Correction of Grammatical Errors." <em>IAENG International Journal of Computer Science</em> 51(11), 2024.</p>
                 <div class="publication-links">
-                  <a href="https://openurl.ebsco.com/EPDB%3Agcd%3A10%3A8341130/detailv2?sid=ebsco%3Aplink%3Ascholar&id=ebsco%3Agcd%3A181670947&crl=c&link_origin=scholar.google.com
-            " target="_blank" rel="noopener">[Paper]</a>
+                  <a href="https://openurl.ebsco.com/EPDB%3Agcd%3A10%3A8341130/detailv2?sid=ebsco%3Aplink%3Ascholar&id=ebsco%3Agcd%3A181670947&crl=c&link_origin=scholar.google.com" target="_blank" rel="noopener">[Paper]</a>
                 </div>
             </li>
 
@@ -1022,7 +993,6 @@
               </div>
             </li>
 
-            
              <li class="publication-item">
               <p>Martinez, Fernando and Mapkar, Mariyam and <strong>Alfatemi, Ali</strong>  and Rahouti, Mohamed and Xin, Yufeng and Xiong, Kaiqi and Ghani, Nasir "Redefining DDoS Attack Detection Using a Dual-Space Prototypical Network-Based Approach." <em>2024 33rd International Conference on Computer Communications and Networks (ICCCN)</em>, pp. 1–9.</p>
               <div class="publication-links">
@@ -1058,10 +1028,7 @@
               <div class="publication-links">
                 <a href="https://www.preprints.org/frontend/manuscript/f20b7bf86a1b6d97d0b9f6e1513f1285/download_pub" target="_blank" rel="noopener">[Paper]</a>
               </div>
-            
             </li>
-
-
 
           </ul>
         </div>
@@ -1092,7 +1059,7 @@
             <li>The Journal of Supercomputing</li>
             <li>Artificial Intelligence Review</li>
             <li>Cluster Computing</li>
-            <li> Scientific Reports </li>
+            <li>Scientific Reports</li>
             <li>IEEE Transactions on Network and Service Management</li>
             <li>IJCNN 2025</li>
             <li>And many others...</li>
@@ -1180,7 +1147,6 @@
       const sunIcon = 'fa-sun';
 
       const getTheme = () => {
-        // If saved, use it; otherwise follow system preference
         const saved = localStorage.getItem('theme');
         if (saved === 'light' || saved === 'dark') return saved;
         return prefersDark() ? 'dark' : 'light';
@@ -1204,13 +1170,23 @@
           applyTheme(newTheme);
         });
       }
+
       // Initialize theme and watch for system change (if user hasn't explicitly chosen)
       let userSet = !!localStorage.getItem('theme');
       applyTheme(getTheme());
       if (!userSet && window.matchMedia) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-          if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
-        });
+        const mq = window.matchMedia('(prefers-color-scheme: dark)');
+        const mqHandler = (e) => {
+          if (!localStorage.getItem('theme')) {
+            applyTheme(e.matches ? 'dark' : 'light');
+          }
+        };
+
+        if (typeof mq.addEventListener === 'function') {
+          mq.addEventListener('change', mqHandler);
+        } else if (typeof mq.addListener === 'function') {
+          mq.addListener(mqHandler);
+        }
       }
 
       /* =========================
@@ -1226,29 +1202,25 @@
         e.preventDefault();
         const behavior = reducedMotion() ? 'auto' : 'smooth';
         
-        // Calculate offset for sticky header
-        const headerOffset = 70; // Height of sticky header + a little buffer
+        const headerOffset = 70;
         const elementPosition = target.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
         window.scrollTo({
-            top: offsetPosition,
-            behavior: behavior
+          top: offsetPosition,
+          behavior: behavior
         });
         
-        // Update URL hash without jumping
         if (history.pushState) {
-            history.pushState(null, null, `#${id}`);
+          history.pushState(null, null, `#${id}`);
         } else {
-            location.hash = `#${id}`;
+          location.hash = `#${id}`;
         }
       });
 
       /* =========================
          4) Publication Figure Lightbox (no deps)
-            - Works on any <img data-lightbox data-caption="...">
       ==========================*/
-      // Make images focusable & announceable
       document.querySelectorAll('img[data-lightbox]').forEach(img => {
         img.setAttribute('tabindex', '0');
         img.setAttribute('role', 'button');
@@ -1257,7 +1229,6 @@
         }
       });
 
-      // Build overlay once
       const overlay = document.createElement('div');
       overlay.className = 'lb';
       overlay.setAttribute('aria-hidden', 'true');
@@ -1272,7 +1243,7 @@
       const lbImg = overlay.querySelector('img');
       const lbCap = overlay.querySelector('.lb-caption');
       const lbClose = overlay.querySelector('.lb-close');
-      let lastFocusedElement; // To restore focus
+      let lastFocusedElement;
 
       const openLB = (src, cap, el) => {
         lastFocusedElement = el || document.activeElement;
@@ -1290,23 +1261,20 @@
         lbImg.alt = '';
         lbCap.textContent = '';
         document.body.style.overflow = '';
-        if(lastFocusedElement) lastFocusedElement.focus();
+        if (lastFocusedElement) lastFocusedElement.focus();
       };
 
-      // Open on click or Enter
       document.addEventListener('click', (e) => {
         const t = e.target.closest('img[data-lightbox]');
         if (t) openLB(t.src, t.dataset.caption, t);
-        if (e.target === overlay) closeLB(); // Close on overlay click
+        if (e.target === overlay) closeLB();
       });
       
       document.addEventListener('keydown', (e) => {
-        // Close on Escape
         if (e.key === 'Escape' && overlay.getAttribute('aria-hidden') === 'false') {
-            closeLB();
+          closeLB();
         }
         
-        // Open on Enter or Space
         const t = document.activeElement;
         if ((e.key === 'Enter' || e.key === ' ') && t && t.matches('img[data-lightbox]')) {
           e.preventDefault();
@@ -1325,7 +1293,7 @@
   </script>
 
   <script>
-    if (document.getElementById('particles-js')) {
+    if (document.getElementById('particles-js') && window.particlesJS) {
       particlesJS("particles-js", {
         "particles": {
           "number": {
