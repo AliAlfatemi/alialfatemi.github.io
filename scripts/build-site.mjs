@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publications = JSON.parse(await readFile(path.join(root, 'data/publications.json'), 'utf8'));
 const projects = JSON.parse(await readFile(path.join(root, 'data/projects.json'), 'utf8'));
+const sortedPublications = [...publications].sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
 
 const site = {
   url: 'https://alialfatemi.github.io',
@@ -140,6 +141,27 @@ const scholarlyGraph = publications.map((publication) => {
     ...(publication.image ? { image: `${site.url}/${publication.image}` } : {})
   };
 });
+
+const publicationItemList = {
+  '@type': 'ItemList',
+  '@id': `${site.url}/publications/#publication-list`,
+  name: 'Ali Alfatemi publication index',
+  numberOfItems: sortedPublications.length,
+  itemListElement: sortedPublications.map((publication, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: { '@id': `${site.url}/publications/#${publication.id}` }
+  }))
+};
+
+const publicationCollectionEntity = {
+  '@type': 'CollectionPage',
+  '@id': `${site.url}/publications/#collection`,
+  url: `${site.url}/publications/`,
+  name: 'Publications | Ali Alfatemi',
+  about: { '@id': `${site.url}/#person` },
+  mainEntity: { '@id': publicationItemList['@id'] }
+};
 
 const head = ({ route, title, description, structuredData, extraHead = '' }) => {
   const canonical = absoluteUrl(route);
@@ -531,10 +553,10 @@ const publicationsContent = () => {
       </form>
       <div class="results-line"><p><strong data-result-count aria-live="polite">${publications.length} publications</strong></p><p>Source data: <a href="/data/publications.json">JSON</a> · <a href="/data/publications.bib">BibTeX</a></p></div>
       <ol class="publication-list" data-publication-list>
-        ${publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title)).map(publicationRow).join('')}
+        ${sortedPublications.map(publicationRow).join('')}
       </ol>
       <p class="empty-state" data-empty-state hidden>No publications match these filters. Reset the filters or broaden the search.</p>
-      <div class="notice" style="margin-top: 2rem"><p><strong>Bibliographic integrity note.</strong> Several legacy entries list abbreviated author strings. Canonical author order and full citation metadata should be checked against the attached CV or publisher records before those entries are used for automated bibliography export.</p></div>
+      <div class="notice" style="margin-top: 2rem"><p><strong>Bibliographic integrity note.</strong> All 27 records were reconciled against Google Scholar and publisher, DOI, journal, or arXiv sources on July 29, 2026. The AIPR workshop and proceedings rows are consolidated as one version-of-record entry; the cryptocurrency item is intentionally identified as an Ali-authored arXiv preprint because the final IPCCC version has a different author list. <a href="/docs/publication-audit-2026-07-29.md">Review the audit log</a>.</p></div>
     </div>
   </section>`;
 };
@@ -766,7 +788,13 @@ const pages = [
     content: publicationsContent(),
     structuredData: {
       '@context': 'https://schema.org',
-      '@graph': [personEntity, breadcrumbData('/publications/', 'Publications'), ...scholarlyGraph]
+      '@graph': [
+        personEntity,
+        breadcrumbData('/publications/', 'Publications'),
+        publicationCollectionEntity,
+        publicationItemList,
+        ...scholarlyGraph
+      ]
     },
     extraHead: '<link rel="alternate" type="application/json" href="/data/publications.json" title="Structured publication data">'
   },
@@ -856,7 +884,7 @@ const bibType = (publication) => ({
   Preprint: 'misc'
 }[publication.type] || 'misc');
 
-const bibtex = publications
+const bibtex = sortedPublications
   .filter((publication) => !publication.authors.includes('et al.') && !publication.authors.includes('...'))
   .map((publication) => {
     const doiUrl = publication.links.doi

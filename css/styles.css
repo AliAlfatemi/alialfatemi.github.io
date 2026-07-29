@@ -60,7 +60,6 @@ html {
 }
 
 body {
-  min-width: 20rem;
   margin: 0;
   background: var(--canvas);
   color: var(--ink);

@@ -20,6 +20,7 @@ const errors = [];
 const titles = new Map();
 const descriptions = new Map();
 const canonicals = new Map();
+const htmlByFile = new Map();
 
 const recordUnique = (map, value, file, label) => {
   if (!value) return errors.push(`${file}: missing ${label}`);
@@ -36,6 +37,7 @@ const internalTarget = (url) => {
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
+  htmlByFile.set(file, html);
   const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
@@ -73,13 +75,70 @@ for (const file of htmlFiles) {
 const publicationData = JSON.parse(await readFile(path.join(root, 'data/publications.json'), 'utf8'));
 const statuses = new Set(['Published', 'Preprint']);
 const ids = new Set();
+const publicationTitles = new Set();
+const publicationHtml = htmlByFile.get('publications/index.html');
 for (const publication of publicationData) {
   if (ids.has(publication.id)) errors.push(`data/publications.json: duplicate id ${publication.id}`);
   ids.add(publication.id);
+  if (publicationTitles.has(publication.title)) errors.push(`data/publications.json: duplicate title ${publication.title}`);
+  publicationTitles.add(publication.title);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(publication.id)) {
+    errors.push(`data/publications.json: invalid slug id ${publication.id}`);
+  }
   if (!statuses.has(publication.status)) errors.push(`data/publications.json: invalid status for ${publication.id}`);
+  if (!publication.title || !publication.authors || !publication.year || !publication.venue || !publication.type) {
+    errors.push(`data/publications.json: incomplete core metadata for ${publication.id}`);
+  }
+  if (!publication.authors.includes('Ali Alfatemi')) {
+    errors.push(`data/publications.json: Ali Alfatemi missing from authors for ${publication.id}`);
+  }
+  if (/et al\.|\.\.\./.test(publication.authors)) {
+    errors.push(`data/publications.json: abbreviated author list for ${publication.id}`);
+  }
+  if (publication.firstAuthor !== publication.authors.startsWith('Ali Alfatemi')) {
+    errors.push(`data/publications.json: firstAuthor flag disagrees with author order for ${publication.id}`);
+  }
+  if (publication.status === 'Preprint' && publication.type !== 'Preprint') {
+    errors.push(`data/publications.json: preprint status/type mismatch for ${publication.id}`);
+  }
+  if (!publication.links || Object.keys(publication.links).length === 0) {
+    errors.push(`data/publications.json: missing source link for ${publication.id}`);
+  }
   for (const url of Object.values(publication.links || {})) {
     if (!url.startsWith('https://')) errors.push(`data/publications.json: non-HTTPS link for ${publication.id}`);
   }
+  if (!publicationHtml.includes(`id="${publication.id}"`)) {
+    errors.push(`publications/index.html: missing publication row ${publication.id}`);
+  }
+  const expectedCitationLabel = `aria-label="Copy citation for ${publication.title.replaceAll('&', '&amp;').replaceAll('"', '&quot;')}"`;
+  if (!publicationHtml.includes(expectedCitationLabel)) {
+    errors.push(`publications/index.html: missing specific citation label for ${publication.id}`);
+  }
+}
+
+const publicationLdMatch = publicationHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+if (!publicationLdMatch) {
+  errors.push('publications/index.html: missing JSON-LD graph');
+} else {
+  const publicationLd = JSON.parse(publicationLdMatch[1]);
+  const graph = publicationLd['@graph'] || [];
+  const articles = graph.filter((node) => node['@type'] === 'ScholarlyArticle');
+  const itemList = graph.find((node) => node['@type'] === 'ItemList');
+  if (articles.length !== publicationData.length) {
+    errors.push(`publications/index.html: expected ${publicationData.length} ScholarlyArticle nodes, found ${articles.length}`);
+  }
+  if (!itemList || itemList.numberOfItems !== publicationData.length) {
+    errors.push('publications/index.html: ItemList count does not match publication data');
+  }
+}
+
+const bibtex = await readFile(path.join(root, 'data/publications.bib'), 'utf8');
+const bibtexCount = (bibtex.match(/^@/gm) || []).length;
+if (bibtexCount !== publicationData.length) {
+  errors.push(`data/publications.bib: expected ${publicationData.length} records, found ${bibtexCount}`);
+}
+for (const publication of publicationData) {
+  if (!bibtex.includes(`{${publication.id},`)) errors.push(`data/publications.bib: missing ${publication.id}`);
 }
 
 for (const required of ['robots.txt', 'sitemap.xml', 'images/favicon.svg', 'images/og-profile.png', 'data/publications.bib']) {
