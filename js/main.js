@@ -141,24 +141,6 @@
     applyFilters(false);
   }
 
-  document.querySelectorAll('[data-reveal-email]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const user = button.dataset.user;
-      const domain = button.dataset.domain;
-      const output = document.querySelector(button.dataset.output || '');
-      if (!user || !domain || !output) return;
-      const address = `${user}@${domain}`;
-      const link = document.createElement('a');
-      link.href = `mailto:${address}`;
-      link.textContent = address;
-      link.setAttribute('aria-label', `Email Ali Alfatemi at ${address}`);
-      output.replaceChildren(link);
-      button.textContent = 'Email address shown';
-      button.disabled = true;
-      link.focus();
-    });
-  });
-
   document.querySelectorAll('[data-copy-citation]').forEach((button) => {
     button.addEventListener('click', async () => {
       const citation = button.dataset.copyCitation?.trim();

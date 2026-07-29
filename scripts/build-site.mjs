@@ -20,7 +20,8 @@ const site = {
   url: 'https://alialfatemi.github.io',
   name: 'Ali Alfatemi',
   defaultDescription: 'Ali Alfatemi is a Fordham University Ph.D. candidate developing machine learning for DDoS defense, network security, computer vision, and multimodal AI.',
-  image: '/images/og-profile.png'
+  image: '/images/og-profile.png',
+  email: 'aalfatemi@fordham.edu'
 };
 
 const profileLinks = {
@@ -251,6 +252,7 @@ const footer = () => `
             <span class="brand-name">Ali Alfatemi</span>
           </a>
           <p>Machine learning research for resilient networks, trustworthy systems, and multimodal intelligence.</p>
+          <p class="footer-email"><a href="mailto:${site.email}">${site.email}</a></p>
         </div>
         <div>
           <p class="footer-heading">Explore</p>
@@ -801,8 +803,7 @@ const contactContent = () => `
         <span class="section-index">Direct contact</span>
         <h2>Email Ali</h2>
         <p>Use my Fordham email for research and professional inquiries.</p>
-        <button class="button button--primary" type="button" data-reveal-email data-user="aalfatemi" data-domain="fordham.edu" data-output="#email-output">Show email address</button>
-        <div class="email-output" id="email-output" aria-live="polite"></div>
+        <p class="contact-email"><a href="mailto:${site.email}">${site.email}</a></p>
         <ul class="contact-list">
           <li><span>LinkedIn</span><a href="${profileLinks.linkedin}">Open profile ↗</a></li>
           <li><span>GitHub</span><a href="${profileLinks.github}">View repositories ↗</a></li>
