@@ -183,8 +183,7 @@ const head = ({ route, title, description, structuredData, extraHead = '', canon
     <link rel="canonical" href="${canonical}">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="sitemap" href="/sitemap.xml" type="application/xml">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f3">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081215">
+    <meta name="theme-color" content="#eef1ec">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ali Alfatemi — AI Researcher">
     <meta property="og:title" content="${escapeHtml(title)}">
@@ -199,15 +198,6 @@ const head = ({ route, title, description, structuredData, extraHead = '', canon
     <meta name="twitter:description" content="${escapeHtml(description)}">
     <meta name="twitter:image" content="${site.url}${site.image}">
     <meta name="twitter:image:alt" content="Ali Alfatemi — AI researcher in cybersecurity, machine learning, and multimodal intelligence">
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('theme');
-          const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : preferred;
-        } catch { document.documentElement.dataset.theme = 'light'; }
-      })();
-    </script>
     <link rel="stylesheet" href="/css/styles.css">
 ${extraHead ? `    ${extraHead}\n` : ''}
     <script type="application/ld+json">${jsonScript(data)}</script>`;
@@ -229,9 +219,6 @@ const header = (active = '') => `
         <li><a class="nav-contact" href="/contact/" ${active === 'contact' ? 'aria-current="page"' : ''}>Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-glyph" aria-hidden="true">D</span>
-        </button>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-menu" aria-expanded="false" aria-label="Open navigation menu">
           <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>

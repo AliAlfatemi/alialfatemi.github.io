@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(grep -oE \"^[<>] \\\\.[a-zA-Z0-9_:.,\\(\\) -]+\\\\{\")",
-      "Bash(grep -v \"^> $\")"
+      "Bash(grep -v \"^> $\")",
+      "Bash(python3 -c ' *)"
     ]
   }
 }
