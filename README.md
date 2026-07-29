@@ -34,18 +34,18 @@ The site is generated as plain HTML, CSS, and JavaScript so its core content rem
 
 ## Sitemap and information architecture
 
+The site is four content pages. Every fact lives on exactly one page; other pages link to it rather than restate it.
+
 | Route | Purpose |
 | --- | --- |
-| `/` | Identity, research value proposition, evidence rail, selected work, audience pathways, and current milestones |
-| `/research/` | Four connected research themes organized by problem, approach, contribution, and application |
+| `/` | Identity, verified numbers, three selected papers, availability, and contact |
+| `/research/` | The four research themes, each merged with its applied case study (system, methods, evaluation, relevance) |
 | `/publications/` | Complete static publication index with progressive search and filters for year, area, type, and authorship |
-| `/projects/` | Research-to-system stories covering problem, system, methods, evaluation, and relevance |
-| `/academic/` | Current position, teaching record, patent activity, reviewing, and profile links |
-| `/teaching/` | Permanent teaching profile without stale classroom logistics |
-| `/cv/` | Accessible HTML curriculum vitae and downloadable PDF |
-| `/news/` | Selected publication and conference milestones |
-| `/contact/` | Collaboration and role pathways, protected institutional email, and profile links |
+| `/profile/` | The web CV: education, current position, teaching with course numbers and terms, patent, peer-review service, a publication summary linking to `/publications/`, and contact. Replaces the former `/academic/`, `/teaching/`, and `/cv/` pages entirely. There is no downloadable CV PDF — this page is the CV. |
+| `/contact/` | Direct plain-text email and profile links |
 | `/404.html` | Branded recovery page with useful next paths |
+
+`/academic/`, `/teaching/`, `/cv/`, `/projects/`, and `/news/` were previously indexed pages. They now exist only as redirect stubs (`meta http-equiv="refresh"` plus a `rel=canonical` pointing at the new home) so external links and search-engine listings keep resolving. They are not linked from navigation, the footer, or any other page.
 
 ## Design concept
 
@@ -65,10 +65,9 @@ The complete token and component implementation is in `css/styles.css`.
 ## Content model
 
 - `data/publications.json` is the canonical structured publication index.
-- `data/projects.json` contains the project-story model.
+- `data/projects.json` contains the case-study model; each entry is folded into its matching theme on `/research/` rather than living on a standalone page.
 - `data/publications.bib` is generated from the full author strings in the publication index.
-- `scripts/build-site.mjs` contains shared layout and page copy, then generates all checked-in HTML, `robots.txt`, `sitemap.xml`, and BibTeX.
-- `cv/ali-alfatemi-cv.pdf` is the downloadable PDF counterpart to the accessible HTML CV.
+- `scripts/build-site.mjs` contains shared layout and page copy, then generates all checked-in HTML (including the five redirect stubs), `robots.txt`, `sitemap.xml`, and BibTeX.
 
 The publication index contains 26 records. Statuses are limited to `Published` and `Preprint`, and each entry uses a complete author string, canonical source link, and stable slug.
 
@@ -93,7 +92,7 @@ The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `
 - Skip link, semantic navigation, `aria-current`, labelled form controls, live result count, and visible focus styles.
 - Keyboard-operable mobile navigation with Escape handling and focus return.
 - Text-based theme control with an accessible changing label.
-- Email reveal on the contact page and a direct institutional address in the downloadable CV.
+- The institutional email is plain, visible text with a `mailto:` link everywhere it appears (footer, `/contact/`, `/profile/`) — no JavaScript reveal.
 - Critical hero copy rendered without JavaScript.
 - All publications remain visible when JavaScript is disabled.
 - System fonts and no third-party JavaScript or CSS.
@@ -113,7 +112,7 @@ python3 -m http.server 4173
 
 Then open `http://127.0.0.1:4173/`.
 
-`npm run check` verifies page count, unique metadata, canonical URLs, one H1 per page, JSON-LD parsing, internal targets, image dimensions, secure publication links, the 26-record publication data set, the downloadable CV, sitemap, robots, favicon, social image, and BibTeX output. It also rejects internal editorial notices and removed publication data if they reappear in generated public files.
+`npm run check` verifies page count, unique metadata, canonical URLs, one H1 per page, JSON-LD parsing, internal targets, image dimensions, secure publication links, the 26-record publication data set, sitemap, robots, favicon, social image, and BibTeX output. It also confirms each redirect stub carries a working meta-refresh and a canonical pointing at its new home, and rejects internal editorial notices, the JavaScript email reveal, a checked-in CV PDF, and removed publication data if any of them reappear in generated public files.
 
 ## GitHub Pages deployment
 
