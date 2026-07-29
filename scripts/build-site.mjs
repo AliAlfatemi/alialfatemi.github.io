@@ -12,9 +12,68 @@ const profileStats = {
   published: publications.filter((publication) => publication.status === 'Published').length,
   preprints: publications.filter((publication) => publication.status === 'Preprint').length,
   firstAuthor: publications.filter((publication) => publication.firstAuthor).length,
+  coAuthor: publications.filter((publication) => !publication.firstAuthor).length,
   code: publications.filter((publication) => publication.links.code).length,
+  ieeeTransactions: publications.filter((publication) => /^IEEE Transactions/.test(publication.venue)).length,
   yearRange: `${Math.min(...publicationYears)}–${Math.max(...publicationYears)}`
 };
+
+const patentCount = 1;
+
+const researchAreas = [
+  ['network-security', 'Network Security', 'Net. Sec.'],
+  ['trustworthy-ai', 'Trustworthy AI', 'Trust'],
+  ['multimodal-ai', 'Language & Multimodal AI', 'Lang.'],
+  ['computer-vision', 'Computer Vision', 'Vision'],
+  ['applied-ai', 'Applied AI', 'Applied']
+];
+
+const areaCount = (areaName) => publications.filter((publication) => publication.area === areaName).length;
+
+const matrixYears = [...new Set(publicationYears)].sort((a, b) => b - a);
+const publicationMatrix = matrixYears.map((year) => ({
+  year,
+  cells: researchAreas.map(([, area]) => {
+    const items = publications.filter((publication) => publication.year === year && publication.area === area);
+    return {
+      area,
+      first: items.filter((publication) => publication.firstAuthor).length,
+      co: items.filter((publication) => !publication.firstAuthor).length
+    };
+  })
+}));
+
+const matrixCell = (year, cell) => {
+  const marks = [...Array(cell.first).fill('first'), ...Array(cell.co).fill('co')]
+    .map((kind) => `<span class="mark mark--${kind}" aria-hidden="true"></span>`)
+    .join('');
+  const parts = [];
+  if (cell.first) parts.push(`${cell.first} first-author`);
+  if (cell.co) parts.push(`${cell.co} co-author`);
+  const description = parts.length ? parts.join(', ') : 'none';
+  return `<td><span class="matrix-marks">${marks}</span><span class="visually-hidden">${escapeHtml(cell.area)}, ${year}: ${description}</span></td>`;
+};
+
+const matrixTable = () => `
+  <div class="matrix-wrap">
+    <table class="record-matrix">
+      <caption class="visually-hidden">Publication record by year and research area. Filled marks are first-author works; outline marks are co-author works.</caption>
+      <thead>
+        <tr>
+          <th scope="col"><span class="visually-hidden">Year</span></th>
+          ${researchAreas.map(([, area, short]) => `<th scope="col" abbr="${escapeHtml(area)}">${escapeHtml(short)}</th>`).join('')}
+        </tr>
+      </thead>
+      <tbody>
+        ${publicationMatrix.map((row) => `
+        <tr>
+          <th scope="row">${row.year}</th>
+          ${row.cells.map((cell) => matrixCell(row.year, cell)).join('')}
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-legend"><span><span class="mark mark--first" aria-hidden="true"></span> First author</span><span><span class="mark mark--co" aria-hidden="true"></span> Co-author</span></p>`;
 
 const site = {
   url: 'https://alialfatemi.github.io',
@@ -321,6 +380,7 @@ const featuredPaper = (publication) => `
         <span class="status status--${publication.status.toLowerCase()}">${publication.status}</span>
         <span class="tag">${publication.year}</span>
         <span class="tag">${escapeHtml(publication.area)}</span>
+        <span class="tag authorship-tag${publication.firstAuthor ? ' authorship-tag--first' : ''}">${publication.firstAuthor ? 'First author' : 'Co-author'}</span>
       </div>
       <h3>${escapeHtml(publication.title)}</h3>
       <p class="authors">${emphasizeAli(publication.authors)}</p>
@@ -333,58 +393,54 @@ const featuredPaper = (publication) => `
     </figure>
   </article>`;
 
+const themeAreaCount = (...areaNames) => publications.filter((publication) => areaNames.includes(publication.area)).length;
+
+const themeLabel = (...areaNames) => {
+  const items = publications.filter((publication) => areaNames.includes(publication.area));
+  const first = items.filter((publication) => publication.firstAuthor).length;
+  return `${items.length} works · ${first} first-author`;
+};
+
 const homeContent = () => {
   const featured = selectedFeatureIds.map((id) => publications.find((item) => item.id === id));
   return `
   <section class="hero">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
-          <h1>Ali Alfatemi <span class="hero-title">Machine learning for resilient, trustworthy systems.</span></h1>
-          <p class="lead">I develop machine learning for DDoS detection and network defense, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
-          <p class="opportunity-line"><span class="opportunity-dot" aria-hidden="true"></span><span>Open to research collaborations and postdoctoral, faculty, Research Scientist, Applied Scientist, and AI security roles.</span></p>
-          <div class="hero-actions">
-            <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
+        <h1>Ali Alfatemi <span class="hero-title">Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</span></h1>
+        <p class="lead">I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
+        <p class="availability-badge"><span class="opportunity-dot" aria-hidden="true"></span><span><strong>On the 2026–27 academic job market</strong> · available Fall 2027</span></p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <aside class="hero-visual reveal" aria-label="Research profile portrait and working method">
-          <div class="portrait-frame">
-            <img src="/images/ali-960.jpg" width="720" height="960" alt="Ali Alfatemi working at a table with a research paper and laptop" fetchpriority="high" decoding="async">
-            <div class="portrait-label">
-              <strong>Research → systems</strong>
-              <span>New York · Security · Machine intelligence</span>
-            </div>
-          </div>
-          <ol class="signal-strip" aria-label="Research workflow">
-            <li class="signal-step"><span>01</span><strong>Detect</strong></li>
-            <li class="signal-step"><span>02</span><strong>Reason</strong></li>
-            <li class="signal-step"><span>03</span><strong>Deploy</strong></li>
-          </ol>
-        </aside>
       </div>
-      <dl class="evidence-rail reveal" aria-label="Profile highlights">
-        <div class="evidence-item"><dt class="meta-label">Affiliation</dt><dd><strong>Computer Science, Fordham University</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Research record</dt><dd><strong>${profileStats.published} published works · ${profileStats.preprints} preprints</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Lead authorship</dt><dd><strong>${profileStats.firstAuthor} first-author works</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Profile</dt><dd><a href="${profileLinks.scholar}">Google Scholar <span aria-hidden="true">↗</span></a></dd></div>
+      <dl class="evidence-rail reveal" aria-label="Verified record">
+        <div class="evidence-item"><dt class="meta-label">Publications</dt><dd><strong>${profileStats.publications}</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">First-author</dt><dd><strong>${profileStats.firstAuthor}</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">IEEE Transactions</dt><dd><strong>${profileStats.ieeeTransactions}</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">Granted patent</dt><dd><strong>${patentCount}</strong></dd></div>
       </dl>
+      <div class="record-section reveal">
+        <h2 class="record-heading" id="record-heading">The record, ${profileStats.yearRange}</h2>
+        ${matrixTable()}
+      </div>
     </div>
   </section>
 
   <section class="section" aria-labelledby="research-heading">
     <div class="container">
       <div class="section-heading reveal">
-        <div><span class="section-index">Research agenda / 01</span><h2 id="research-heading">Four connected lines of inquiry</h2></div>
+        <div><span class="section-index">Research agenda</span><h2 id="research-heading">Four connected lines of inquiry</h2></div>
         <div><p>The unifying question is practical: how can learning systems remain useful when data, compute, and trust are constrained?</p></div>
       </div>
       <div class="theme-grid">
-        <article class="theme-card reveal"><span class="theme-number">R·01</span><h3>AI for network security</h3><p>Detection and mitigation methods for DDoS attacks across edge, IoT, and computational social systems.</p><a class="text-link" href="/research/#network-security">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·02</span><h3>Trustworthy and data-efficient learning</h3><p>Robust, interpretable, and resource-aware learning, including meta-learning and federated settings.</p><a class="text-link" href="/research/#trustworthy-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·03</span><h3>Multimodal and language intelligence</h3><p>Vision–language integration, explainable grammatical error correction, and LLM-enhanced analysis.</p><a class="text-link" href="/research/#multimodal-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·04</span><h3>Computer vision and applied AI</h3><p>Foreground-centric recognition and learning across healthcare, forecasting, robotics, and visual understanding.</p><a class="text-link" href="/research/#computer-vision">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">${themeAreaCount('Network Security')} works</span><h3>AI for network security</h3><p>Detection and mitigation methods for DDoS attacks across edge, IoT, and computational social systems.</p><a class="text-link" href="/research/#network-security">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">${themeAreaCount('Trustworthy AI')} works</span><h3>Trustworthy and data-efficient learning</h3><p>Robust, interpretable, and resource-aware learning, including meta-learning and federated settings.</p><a class="text-link" href="/research/#trustworthy-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">${themeAreaCount('Language & Multimodal AI')} works</span><h3>Multimodal and language intelligence</h3><p>Vision–language integration, explainable grammatical error correction, and LLM-enhanced analysis.</p><a class="text-link" href="/research/#multimodal-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">${themeAreaCount('Computer Vision', 'Applied AI')} works</span><h3>Computer vision and applied AI</h3><p>Foreground-centric recognition and learning across healthcare, forecasting, robotics, and visual understanding.</p><a class="text-link" href="/research/#computer-vision">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
       </div>
     </div>
   </section>
@@ -392,7 +448,7 @@ const homeContent = () => {
   <section class="section section--surface" aria-labelledby="selected-work-heading">
     <div class="container">
       <div class="section-heading reveal">
-        <div><span class="section-index">Selected work / 02</span><h2 id="selected-work-heading">Representative publications</h2></div>
+        <div><span class="section-index">Selected work</span><h2 id="selected-work-heading">Representative publications</h2></div>
         <div><p>Selected work is presented by research question and contribution. The complete index clearly separates published work from preprints.</p><p><a class="text-link" href="/publications/">Browse all publications <span class="arrow" aria-hidden="true">→</span></a></p></div>
       </div>
 ${featured.map(featuredPaper).join('')}
@@ -449,7 +505,7 @@ const researchContent = () => `
   <section class="section--tight" aria-label="Research themes">
     <div class="container">
       <article class="research-theme" id="network-security">
-        <div><span class="section-index">R·01</span><h2>AI for network security</h2></div>
+        <div><span class="section-index">${themeLabel('Network Security')}</span><h2>AI for network security</h2></div>
         <div>
           <h3>Problem</h3><p>DDoS defense must identify hostile traffic under noisy measurements, shifting attack patterns, and the compute limits of edge and IoT systems.</p>
           <h3>Approach</h3><p>I study shallow and deep neural models, noise-aware learning, meta-learning, multi-model fusion, and LLM-enhanced reasoning for detection and mitigation.</p>
@@ -459,12 +515,12 @@ const researchContent = () => `
         <aside class="research-aside"><h3>Also in this area</h3><ul><li>Data-efficient ProtoMAML and dual-space prototypical detection methods.</li><li>Multi-model fusion for combinatorial DDoS classification.</li></ul><p><a class="text-link" href="/publications/?area=Network+Security">View all security publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="trustworthy-ai">
-        <div><span class="section-index">R·02</span><h2>Trustworthy and data-efficient AI</h2></div>
+        <div><span class="section-index">${themeLabel('Trustworthy AI')}</span><h2>Trustworthy and data-efficient AI</h2></div>
         <div><h3>Problem</h3><p>Accuracy alone is not enough when learning systems face scarce labels, distribution shifts, privacy constraints, or decisions that need explanation.</p><h3>Approach</h3><p>My work considers robustness through controlled noise, few-shot and meta-learning, interpretable analysis, and trustworthy federated learning for distributed settings.</p></div>
         <aside class="research-aside"><h3>Relevant settings</h3><ul><li>Industrial IoT and federated learning.</li><li>Security operations and explainable mitigation.</li><li>Data-constrained model development.</li></ul><p><a class="text-link" href="/publications/?area=Trustworthy+AI">View trustworthy-AI publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="multimodal-ai">
-        <div><span class="section-index">R·03</span><h2>Multimodal and language intelligence</h2></div>
+        <div><span class="section-index">${themeLabel('Language & Multimodal AI')}</span><h2>Multimodal and language intelligence</h2></div>
         <div>
           <h3>Problem</h3><p>Useful intelligent systems must align representations across modalities and produce outputs that remain coherent, grounded, and interpretable.</p>
           <h3>Approach</h3><p>I investigate vision–language encoder–decoder systems, LLM-assisted security analysis, and co-authored explainable grammatical-error-correction methods.</p>
@@ -473,7 +529,7 @@ const researchContent = () => `
         <aside class="research-aside"><h3>Also in this area</h3><ul><li>ViT and GPT-J integration for image captioning.</li><li>On-premise LLM reasoning for real-time DDoS mitigation.</li></ul><p><a class="text-link" href="/publications/?area=Language+%26+Multimodal+AI">View language and multimodal work <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="computer-vision">
-        <div><span class="section-index">R·04</span><h2>Computer vision and applied AI</h2></div>
+        <div><span class="section-index">${themeLabel('Computer Vision', 'Applied AI')}</span><h2>Computer vision and applied AI</h2></div>
         <div>
           <h3>Problem</h3><p>Visual classifiers often struggle when categories differ by subtle features or when background context changes between training and use.</p>
           <h3>Approach</h3><p>I study foreground-centric representation, fine-grained recognition, and data augmentation, while applying machine learning in healthcare, forecasting, and robotics collaborations.</p>
@@ -514,7 +570,7 @@ const publicationRow = (publication) => {
       <div class="publication-side">
         <span class="status status--${publication.status.toLowerCase()}">${publication.status}</span>
         <span class="tag">${escapeHtml(publication.type)}</span>
-        <span class="publication-authorship">${publication.firstAuthor ? 'First author' : 'Co-author'}</span>
+        <span class="publication-authorship${publication.firstAuthor ? ' publication-authorship--first' : ''}">${publication.firstAuthor ? 'First author' : 'Co-author'}</span>
       </div>
     </li>`;
 };
