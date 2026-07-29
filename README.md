@@ -68,7 +68,8 @@ The complete token and component implementation is in `css/styles.css`.
 
 - `data/publications.json` is the canonical structured publication index.
 - `data/projects.json` contains the project-story model.
-- `data/publications.bib` is generated for entries with complete author strings.
+- `data/publications.bib` is generated from the verified full author strings in the publication index.
+- `docs/publication-audit-2026-07-29.md` records the title-by-title Scholar and publisher reconciliation completed for the production audit.
 - `scripts/build-site.mjs` contains shared layout and page copy, then generates all checked-in HTML, `robots.txt`, `sitemap.xml`, and BibTeX.
 
 Publication statuses are intentionally limited to `Published` and `Preprint` until a supplied CV or publisher record supports more specific states. Several legacy records still contain abbreviated author strings; the public index flags this limitation instead of fabricating author order.
@@ -85,7 +86,7 @@ Every indexable page includes:
 - Semantic landmarks and one H1.
 - JSON-LD breadcrumbs.
 
-The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `CollegeOrUniversity` graph. The publications page adds `ScholarlyArticle` entities only for records with complete author strings. Verified profile URLs are connected through `sameAs`; ORCID is intentionally omitted until ownership is confirmed.
+The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `CollegeOrUniversity` graph. The publications page adds a `ScholarlyArticle` entity for every published paper and preprint, with full authorship, status, venue, canonical record, and DOI metadata where available. Verified profile URLs are connected through `sameAs`; ORCID is intentionally omitted until ownership is confirmed.
 
 `robots.txt`, `sitemap.xml`, `.nojekyll`, and a custom 404 are generated automatically. A comment in the shared head marks where to add the Google Search Console verification meta tag.
 

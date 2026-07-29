@@ -68,7 +68,7 @@ const personEntity = {
     name: 'Fordham University',
     url: 'https://www.fordham.edu/'
   },
-  sameAs: [profileLinks.scholar, profileLinks.github, profileLinks.linkedin, profileLinks.fordham],
+  sameAs: [profileLinks.scholar, profileLinks.github, profileLinks.linkedin],
   knowsAbout: [
     'AI for network security',
     'DDoS detection and mitigation',
@@ -116,12 +116,11 @@ const breadcrumbData = (route, label) => ({
   ]
 });
 
-const scholarlyGraph = publications
-  .filter((publication) => publication.featured
-    && publication.status === 'Published'
-    && !publication.authors.includes('et al.')
-    && !publication.authors.includes('...'))
-  .map((publication) => ({
+const scholarlyGraph = publications.map((publication) => {
+  const canonicalRecord = publication.links.doi || publication.links.paper;
+  const doi = publication.links.doi?.replace('https://doi.org/', '');
+
+  return {
     '@type': 'ScholarlyArticle',
     '@id': `${site.url}/publications/#${publication.id}`,
     headline: publication.title,
@@ -130,11 +129,17 @@ const scholarlyGraph = publications
       ...(name === 'Ali Alfatemi' ? { '@id': `${site.url}/#person`, name } : { name })
     })),
     datePublished: String(publication.year),
-    isPartOf: { '@type': 'Periodical', name: publication.venue },
+    isPartOf: {
+      '@type': publication.type === 'Journal article' ? 'Periodical' : 'CreativeWork',
+      name: publication.venue
+    },
     about: publication.area,
-    ...(publication.links.doi ? { sameAs: publication.links.doi } : {}),
+    creativeWorkStatus: publication.status,
+    ...(doi ? { identifier: { '@type': 'PropertyValue', propertyID: 'DOI', value: doi } } : {}),
+    ...(canonicalRecord ? { sameAs: canonicalRecord } : {}),
     ...(publication.image ? { image: `${site.url}/${publication.image}` } : {})
-  }));
+  };
+});
 
 const head = ({ route, title, description, structuredData, extraHead = '' }) => {
   const canonical = absoluteUrl(route);
@@ -418,9 +423,9 @@ ${featured.map(featuredPaper).join('')}
         <p><a class="text-link" href="/news/">View all verified updates <span class="arrow" aria-hidden="true">→</span></a></p>
       </div>
       <ol class="news-list reveal">
+        <li class="news-item"><time datetime="2026-07-10">Jul 2026</time><a href="https://doi.org/10.1109/TNSM.2026.3710874">ShallowNet published in IEEE Transactions on Network and Service Management</a><span class="tag">Security</span></li>
+        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1016/j.bspc.2026.110397">MS-GBANet version of record available in Biomedical Signal Processing and Control</a><span class="tag">Vision</span></li>
         <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1109/TII.2026.3658027">Resource-efficient blockchain article published in IEEE Transactions on Industrial Informatics</a><span class="tag">Journal</span></li>
-        <li class="news-item"><time datetime="2026-04">Apr 2026</time><a href="https://doi.org/10.1007/978-3-032-18474-0_8">Vision–language image-captioning chapter published in LNCS</a><span class="tag">AIPR</span></li>
-        <li class="news-item"><time datetime="2026-01">Jan 2026</time><a href="https://doi.org/10.1007/s44443-025-00354-2">MTAGEC version of record published</a><span class="tag">NLP</span></li>
       </ol>
     </div>
   </section>`;
@@ -492,7 +497,7 @@ const publicationRow = (publication) => {
             const labels = { paper: 'Read paper', doi: 'DOI record', code: 'Source code', program: 'Conference program' };
             return `<a href="${escapeHtml(href)}">${labels[kind] || escapeHtml(kind)} <span aria-hidden="true">↗</span></a>`;
           }).join('')}
-          <button class="citation-toggle" type="button" data-copy-citation="#${citationId}">Copy citation</button>
+          <button class="citation-toggle" type="button" data-copy-citation="#${citationId}" aria-label="Copy citation for ${escapeHtml(publication.title)}">Copy citation</button>
         </div>
         <div class="citation-details" id="${citationId}" tabindex="-1">${escapeHtml(publicationCitation(publication))}</div>
       </article>
@@ -684,6 +689,8 @@ const newsContent = () => `
   <section class="section--tight">
     <div class="container">
       <ol class="news-list">
+        <li class="news-item"><time datetime="2026-07-10">Jul 2026</time><a href="https://doi.org/10.1109/TNSM.2026.3710874">ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection published in IEEE Transactions on Network and Service Management</a><span class="tag">Publication</span></li>
+        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1016/j.bspc.2026.110397">MS-GBANet: Multiscale graph convolution with boundary attention for medical image segmentation version of record available in Biomedical Signal Processing and Control</a><span class="tag">Publication</span></li>
         <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1109/TII.2026.3658027">A Resource-Efficient Blockchain With Delegated Fault-Tolerance for Manufacturing Nodes published in IEEE Transactions on Industrial Informatics</a><span class="tag">Publication</span></li>
         <li class="news-item"><time datetime="2026-04">Apr 2026</time><a href="https://doi.org/10.1007/978-3-032-18474-0_8">Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J published in LNCS</a><span class="tag">Publication</span></li>
         <li class="news-item"><time datetime="2026-01">Jan 2026</time><a href="https://doi.org/10.1007/s44443-025-00354-2">MTAGEC version of record published in Journal of King Saud University Computer and Information Sciences</a><span class="tag">Publication</span></li>
