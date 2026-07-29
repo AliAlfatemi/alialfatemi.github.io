@@ -664,20 +664,20 @@ const errorContent = () => `
     </div>
   </section>`;
 
-const redirectPage = ({ route, output, targetRoute, targetLabel }) => ({
+const redirectPage = ({ route, output, fromLabel, targetRoute, targetLabel }) => ({
   route,
   output,
-  title: `This Page Has Moved | Ali Alfatemi`,
-  description: `This page has moved to ${absoluteUrl(targetRoute)}.`,
+  title: `${fromLabel} Has Moved | Ali Alfatemi`,
+  description: `${fromLabel} has moved to ${absoluteUrl(targetRoute)}.`,
   active: '',
   canonicalOverride: absoluteUrl(targetRoute),
   extraHead: `<meta http-equiv="refresh" content="0; url=${targetRoute}">`,
-  structuredData: breadcrumbData(route, `${targetLabel} (moved)`),
+  structuredData: breadcrumbData(route, `${fromLabel} (moved)`),
   content: `
   <section class="section redirect-page">
     <div class="narrow">
       <p class="eyebrow">Page moved</p>
-      <h1>This content now lives at ${escapeHtml(targetLabel)}.</h1>
+      <h1>${escapeHtml(fromLabel)} now lives at ${escapeHtml(targetLabel)}.</h1>
       <p class="lead">You should be redirected automatically. If nothing happens, continue below.</p>
       <div class="button-row"><a class="button button--primary" href="${targetRoute}">Go to ${escapeHtml(targetLabel)} <span class="arrow" aria-hidden="true">→</span></a></div>
     </div>
@@ -747,11 +747,11 @@ const pages = [
     noFooter: true,
     extraHead: ''
   },
-  redirectPage({ route: '/academic/', output: 'academic/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
-  redirectPage({ route: '/teaching/', output: 'teaching/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
-  redirectPage({ route: '/cv/', output: 'cv/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
-  redirectPage({ route: '/projects/', output: 'projects/index.html', targetRoute: '/research/', targetLabel: 'Research' }),
-  redirectPage({ route: '/news/', output: 'news/index.html', targetRoute: '/publications/', targetLabel: 'Publications' })
+  redirectPage({ route: '/academic/', output: 'academic/index.html', fromLabel: 'Academic Profile', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/teaching/', output: 'teaching/index.html', fromLabel: 'Teaching', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/cv/', output: 'cv/index.html', fromLabel: 'Curriculum Vitae', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/projects/', output: 'projects/index.html', fromLabel: 'Selected Projects', targetRoute: '/research/', targetLabel: 'Research' }),
+  redirectPage({ route: '/news/', output: 'news/index.html', fromLabel: 'News', targetRoute: '/publications/', targetLabel: 'Publications' })
 ];
 
 for (const page of pages) {
