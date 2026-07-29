@@ -505,8 +505,7 @@ h3 {
 
 .hero-actions,
 .button-row,
-.card-actions,
-.social-links {
+.card-actions {
   display: flex;
   margin-top: 1.6rem;
   flex-wrap: wrap;
@@ -825,8 +824,7 @@ h3 {
   object-fit: contain;
 }
 
-.paper-meta,
-.tag-row {
+.paper-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1217,7 +1215,6 @@ h3 {
   text-align: center;
 }
 
-.projects-section,
 .cv-document {
   padding-block: clamp(2.75rem, 4.5vw, 4.25rem);
 }
@@ -1247,11 +1244,6 @@ h3 {
 .project-facts dd {
   color: var(--ink-soft);
   font-size: 0.9rem;
-}
-
-.project-copy .card-actions {
-  margin-top: auto;
-  padding-top: 1.15rem;
 }
 
 .contact-grid {
@@ -1353,8 +1345,7 @@ h3 {
   font-size: 1.03rem;
 }
 
-.cv-section h2,
-.cv-section-title {
+.cv-section h2 {
   margin-bottom: 1rem;
   color: var(--primary-strong);
   font-family: var(--font-mono);
@@ -1363,11 +1354,6 @@ h3 {
   letter-spacing: 0.09em;
   line-height: 1.4;
   text-transform: uppercase;
-}
-
-.cv-sidebar .cv-section + .cv-section {
-  margin-top: 1.65rem;
-  padding-top: 1.5rem;
 }
 
 .cv-record {
@@ -1383,8 +1369,7 @@ h3 {
   border-bottom: 1px solid var(--line);
 }
 
-.cv-record time,
-.cv-publication-year {
+.cv-record time {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.69rem;
@@ -1690,7 +1675,6 @@ h3 {
 
   .section-heading,
   .page-hero-grid,
-  .split-layout,
   .contact-grid {
     grid-template-columns: 1fr;
   }
@@ -1792,8 +1776,7 @@ h3 {
 
   .evidence-rail,
   .theme-grid,
-  .research-flow,
-  .footer-grid {
+  .research-flow {
     grid-template-columns: 1fr;
   }
 
@@ -1868,8 +1851,7 @@ h3 {
     padding: 1.35rem;
   }
 
-  .cv-record,
-  .cv-publication-list li {
+  .cv-record {
     grid-template-columns: 1fr;
     gap: 0.3rem;
   }
@@ -1878,11 +1860,6 @@ h3 {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.35rem;
-  }
-
-  .cv-actions .button,
-  .cv-toolbar .button {
-    flex: 1 1 12rem;
   }
 
   .footer-bottom {
@@ -1944,8 +1921,6 @@ h3 {
   .page-hero,
   .hero-actions,
   .button-row,
-  .cv-actions,
-  .cv-toolbar,
   [data-print-hide] {
     display: none !important;
   }
@@ -2064,23 +2039,13 @@ h3 {
     font-size: 7.2pt;
   }
 
-  .cv-sidebar .cv-section + .cv-section {
-    margin-top: 3.5mm;
-    padding-top: 3mm;
-  }
-
-  .cv-section h2,
-  .cv-section-title {
+  .cv-section h2 {
     margin-bottom: 2.5mm;
-    color: #004f55;
+    color: var(--primary-strong);
     font-size: 8pt;
   }
 
-  .cv-section,
-  .cv-entry,
-  .cv-publication-list li,
-  .timeline-item,
-  .course-card {
+  .cv-section {
     break-inside: avoid;
   }
 }
