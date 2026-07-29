@@ -1,172 +1,179 @@
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+(() => {
+  const root = document.documentElement;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* =========================
-     0) Helpers
-  ==========================*/
-  const prefersDark = () =>
-    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const setTheme = (theme, persist = true) => {
+    root.dataset.theme = theme;
+    if (persist) localStorage.setItem('theme', theme);
+    document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+      const next = theme === 'dark' ? 'light' : 'dark';
+      const glyph = button.querySelector('.theme-glyph');
+      if (glyph) glyph.textContent = theme === 'dark' ? 'L' : 'D';
+      button.setAttribute('aria-label', `Switch to ${next} theme`);
+      button.setAttribute('title', `Switch to ${next} theme`);
+    });
+  };
 
-  const reducedMotion = () =>
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
+  });
+  setTheme(root.dataset.theme || 'light', false);
 
-  /* =========================
-     1) Mobile Menu Toggle + A11y
-  ==========================*/
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks  = document.getElementById('navLinks');
+  const navButton = document.querySelector('[data-nav-toggle]');
+  const navMenu = document.querySelector('[data-nav-menu]');
 
   const closeMenu = () => {
-    if (!navLinks) return;
-    navLinks.classList.remove('active');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    if (!navButton || !navMenu) return;
+    navButton.setAttribute('aria-expanded', 'false');
+    navButton.setAttribute('aria-label', 'Open navigation menu');
+    navMenu.dataset.open = 'false';
   };
 
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const isExpanded = navLinks.classList.contains('active');
-      navToggle.setAttribute('aria-expanded', String(isExpanded));
+  if (navButton && navMenu) {
+    navButton.addEventListener('click', () => {
+      const open = navButton.getAttribute('aria-expanded') !== 'true';
+      navButton.setAttribute('aria-expanded', String(open));
+      navButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      navMenu.dataset.open = String(open);
     });
 
-    // Close on link click (single-page nav UX)
-    navLinks.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if (a) closeMenu();
+    navMenu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) closeMenu();
     });
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!navLinks.classList.contains('active')) return;
-      const clickedInsideMenu = e.target.closest('#navLinks, #nav-toggle');
-      if (!clickedInsideMenu) closeMenu();
+    document.addEventListener('click', (event) => {
+      if (navMenu.dataset.open !== 'true') return;
+      if (!event.target.closest('[data-site-nav]')) closeMenu();
     });
 
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navMenu.dataset.open === 'true') {
+        closeMenu();
+        navButton.focus();
+      }
     });
   }
 
-  /* =========================
-     2) Theme Toggle (system-aware, persisted)
-  ==========================*/
-  const themeToggle = document.getElementById('theme-toggle');
-  const moonIcon = 'fa-moon';
-  const sunIcon  = 'fa-sun';
+  document.querySelectorAll('[data-current-year]').forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
+  });
 
-  const getTheme = () => {
-    // If saved, use it; otherwise follow system preference
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') return saved;
-    return prefersDark() ? 'dark' : 'light';
-  };
-
-  const applyTheme = (theme) => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    if (themeToggle) {
-      const iconClass = theme === 'dark' ? sunIcon : moonIcon;
-      const i = themeToggle.querySelector('i');
-      if (i) i.className = `fas ${iconClass}`;
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-      themeToggle.title = themeToggle.getAttribute('aria-label');
-    }
-  };
-
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const newTheme = getTheme() === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
-  }
-  // Initialize theme and watch for system change (if user hasn't explicitly chosen)
-  let userSet = !!localStorage.getItem('theme');
-  applyTheme(getTheme());
-  if (!userSet && window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
-    });
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    root.classList.add('motion-ready');
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        currentObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
   }
 
-  /* =========================
-     3) Smooth Scroll for in-page anchors
-  ==========================*/
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('a[href^="#"]:not([href="#"])');
-    if (!link) return;
-    const id = link.getAttribute('href').slice(1);
-    const target = document.getElementById(id);
-    if (!target) return;
+  const publicationList = document.querySelector('[data-publication-list]');
+  if (publicationList) {
+    const rows = Array.from(publicationList.querySelectorAll('[data-publication]'));
+    const search = document.querySelector('#publication-search');
+    const year = document.querySelector('#publication-year');
+    const area = document.querySelector('#publication-area');
+    const type = document.querySelector('#publication-type');
+    const author = document.querySelector('#publication-author');
+    const reset = document.querySelector('[data-filter-reset]');
+    const count = document.querySelector('[data-result-count]');
+    const empty = document.querySelector('[data-empty-state]');
+    const controls = [search, year, area, type, author].filter(Boolean);
 
-    e.preventDefault();
-    const behavior = reducedMotion() ? 'auto' : 'smooth';
-    target.scrollIntoView({ behavior, block: 'start' });
-    history.pushState(null, '', `#${id}`);
+    const normalize = (value) => value.trim().toLocaleLowerCase();
+
+    const applyFilters = (updateUrl = true) => {
+      const query = normalize(search?.value || '');
+      const selectedYear = year?.value || '';
+      const selectedArea = area?.value || '';
+      const selectedType = type?.value || '';
+      const selectedAuthor = author?.value || '';
+      let visible = 0;
+
+      rows.forEach((row) => {
+        const haystack = normalize(row.dataset.search || row.textContent || '');
+        const matches = (!query || haystack.includes(query))
+          && (!selectedYear || row.dataset.year === selectedYear)
+          && (!selectedArea || row.dataset.area === selectedArea)
+          && (!selectedType || row.dataset.type === selectedType)
+          && (!selectedAuthor || row.dataset.author === selectedAuthor);
+        row.hidden = !matches;
+        if (matches) visible += 1;
+      });
+
+      if (count) count.textContent = `${visible} publication${visible === 1 ? '' : 's'}`;
+      if (empty) empty.hidden = visible !== 0;
+
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        const values = { q: search?.value.trim(), year: selectedYear, area: selectedArea, type: selectedType, author: selectedAuthor };
+        Object.entries(values).forEach(([key, value]) => {
+          if (value) url.searchParams.set(key, value);
+          else url.searchParams.delete(key);
+        });
+        history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+      }
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    if (search) search.value = params.get('q') || '';
+    if (year) year.value = params.get('year') || '';
+    if (area) area.value = params.get('area') || '';
+    if (type) type.value = params.get('type') || '';
+    if (author) author.value = params.get('author') || '';
+
+    controls.forEach((control) => {
+      control.addEventListener(control === search ? 'input' : 'change', () => applyFilters());
+    });
+
+    reset?.addEventListener('click', () => {
+      controls.forEach((control) => { control.value = ''; });
+      applyFilters();
+      search?.focus();
+    });
+
+    applyFilters(false);
+  }
+
+  document.querySelectorAll('[data-reveal-email]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const user = button.dataset.user;
+      const domain = button.dataset.domain;
+      const output = document.querySelector(button.dataset.output || '');
+      if (!user || !domain || !output) return;
+      const address = `${user}@${domain}`;
+      const link = document.createElement('a');
+      link.href = `mailto:${address}`;
+      link.textContent = address;
+      link.setAttribute('aria-label', `Email Ali Alfatemi at ${address}`);
+      output.replaceChildren(link);
+      button.textContent = 'Email address shown';
+      button.disabled = true;
+      link.focus();
+    });
   });
 
-  /* =========================
-     4) Publication Figure Lightbox (no deps)
-        - Works on any <img data-lightbox data-caption="...">
-  ==========================*/
-  // Make images focusable & announceable
-  document.querySelectorAll('img[data-lightbox]').forEach(img => {
-    img.setAttribute('tabindex', '0');
-    img.setAttribute('role', 'button');
-    if (!img.getAttribute('aria-label')) {
-      img.setAttribute('aria-label', 'Expand image');
-    }
+  document.querySelectorAll('[data-copy-citation]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const target = document.querySelector(button.dataset.copyCitation || '');
+      if (!target) return;
+      try {
+        await navigator.clipboard.writeText(target.textContent.trim());
+        const original = button.textContent;
+        button.textContent = 'Copied';
+        window.setTimeout(() => { button.textContent = original; }, 1600);
+      } catch {
+        target.focus();
+      }
+    });
   });
 
-  // Build overlay once
-  const overlay = document.createElement('div');
-  overlay.className = 'lb';
-  overlay.setAttribute('aria-hidden', 'true');
-  overlay.innerHTML = `
-    <div class="lb-content" role="dialog" aria-modal="true">
-      <button class="lb-close" aria-label="Close (Esc)"><i class="fas fa-times"></i></button>
-      <img alt="">
-      <div class="lb-caption"></div>
-    </div>`;
-  document.body.appendChild(overlay);
-
-  const lbImg   = overlay.querySelector('img');
-  const lbCap   = overlay.querySelector('.lb-caption');
-  const lbClose = overlay.querySelector('.lb-close');
-
-  const openLB = (src, cap) => {
-    lbImg.src = src; lbCap.textContent = cap || '';
-    overlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    lbClose.focus();
-  };
-  const closeLB = () => {
-    overlay.setAttribute('aria-hidden', 'true');
-    lbImg.src = ''; lbCap.textContent = '';
-    document.body.style.overflow = '';
-  };
-
-  // Open on click or Enter
-  document.addEventListener('click', (e) => {
-    const t = e.target.closest('img[data-lightbox]');
-    if (t) openLB(t.src, t.dataset.caption);
-    if (e.target === overlay) closeLB();
+  document.querySelectorAll('[data-print-page]').forEach((button) => {
+    button.addEventListener('click', () => window.print());
   });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLB();
-    const t = document.activeElement;
-    if ((e.key === 'Enter' || e.key === ' ') && t && t.matches('img[data-lightbox]')) {
-      e.preventDefault();
-      openLB(t.src, t.dataset.caption);
-    }
-  });
-  lbClose.addEventListener('click', closeLB);
-
-  /* =========================
-     5) Footer Year
-  ==========================*/
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-});
-</script>
+})();

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "edge-ddos-defense",
+    "title": "Noise-Tolerant DDoS Detection for Edge Networks",
+    "area": "AI for Network Security",
+    "problem": "Edge-network defenders need to distinguish hostile traffic under noisy observations and constrained compute budgets.",
+    "system": "A first-author study of noise-tolerant shallow neural networks for DDoS detection in computational social and edge-network settings.",
+    "methods": ["Shallow neural networks", "Noise-aware training", "Network-traffic classification"],
+    "evaluation": "Comparative experimental evaluation is documented in the peer-reviewed IEEE article; this profile does not reproduce unverified headline metrics.",
+    "relevance": "Resource-aware network monitoring, IoT defense, and security systems that must remain useful when data quality shifts.",
+    "image": "/images/ddos-paper-diagram-thumb.jpg",
+    "imageAlt": "Compact diagram of a DDoS traffic and defense workflow",
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/11230065",
+      "doi": "https://doi.org/10.1109/TCSS.2025.3620674"
+    }
+  },
+  {
+    "id": "llm-enhanced-ddos",
+    "title": "Two-Stage LLM-Enhanced DDoS Detection",
+    "area": "LLMs + Network Defense",
+    "problem": "Next-generation IoT and edge environments need detection pipelines that combine efficient traffic analysis with interpretable, context-aware reasoning.",
+    "system": "A first-author, two-stage framework presented at IEEE GLOBECOM 2025 that connects DDoS detection with an LLM-enhanced analysis stage.",
+    "methods": ["Two-stage inference", "Large language models", "IoT and edge security"],
+    "evaluation": "The conference paper reports the experimental protocol and results; this site links to the DOI record without restating unverified figures.",
+    "relevance": "Security operations, explainable alert triage, and on-premise or resource-conscious network defense workflows.",
+    "image": "/images/globecom-llm-ddos-framework.svg",
+    "imageAlt": "Conceptual overview of a two-stage LLM-enhanced DDoS detection workflow",
+    "imageNote": "Website-created conceptual overview; verify against the final paper before reuse as a publication figure.",
+    "links": {
+      "doi": "https://doi.org/10.1109/GLOBECOM59602.2025.11431718"
+    }
+  },
+  {
+    "id": "foreground-centric-recognition",
+    "title": "Foreground-Centric Fine-Grained Recognition",
+    "area": "Computer Vision",
+    "problem": "Fine-grained visual classifiers can learn background shortcuts instead of the subtle subject features that distinguish similar categories.",
+    "system": "A first-author pipeline that centers detected foreground subjects before classification to study robustness in fine-grained bird recognition.",
+    "methods": ["Instance segmentation", "Foreground standardization", "Fine-grained classification"],
+    "evaluation": "The peer-reviewed Signal, Image and Video Processing article compares the foreground-centric approach within a controlled recognition pipeline.",
+    "relevance": "Visual inspection, biodiversity monitoring, and recognition systems operating across changing environments.",
+    "image": "/images/pipeline-1400.jpg",
+    "imageAlt": "Foreground-centric learning pipeline from source images through subject crops and classification",
+    "links": {
+      "paper": "https://doi.org/10.1007/s11760-025-04758-5",
+      "code": "https://github.com/AliAlfatemi/warbler_yolo"
+    }
+  },
+  {
+    "id": "vision-language-captioning",
+    "title": "Vision–Language Image Captioning with ViT and GPT-J",
+    "area": "Multimodal AI",
+    "problem": "Image captioning requires a model to align visual representations with coherent language while retaining relevant scene context.",
+    "system": "A first-author vision encoder–language decoder study integrating a Vision Transformer with GPT-J for image caption generation.",
+    "methods": ["Vision Transformers", "GPT-J", "Encoder–decoder learning", "Image captioning"],
+    "evaluation": "The published AIPR chapter describes training and evaluation on image-caption data using established language-generation measures.",
+    "relevance": "Accessible visual interfaces, media understanding, and multimodal information systems.",
+    "image": "/images/aipr-captioning-pipeline.svg",
+    "imageAlt": "Conceptual image-captioning pipeline connecting a vision encoder to a language decoder",
+    "imageNote": "Website-created conceptual overview; verify against the final paper before reuse as a publication figure.",
+    "links": {
+      "paper": "https://doi.org/10.1007/978-3-032-18474-0_8"
+    }
+  }
+]

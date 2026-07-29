@@ -1,0 +1,13 @@
+{
+  "name": "ali-alfatemi-research-profile",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Static academic and industry research profile for Ali Alfatemi",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "check": "node scripts/validate-site.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

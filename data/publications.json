@@ -1,0 +1,438 @@
+[
+  {
+    "id": "lowcapchain-resource-efficient-blockchain",
+    "title": "A Resource-Efficient Blockchain With Delegated Fault-Tolerance for Manufacturing Nodes",
+    "authors": "Mohammad Iqbal Saryuddin Assaqty, Ying Gao, Ali Alfatemi, et al.",
+    "year": 2026,
+    "venue": "IEEE Transactions on Industrial Informatics",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Trustworthy AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "doi": "https://doi.org/10.1109/TII.2026.3658027"
+    },
+    "note": "Volume 22, Issue 5, pp. 4340–4349."
+  },
+  {
+    "id": "enhancing-ddos-detection-edge-networks",
+    "title": "Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems",
+    "authors": "Ali Alfatemi, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Mohammed Aledhari, Gwanggil Jeon",
+    "year": 2025,
+    "venue": "IEEE Transactions on Computational Social Systems",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": true,
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/11230065",
+      "doi": "https://doi.org/10.1109/TCSS.2025.3620674"
+    },
+    "image": "images/ddos-paper-diagram-thumb.jpg",
+    "imageAlt": "Compact diagram of a DDoS traffic and defense workflow",
+    "note": "Early Access."
+  },
+  {
+    "id": "foreground-centric-fine-grained-recognition",
+    "title": "Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition",
+    "authors": "Ali Alfatemi, Mohamed Rahouti, Majjed Al-Qatf, Senthil Kumar Jagatheesaperumal",
+    "year": 2025,
+    "venue": "Signal, Image and Video Processing",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Computer Vision",
+    "firstAuthor": true,
+    "featured": true,
+    "links": {
+      "paper": "https://doi.org/10.1007/s11760-025-04758-5",
+      "code": "https://github.com/AliAlfatemi/warbler_yolo"
+    },
+    "image": "images/pipeline-1400.jpg",
+    "imageAlt": "Foreground-centric learning pipeline diagram",
+    "note": "Volume 19, Article 1178."
+  },
+  {
+    "id": "patient-subgrouping-grassmann-manifold",
+    "title": "Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold",
+    "authors": "Ali Alfatemi, Hong Peng, Wentao Rong, Bin Zhang, Hongmin Cai",
+    "year": 2022,
+    "venue": "BMC Medical Informatics and Decision Making",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Applied AI",
+    "firstAuthor": true,
+    "featured": true,
+    "links": {
+      "paper": "https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-022-01938-y",
+      "code": "https://github.com/AliAlfatemi/PCAG"
+    },
+    "image": "images/grassmaan.png",
+    "imageAlt": "Grassmann Manifold Framework",
+    "note": "22(1), 190."
+  },
+  {
+    "id": "mtagec-arabic-grammatical-error-correction",
+    "title": "MTAGEC: Multi-Task Arabic Grammatical Error Correction as a Sequence Generation with Synthetic Data",
+    "authors": "Zeinab Mahmoud, Marco Zappatore, Natalia Kryvinska, Mohammed Abdalsalam, Ali Alfatemi, Aiman Solyman",
+    "year": 2026,
+    "venue": "Journal of King Saud University Computer and Information Sciences",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Language & Multimodal AI",
+    "firstAuthor": false,
+    "featured": true,
+    "links": {
+      "paper": "https://doi.org/10.1007/s44443-025-00354-2",
+      "code": "https://github.com/Zainabobied/MTAGEC"
+    },
+    "image": "images/mtagec-architecture.jpg",
+    "imageAlt": "MTAGEC unified softmax architecture figure",
+    "note": "Volume 38, Article 35."
+  },
+  {
+    "id": "vision-language-image-captioning-vit-gpt-j",
+    "title": "Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J",
+    "authors": "Ali Alfatemi, Mohamed Rahouti, Mohammed Aledhari, Nasir Ghani, Abdellah Chehri, Gwanggil Jeon",
+    "year": 2026,
+    "venue": "Applied Imagery Pattern Recognition (AIPR 2025)",
+    "type": "Book chapter",
+    "status": "Published",
+    "area": "Language & Multimodal AI",
+    "firstAuthor": true,
+    "featured": true,
+    "links": {
+      "paper": "https://doi.org/10.1007/978-3-032-18474-0_8"
+    },
+    "image": "images/VisionTGPTJ.png",
+    "imageAlt": "Vision-Language Integration for Image Captioning using Vision Transformers and GPT-J figure",
+    "note": "LNCS 16446, pp. 101-114."
+  },
+  {
+    "id": "two-stage-llm-ddos-iot-edge",
+    "title": "A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks",
+    "authors": "Ali Alfatemi, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Aiman Solyman",
+    "year": 2025,
+    "venue": "IEEE GLOBECOM 2025",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": true,
+    "links": {
+      "doi": "https://doi.org/10.1109/GLOBECOM59602.2025.11431718"
+    },
+    "image": "images/twostege.png",
+    "imageAlt": "Two-stage LLM-enhanced DDoS detection framework figure",
+    "note": "CISS Symposium."
+  },
+  {
+    "id": "cryptocurrency-price-forecasting-xgboost",
+    "title": "Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators",
+    "authors": "Abdelatif Hafid, Maad Ebrahim, Ali Alfatemi, Mohamed Rahouti, Diogo Oliveira",
+    "year": 2024,
+    "venue": "arXiv",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Applied AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://arxiv.org/abs/2407.11786",
+      "doi": "https://doi.org/10.48550/arXiv.2407.11786"
+    },
+    "image": "images/crypto-xgboost-prediction.png",
+    "imageAlt": "Prediction vs actual plot for cryptocurrency price forecasting",
+    "note": "arXiv:2407.11786."
+  },
+  {
+    "id": "protomaml-ddos-detection",
+    "title": "ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2025,
+    "venue": "IWCMC",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/abstract/document/11059701"
+    },
+    "image": "images/ddos_abstract.png",
+    "imageAlt": "ProtoMAML"
+  },
+  {
+    "id": "multi-model-deep-learning-ddos-fusion",
+    "title": "Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2025,
+    "venue": "Journal of Network and Systems Management",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://doi.org/10.1007/s10922-024-09882-0"
+    },
+    "image": "images/mulitmodel.png",
+    "imageAlt": "DDoS Fusion"
+  },
+  {
+    "id": "precision-ddos-gaussian-noise",
+    "title": "Precision DDoS Detection Through Gaussian Noise-Augmented Neural Networks",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "NoF",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10741358"
+    },
+    "image": "images/ddos_abstract.png",
+    "imageAlt": "Precision DDoS"
+  },
+  {
+    "id": "deep-residual-neural-networks-ddos",
+    "title": "Advancing DDoS Attack Detection: A Synergistic Approach Using Deep Residual Neural Networks",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "arXiv",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Network Security",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://arxiv.org/abs/2401.03116"
+    },
+    "image": "images/ddos_abstract.png",
+    "imageAlt": "Advancing DDoS"
+  },
+  {
+    "id": "multi-label-bird-species-classification",
+    "title": "Multi-Label Classification with Deep Learning and Manual Data Collection for Identifying Similar Bird Species",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "Procedia Computer Science",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Computer Vision",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://doi.org/10.1016/j.procs.2024.09.461"
+    },
+    "image": "images/vision_abstract.png",
+    "imageAlt": "Bird Species"
+  },
+  {
+    "id": "bird-species-gan-data-augmentation",
+    "title": "Refining Bird Species Identification Through GAN-Enhanced Data Augmentation",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "Procedia Computer Science",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Computer Vision",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://doi.org/10.1016/j.procs.2024.09.460"
+    },
+    "image": "images/vision_abstract.png",
+    "imageAlt": "GAN Augmentation"
+  },
+  {
+    "id": "ncaa-march-madness-forecasting",
+    "title": "Advancing NCAA March Madness Forecasts Through Deep Learning and Combinatorial Fusion Analysis",
+    "authors": "Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "Intelligent Systems Conference",
+    "type": "Book chapter",
+    "status": "Published",
+    "area": "Applied AI",
+    "firstAuthor": true,
+    "featured": false,
+    "links": {
+      "paper": "https://link.springer.com/chapter/10.1007/978-3-031-66431-1_38"
+    },
+    "image": "images/sports_abstract.png",
+    "imageAlt": "NCAA March Madness"
+  },
+  {
+    "id": "real-time-explainable-ddos-llms",
+    "title": "Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models",
+    "authors": "H. Wondimu, Ali Alfatemi, et al.",
+    "year": 2025,
+    "venue": "Procedia Computer Science",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://doi.org/10.1016/j.procs.2025.09.260"
+    },
+    "image": "images/ddos_abstract.png",
+    "imageAlt": "DDoS LLM"
+  },
+  {
+    "id": "equitable-asd-diagnostics",
+    "title": "Towards Equitable ASD Diagnostics: A Comparative Study",
+    "authors": "M. Aledhari, Mohamed Rahouti, Ali Alfatemi.",
+    "year": 2024,
+    "venue": "arXiv",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Trustworthy AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://arxiv.org/abs/2411.05880"
+    },
+    "image": "images/medical_abstract.png",
+    "imageAlt": "ASD Diagnostics"
+  },
+  {
+    "id": "wheeled-mobile-robot-control",
+    "title": "Optimizing Control Strategies for Wheeled Mobile Robots",
+    "authors": "Nasim Paykari, R. Jokar, Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "arXiv",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Applied AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://arxiv.org/abs/2409.17161"
+    },
+    "image": "images/fuzzy.png",
+    "imageAlt": "Robot Control"
+  },
+  {
+    "id": "bidirectional-attention-grammar-correction",
+    "title": "Toward Utilizing Bidirectional Multi-head Attention Technique for Automatic Correction of Grammatical Errors",
+    "authors": "Z. Mahmoud, ... Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "IAENG IJCS",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Language & Multimodal AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://www.iaeng.org/IJCS/issues_v51/issue_11/IJCS_51_11_19.pdf"
+    },
+    "note": "Official full text in IAENG International Journal of Computer Science, volume 51, issue 11."
+  },
+  {
+    "id": "robotic-navigation-blockchain",
+    "title": "Integrating Robotic Navigation with Blockchain",
+    "authors": "Nasim Paykari, Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "Ubiquitous Robots (UR) 2024 presentation / arXiv",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Applied AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://arxiv.org/abs/2505.15954"
+    },
+    "image": "images/Robotic.png",
+    "imageAlt": "Robotic Navigation",
+    "note": "Conference presentation with a later arXiv version; no proceedings DOI has been verified."
+  },
+  {
+    "id": "dual-space-prototypical-ddos",
+    "title": "Redefining DDoS Attack Detection Using a Dual-Space Prototypical Network-Based Approach",
+    "authors": "Martinez, ... Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "ICCCN",
+    "type": "Conference paper",
+    "status": "Published",
+    "area": "Network Security",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/document/10637509/authors#authors"
+    },
+    "image": "images/ddos_abstract.png",
+    "imageAlt": "DDoS ProtoNet"
+  },
+  {
+    "id": "trustworthy-federated-learning-industrial-iot",
+    "title": "Enabling Trustworthy Federated Learning in Industrial IoT",
+    "authors": "Jagatheesaperumal, ... Ali Alfatemi, et al.",
+    "year": 2024,
+    "venue": "IEEE IoT Magazine",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Trustworthy AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://ieeexplore.ieee.org/abstract/document/10643986"
+    },
+    "image": "images/Industrial IoT.png",
+    "imageAlt": "Federated Learning"
+  },
+  {
+    "id": "data-augmentation-low-resource-gec",
+    "title": "Optimizing the Impact of Data Augmentation for Low-Resource Grammatical Error Correction",
+    "authors": "Solyman, ... Ali Alfatemi, et al.",
+    "year": 2023,
+    "venue": "Journal of King Saud University",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Language & Multimodal AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://www.sciencedirect.com/science/article/pii/S131915782300126X"
+    },
+    "image": "images/Grammatical.jpg",
+    "imageAlt": "Data Augmentation"
+  },
+  {
+    "id": "semi-supervised-bidirectional-grammar-correction",
+    "title": "Semi-Supervised Learning and Bidirectional Decoding for Effective Grammar Correction",
+    "authors": "Mahmoud, ... Ali Alfatemi, et al.",
+    "year": 2023,
+    "venue": "PeerJ Computer Science",
+    "type": "Journal article",
+    "status": "Published",
+    "area": "Language & Multimodal AI",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://peerj.com/articles/cs-1639/"
+    },
+    "image": "images/Grammar.jpg",
+    "imageAlt": "Semi-Supervised Learning"
+  },
+  {
+    "id": "pbems-blockchain-equipment-maintenance",
+    "title": "PBEMS: A Permissioned Blockchain-based Equipment Maintenance System",
+    "authors": "Mohammad I. Saryuddin Assaqty, ... Ali Alfatemi, et al.",
+    "year": 2023,
+    "venue": "Preprints",
+    "type": "Preprint",
+    "status": "Preprint",
+    "area": "Network Security",
+    "firstAuthor": false,
+    "featured": false,
+    "links": {
+      "paper": "https://www.preprints.org/frontend/manuscript/f20b7bf86a1b6d97d0b9f6e1513f1285/download_pub"
+    },
+    "image": "images/PBEMS.png",
+    "imageAlt": "PBEMS"
+  }
+]
