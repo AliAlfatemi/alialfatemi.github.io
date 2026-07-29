@@ -1131,6 +1131,12 @@ h3 {
   border-left: 0.16rem solid var(--primary);
 }
 
+.case-study {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
 .research-flow {
   display: grid;
   margin-top: 2.25rem;
@@ -2148,20 +2154,21 @@ h3 {
   background: var(--surface);
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: minmax(16rem, 1.4fr) repeat(3, 1fr);
-  gap: 2rem;
+.footer-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-.footer-intro p {
-  max-width: 33ch;
-  color: var(--muted);
-  font-size: 0.92rem;
+.footer-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.5rem;
 }
 
 .footer-email {
-  margin-top: 0.75rem;
+  margin: 0;
 }
 
 .footer-email a {
@@ -2172,6 +2179,19 @@ h3 {
 
 .footer-email a:hover {
   color: var(--primary);
+}
+
+.footer-links--inline {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem 1.75rem;
+  list-style: none;
+}
+
+.footer-simple .footer-bottom {
+  margin-top: 0;
 }
 
 .footer-heading {
@@ -2220,6 +2240,22 @@ h3 {
   min-height: calc(100vh - var(--header-height));
   place-items: center;
   text-align: center;
+}
+
+.redirect-page {
+  text-align: center;
+}
+
+.redirect-page .button-row {
+  justify-content: center;
+}
+
+.contact-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
 }
 
 .error-code {

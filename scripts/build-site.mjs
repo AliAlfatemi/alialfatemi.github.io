@@ -34,10 +34,7 @@ const profileLinks = {
 const navItems = [
   ['research', '/research/', 'Research'],
   ['publications', '/publications/', 'Publications'],
-  ['projects', '/projects/', 'Projects'],
-  ['academic', '/academic/', 'Academic'],
-  ['teaching', '/teaching/', 'Teaching'],
-  ['cv', '/cv/', 'CV']
+  ['profile', '/profile/', 'Profile']
 ];
 
 const imageDimensions = {
@@ -172,8 +169,8 @@ const publicationCollectionEntity = {
   mainEntity: { '@id': publicationItemList['@id'] }
 };
 
-const head = ({ route, title, description, structuredData, extraHead = '' }) => {
-  const canonical = absoluteUrl(route);
+const head = ({ route, title, description, structuredData, extraHead = '', canonicalOverride }) => {
+  const canonical = canonicalOverride || absoluteUrl(route);
   const data = structuredData || breadcrumbData(route, title.split('|')[0].trim());
   const robots = route === '/404.html' ? 'noindex, follow' : 'index, follow, max-image-preview:large';
   return `
@@ -244,53 +241,29 @@ const header = (active = '') => `
 
 const footer = () => `
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-intro">
-          <a class="brand" href="/">
-            <span class="brand-mark" aria-hidden="true">AA</span>
-            <span class="brand-name">Ali Alfatemi</span>
-          </a>
-          <p>Machine learning research for resilient networks, trustworthy systems, and multimodal intelligence.</p>
-          <p class="footer-email"><a href="mailto:${site.email}">${site.email}</a></p>
-        </div>
-        <div>
-          <p class="footer-heading">Explore</p>
-          <ul class="footer-links">
-            <li><a href="/research/">Research agenda</a></li>
-            <li><a href="/publications/">Publication index</a></li>
-            <li><a href="/projects/">Applied project stories</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-heading">Academic</p>
-          <ul class="footer-links">
-            <li><a href="/academic/">Academic profile</a></li>
-            <li><a href="/teaching/">Teaching</a></li>
-            <li><a href="/cv/">Curriculum vitae</a></li>
-            <li><a href="/news/">News</a></li>
-          </ul>
-        </div>
-        <div>
-          <p class="footer-heading">Profiles</p>
-          <ul class="footer-links">
-            <li><a href="${profileLinks.scholar}">Google Scholar</a></li>
-            <li><a href="${profileLinks.github}">GitHub</a></li>
-            <li><a href="${profileLinks.linkedin}">LinkedIn</a></li>
-            <li><a href="${profileLinks.fordham}">Fordham Ph.D. directory</a></li>
-          </ul>
-        </div>
+    <div class="container footer-simple">
+      <div class="footer-row">
+        <a class="brand" href="/">
+          <span class="brand-mark" aria-hidden="true">AA</span>
+          <span class="brand-name">Ali Alfatemi</span>
+        </a>
+        <p class="footer-email"><a href="mailto:${site.email}">${site.email}</a></p>
       </div>
+      <ul class="footer-links footer-links--inline">
+        <li><a href="${profileLinks.scholar}">Google Scholar</a></li>
+        <li><a href="${profileLinks.github}">GitHub</a></li>
+        <li><a href="${profileLinks.linkedin}">LinkedIn</a></li>
+        <li><a href="${profileLinks.fordham}">Fordham Ph.D. directory</a></li>
+      </ul>
       <div class="footer-bottom">
         <span>© <span data-current-year></span> Ali Alfatemi</span>
-        <span>AI security · trustworthy learning · multimodal systems</span>
       </div>
     </div>
   </footer>`;
 
-const layout = ({ route, title, description, active, content, structuredData, extraHead = '', noFooter = false }) => `<!doctype html>
+const layout = ({ route, title, description, active, content, structuredData, extraHead = '', noFooter = false, canonicalOverride }) => `<!doctype html>
 <html lang="en">
-<head>${head({ route, title, description, structuredData, extraHead })}
+<head>${head({ route, title, description, structuredData, extraHead, canonicalOverride })}
 </head>
 <body>
 ${header(active)}
@@ -386,7 +359,7 @@ const homeContent = () => {
           <p class="opportunity-line"><span class="opportunity-dot" aria-hidden="true"></span><span>Open to research collaborations and postdoctoral, faculty, Research Scientist, Applied Scientist, and AI security roles.</span></p>
           <div class="hero-actions">
             <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button button--secondary" href="/cv/ali-alfatemi-cv.pdf" download>Download CV <span class="arrow" aria-hidden="true">↓</span></a>
+            <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
             <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -439,33 +412,35 @@ ${featured.map(featuredPaper).join('')}
     </div>
   </section>
 
-  <section class="section" aria-labelledby="pathways-heading">
-    <div class="container">
-      <div class="section-heading reveal">
-        <div><span class="section-index">Ways to engage / 03</span><h2 id="pathways-heading">From research questions to applied systems</h2></div>
-        <p>Whether the next conversation begins with a paper or a product problem, the underlying work is the same: rigorous experimentation translated into systems judgment.</p>
+  <section class="section section--tight" aria-labelledby="contact-heading">
+    <div class="container contact-band">
+      <div>
+        <span class="section-index">Get in touch</span>
+        <h2 id="contact-heading">Let's talk.</h2>
+        <p class="lead">Open to research collaborations, postdoctoral and faculty roles, and applied Research Scientist, Applied Scientist, and AI security positions.</p>
       </div>
-      <div class="pathway-grid">
-        <article class="pathway reveal"><span class="section-index">Academic collaboration</span><h3>Research, teaching, and scholarly service</h3><p>Explore the research agenda, publication record, teaching profile, and academic work.</p><a class="text-link" href="/academic/">View the academic profile <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="pathway pathway--dark reveal"><span class="section-index">Applied AI roles</span><h3>Systems thinking for real-world AI</h3><p>See how security, vision, LLM, and evaluation work translates into practical engineering and research problems.</p><a class="text-link" href="/projects/">Explore applied project stories <span class="arrow" aria-hidden="true">→</span></a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--tight" aria-labelledby="news-heading">
-    <div class="container">
-      <div class="section-heading reveal">
-        <div><span class="section-index">Recent updates / 04</span><h2 id="news-heading">Publication milestones</h2></div>
-        <p><a class="text-link" href="/news/">View all updates <span class="arrow" aria-hidden="true">→</span></a></p>
-      </div>
-      <ol class="news-list reveal">
-        <li class="news-item"><time datetime="2026-07-10">Jul 2026</time><a href="https://doi.org/10.1109/TNSM.2026.3710874">ShallowNet published in IEEE Transactions on Network and Service Management</a><span class="tag">Security</span></li>
-        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1016/j.bspc.2026.110397">MS-GBANet version of record available in Biomedical Signal Processing and Control</a><span class="tag">Vision</span></li>
-        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1109/TII.2026.3658027">Resource-efficient blockchain article published in IEEE Transactions on Industrial Informatics</a><span class="tag">Journal</span></li>
-      </ol>
+      <p class="contact-email"><a href="mailto:${site.email}">${site.email}</a></p>
     </div>
   </section>`;
 };
+
+const caseStudy = (project) => {
+  const publication = publications.find((item) => item.id === project.id || project.links.doi === item.links.doi);
+  const record = publication ? `/publications/#${publication.id}` : (project.links.paper || project.links.doi);
+  return `
+        <div class="case-study">
+          <h3>Case study — ${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.system)}</p>
+          <dl class="project-facts">
+            <div><dt>Methods</dt><dd>${escapeHtml(project.methods.join(' · '))}</dd></div>
+            <div><dt>Evaluation</dt><dd>${escapeHtml(project.evaluation)}</dd></div>
+            <div><dt>Relevance</dt><dd>${escapeHtml(project.relevance)}</dd></div>
+          </dl>
+          <p><a class="text-link" href="${escapeHtml(record)}">View publication record <span class="arrow" aria-hidden="true">→</span></a></p>
+        </div>`;
+};
+
+const projectById = (id) => projects.find((project) => project.id === id);
 
 const researchContent = () => `
   ${pageHero({
@@ -488,23 +463,36 @@ const researchContent = () => `
     <div class="container">
       <article class="research-theme" id="network-security">
         <div><span class="section-index">R·01</span><h2>AI for network security</h2></div>
-        <div><h3>Problem</h3><p>DDoS defense must identify hostile traffic under noisy measurements, shifting attack patterns, and the compute limits of edge and IoT systems.</p><h3>Approach</h3><p>I study shallow and deep neural models, noise-aware learning, meta-learning, multi-model fusion, and LLM-enhanced reasoning for detection and mitigation.</p></div>
-        <aside class="research-aside"><h3>Selected contributions</h3><ul><li>Noise-tolerant edge DDoS detection.</li><li>Two-stage LLM-enhanced detection for IoT and edge networks.</li><li>Data-efficient ProtoMAML and dual-space prototypical methods.</li></ul><p><a class="text-link" href="/publications/?area=Network+Security">View security publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
+        <div>
+          <h3>Problem</h3><p>DDoS defense must identify hostile traffic under noisy measurements, shifting attack patterns, and the compute limits of edge and IoT systems.</p>
+          <h3>Approach</h3><p>I study shallow and deep neural models, noise-aware learning, meta-learning, multi-model fusion, and LLM-enhanced reasoning for detection and mitigation.</p>
+          ${caseStudy(projectById('edge-ddos-defense'))}
+          ${caseStudy(projectById('llm-enhanced-ddos'))}
+        </div>
+        <aside class="research-aside"><h3>Also in this area</h3><ul><li>Data-efficient ProtoMAML and dual-space prototypical detection methods.</li><li>Multi-model fusion for combinatorial DDoS classification.</li></ul><p><a class="text-link" href="/publications/?area=Network+Security">View all security publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="trustworthy-ai">
         <div><span class="section-index">R·02</span><h2>Trustworthy and data-efficient AI</h2></div>
         <div><h3>Problem</h3><p>Accuracy alone is not enough when learning systems face scarce labels, distribution shifts, privacy constraints, or decisions that need explanation.</p><h3>Approach</h3><p>My work considers robustness through controlled noise, few-shot and meta-learning, interpretable analysis, and trustworthy federated learning for distributed settings.</p></div>
-        <aside class="research-aside"><h3>Relevant settings</h3><ul><li>Industrial IoT and federated learning.</li><li>Security operations and explainable mitigation.</li><li>Data-constrained model development.</li></ul><p><a class="text-link" href="/projects/">See applied project stories <span class="arrow" aria-hidden="true">→</span></a></p></aside>
+        <aside class="research-aside"><h3>Relevant settings</h3><ul><li>Industrial IoT and federated learning.</li><li>Security operations and explainable mitigation.</li><li>Data-constrained model development.</li></ul><p><a class="text-link" href="/publications/?area=Trustworthy+AI">View trustworthy-AI publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="multimodal-ai">
         <div><span class="section-index">R·03</span><h2>Multimodal and language intelligence</h2></div>
-        <div><h3>Problem</h3><p>Useful intelligent systems must align representations across modalities and produce outputs that remain coherent, grounded, and interpretable.</p><h3>Approach</h3><p>I investigate vision–language encoder–decoder systems, LLM-assisted security analysis, and co-authored explainable grammatical-error-correction methods.</p></div>
-        <aside class="research-aside"><h3>Selected contributions</h3><ul><li>ViT and GPT-J integration for image captioning.</li><li>Co-authored MTAGEC work on explainable Arabic correction.</li><li>On-premise LLM reasoning for DDoS mitigation.</li></ul><p><a class="text-link" href="/publications/?area=Language+%26+Multimodal+AI">View language and multimodal work <span class="arrow" aria-hidden="true">→</span></a></p></aside>
+        <div>
+          <h3>Problem</h3><p>Useful intelligent systems must align representations across modalities and produce outputs that remain coherent, grounded, and interpretable.</p>
+          <h3>Approach</h3><p>I investigate vision–language encoder–decoder systems, LLM-assisted security analysis, and co-authored explainable grammatical-error-correction methods.</p>
+          ${caseStudy(projectById('explainable-arabic-gec'))}
+        </div>
+        <aside class="research-aside"><h3>Also in this area</h3><ul><li>ViT and GPT-J integration for image captioning.</li><li>On-premise LLM reasoning for real-time DDoS mitigation.</li></ul><p><a class="text-link" href="/publications/?area=Language+%26+Multimodal+AI">View language and multimodal work <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="computer-vision">
         <div><span class="section-index">R·04</span><h2>Computer vision and applied AI</h2></div>
-        <div><h3>Problem</h3><p>Visual classifiers often struggle when categories differ by subtle features or when background context changes between training and use.</p><h3>Approach</h3><p>I study foreground-centric representation, fine-grained recognition, and data augmentation, while applying machine learning in healthcare, forecasting, and robotics collaborations.</p></div>
-        <aside class="research-aside"><h3>Applications</h3><ul><li>Fine-grained visual recognition.</li><li>Image captioning and accessible interfaces.</li><li>Multi-omics patient subgrouping.</li></ul><p><a class="text-link" href="/publications/?area=Computer+Vision">View computer-vision publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
+        <div>
+          <h3>Problem</h3><p>Visual classifiers often struggle when categories differ by subtle features or when background context changes between training and use.</p>
+          <h3>Approach</h3><p>I study foreground-centric representation, fine-grained recognition, and data augmentation, while applying machine learning in healthcare, forecasting, and robotics collaborations.</p>
+          ${caseStudy(projectById('foreground-centric-recognition'))}
+        </div>
+        <aside class="research-aside"><h3>Also in this area</h3><ul><li>Image captioning and accessible interfaces.</li><li>Multi-omics patient subgrouping on a Grassmann manifold.</li></ul><p><a class="text-link" href="/publications/?area=Computer+Vision">View computer-vision publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
     </div>
   </section>
@@ -579,157 +567,27 @@ const publicationsContent = () => {
   </section>`;
 };
 
-const projectCard = (project, index) => `
-  <article class="project-card reveal" id="${project.id}" style="--reveal-delay:${index * 70}ms">
-    <figure class="project-figure">
-      <div class="project-image-shell"><img src="${escapeHtml(project.image)}"${imageSizeAttributes(project.image)} alt="${escapeHtml(project.imageAlt)}" loading="lazy" decoding="async"></div>
-      <figcaption><span>${escapeHtml(project.figureCaption)}</span>${project.links.paper || project.links.doi ? `<a href="${escapeHtml(project.links.paper || project.links.doi)}">Open source paper <span aria-hidden="true">↗</span></a>` : ''}</figcaption>
-    </figure>
-    <div class="project-copy">
-      <span class="section-index">Case study / ${String(index + 1).padStart(2, '0')} · ${escapeHtml(project.area)}</span>
-      <h2>${escapeHtml(project.title)}</h2>
-      <p class="project-problem">${escapeHtml(project.problem)}</p>
-      <dl class="project-facts">
-        <div><dt>System</dt><dd>${escapeHtml(project.system)}</dd></div>
-        <div><dt>Methods</dt><dd>${escapeHtml(project.methods.join(' · '))}</dd></div>
-        <div><dt>Evaluation</dt><dd>${escapeHtml(project.evaluation)}</dd></div>
-        <div><dt>Why it matters</dt><dd>${escapeHtml(project.relevance)}</dd></div>
-      </dl>
-      <div class="card-actions">${externalLinks(project.links)}</div>
-    </div>
-  </article>`;
+const teachingCourses = [
+  { code: 'CISC 1100 E01', term: 'Spring 2026', desc: 'Sets, logic, relations, functions, combinatorics, graph theory, and computer-based lab projects.' },
+  { code: 'CISC 1100 R03', term: 'Fall 2025', desc: 'Sets, logic, Boolean algebra, recursion, and graphs, with an emphasis on rigorous problem solving.' }
+];
 
-const projectsContent = () => `
-  ${pageHero({
-    label: 'Selected projects',
-    title: 'How the research works.',
-    lead: 'Four case studies trace the path from problem framing and model design to evaluation and operational relevance.',
-    aside: heroStats([
-      [String(projects.length), 'Case studies'],
-      ['3', 'Modalities'],
-      ['Method → system', 'Perspective']
-    ], 'Project overview')
-  })}
-  <section class="section projects-section">
-    <div class="container">
-      <div class="project-grid">${projects.map(projectCard).join('')}</div>
-    </div>
-  </section>`;
+const reviewedVenues = ['Information Fusion', 'IEEE Transactions on Network and Service Management', 'Scientific Reports', 'Artificial Intelligence Review', 'Signal, Image and Video Processing', 'The Journal of Supercomputing', 'Cluster Computing', 'IEEE WCCI 2024', 'IJCNN 2025'];
 
-const academicContent = () => `
+const profileContent = () => `
   ${pageHero({
-    label: 'Academic profile',
-    title: 'Research, teaching, and service.',
-    lead: 'A focused view of my doctoral work at Fordham, undergraduate computer science teaching, intellectual property, and peer-review service.',
+    label: 'Profile',
+    title: 'Education, teaching, and professional record.',
+    lead: 'This page is the complete CV: doctoral research, teaching, intellectual property, peer-review service, and the full publication record.',
     aside: heroStats([
       ['Ph.D.', 'Computer science'],
       ['2 terms', 'Course instruction'],
       ['1', 'Granted patent']
-    ], 'Academic record')
-  })}
-  <section class="section">
-    <div class="container split-layout">
-      <div>
-        <span class="section-index">Current position</span>
-        <h2>Fordham University</h2>
-        <ul class="timeline">
-          <li class="timeline-item"><div class="timeline-date">Expected Spring 2027</div><div><h3>Ph.D. Candidate, Computer Science</h3><p>Fordham University · New York, New York</p><p>Research in AI for network security, machine learning, large language models, computer vision, and multimodal intelligence.</p></div></li>
-        </ul>
-
-        <span class="section-index content-section-label">Teaching</span>
-        <h2>Computer science teaching</h2>
-        <ul class="timeline">
-          <li class="timeline-item"><div class="timeline-date">Spring 2026</div><div><h3>Instructor · CISC 1100 E01</h3><p>Structures of Computer Science: sets, logic, relations, functions, combinatorics, graph theory, and computer-based lab work.</p></div></li>
-          <li class="timeline-item"><div class="timeline-date">Fall 2025</div><div><h3>Instructor · CISC 1100 R03</h3><p>Structures of Computer Science: sets, logic, Boolean algebra, recursion, and graphs, with an emphasis on rigorous problem solving.</p></div></li>
-        </ul>
-
-        <span class="section-index content-section-label">Intellectual property</span>
-        <h2>Granted patent activity</h2>
-        <ul class="timeline">
-          <li class="timeline-item"><div class="timeline-date">Granted · active</div><div><h3>Cancer subtype identification via multi-omics data integration</h3><p>Chinese patent CN113537358B. Co-inventors: Hongmin Cai and Ali Alfatemi.</p><p><a class="text-link" href="https://patents.google.com/patent/CN113537358B/en">View Google Patents record <span class="arrow" aria-hidden="true">↗</span></a></p></div></li>
-        </ul>
-
-        <span class="section-index content-section-label">Professional service</span>
-        <h2>Selected peer-review service</h2>
-        <p>Reviewing across machine learning, networking, computer vision, and computational intelligence.</p>
-        <div class="tag-row">
-          ${['Information Fusion', 'IEEE Transactions on Network and Service Management', 'Scientific Reports', 'Artificial Intelligence Review', 'Signal, Image and Video Processing', 'The Journal of Supercomputing', 'Cluster Computing', 'IEEE WCCI 2024', 'IJCNN 2025'].map((item) => `<span class="tag">${item}</span>`).join('')}
-        </div>
-      </div>
-      <aside class="side-panel">
-        <span class="section-index">At a glance</span>
-        <dl class="side-facts">
-          <div><dt>Affiliation</dt><dd>Fordham University</dd></div>
-          <div><dt>Location</dt><dd>New York, NY</dd></div>
-          <div><dt>Publication record</dt><dd>${profileStats.publications} works · ${profileStats.yearRange}</dd></div>
-          <div><dt>Research code</dt><dd>${profileStats.code} linked repositories</dd></div>
-        </dl>
-        <h2>Profile links</h2>
-        <ul class="profile-link-list">
-          <li><a href="${profileLinks.fordham}">Fordham Ph.D. directory <span aria-hidden="true">↗</span></a></li>
-          <li><a href="${profileLinks.scholar}">Google Scholar <span aria-hidden="true">↗</span></a></li>
-          <li><a href="${profileLinks.github}">GitHub <span aria-hidden="true">↗</span></a></li>
-          <li><a href="${profileLinks.linkedin}">LinkedIn <span aria-hidden="true">↗</span></a></li>
-        </ul>
-      </aside>
-    </div>
-  </section>`;
-
-const teachingContent = () => `
-  ${pageHero({
-    label: 'Teaching',
-    title: 'Discrete structures, taught for problem solving.',
-    lead: 'I taught CISC 1100, Structures of Computer Science, at Fordham in Fall 2025 and Spring 2026, helping students turn formal ideas into clear computational reasoning.',
-    aside: heroStats([
-      ['2', 'Terms taught'],
-      ['CISC 1100', 'Course'],
-      ['Instructor', 'Role']
-    ], 'Teaching record')
-  })}
-  <section class="section">
-    <div class="container split-layout">
-      <div>
-        <span class="section-index">Teaching focus</span>
-        <h2>Making formal ideas operational</h2>
-        <div class="prose">
-          <p>Structures of Computer Science connects mathematical language to the habits students need for algorithms, software, data science, and security: defining terms precisely, reasoning from assumptions, testing counterexamples, and communicating a solution clearly.</p>
-        </div>
-        <div class="teaching-principles">
-          <article><span>01</span><h3>Reason precisely</h3><p>Move from definitions and assumptions to defensible conclusions.</p></article>
-          <article><span>02</span><h3>Test ideas</h3><p>Use examples, counterexamples, and small computational experiments.</p></article>
-          <article><span>03</span><h3>Communicate clearly</h3><p>Write solutions that make both method and reasoning visible.</p></article>
-        </div>
-        <span class="section-index content-section-label">Courses</span>
-        <div class="course-list">
-          <article class="course-card"><div class="course-head"><span class="course-code">CISC 1100 E01</span><div><h2>Structures of Computer Science</h2><p>Sets, logic, relations, functions, combinatorics, graph theory, and computer-based lab projects.</p></div><span class="course-term">Instructor · Spring 2026</span></div></article>
-          <article class="course-card"><div class="course-head"><span class="course-code">CISC 1100 R03</span><div><h2>Structures of Computer Science</h2><p>Sets, logic, Boolean algebra, recursion, and graphs, with an emphasis on rigorous problem solving.</p></div><span class="course-term">Instructor · Fall 2025</span></div></article>
-        </div>
-      </div>
-      <aside class="side-panel">
-        <span class="section-index">Learning priorities</span>
-        <h2>Core foundations</h2>
-        <ul class="check-list"><li>Set theory and functions</li><li>Propositional and predicate logic</li><li>Relations and proof strategies</li><li>Combinatorics and recursion</li><li>Graph theory and trees</li><li>Boolean algebra</li></ul>
-        <p class="side-note">Current students should use Fordham course channels for syllabi, assignments, locations, and office hours.</p>
-      </aside>
-    </div>
-  </section>`;
-
-const cvPublicationList = sortedPublications.map((publication) => {
-  const record = publication.links.doi || publication.links.paper;
-  const note = publication.note ? ` · ${publication.note.replace(/\.$/, '')}` : '';
-  return `<li><span class="cv-publication-year">${publication.year}</span><div><strong>${escapeHtml(publication.title)}</strong><span>${emphasizeAli(publication.authors)}. <em>${escapeHtml(publication.venue)}</em>${escapeHtml(note)}.</span>${record ? `<a href="${escapeHtml(record)}">Publication record <span aria-hidden="true">↗</span></a>` : ''}</div></li>`;
-}).join('');
-
-const cvContent = () => `
-  ${pageHero({
-    label: 'Curriculum vitae',
-    title: 'Research, teaching, and professional record.',
-    lead: 'A complete web CV for academic and applied-AI opportunities, with a print-ready PDF for easy sharing.',
-    aside: `<div class="hero-download"><a class="button button--primary" href="/cv/ali-alfatemi-cv.pdf" download>Download CV PDF <span class="arrow" aria-hidden="true">↓</span></a><button class="button button--secondary" type="button" data-print-page>Print web CV</button></div>`
+    ], 'Profile record')
   })}
   <section class="section cv-document" id="cv-document">
     <div class="container cv-container">
-      <header class="cv-print-header"><div><p class="cv-print-name">Ali Alfatemi</p><p>Ph.D. Candidate · AI/ML Researcher · Instructor</p></div><div><a href="mailto:aalfatemi@fordham.edu">aalfatemi@fordham.edu</a><span>New York, NY</span></div></header>
+      <header class="cv-print-header"><div><p class="cv-print-name">Ali Alfatemi</p><p>Ph.D. Candidate · AI/ML Researcher · Instructor</p></div><div><a href="mailto:${site.email}">${site.email}</a><span>New York, NY</span></div></header>
       <section class="cv-section cv-summary">
         <div><span class="section-index">Profile</span><h2>Machine learning for resilient, trustworthy systems</h2></div>
         <p>Ph.D. Candidate in Computer Science at Fordham University developing machine-learning methods for DDoS detection and network defense, with connected research in trustworthy AI, computer vision, language, and multimodal intelligence.</p>
@@ -739,9 +597,9 @@ const cvContent = () => `
         <div class="cv-record"><time>Expected Spring 2027</time><div><h2>Ph.D. Candidate in Computer Science</h2><p>Fordham University · New York, New York</p><p>Focus: AI for network security, machine learning, large language models, computer vision, and multimodal systems.</p></div></div>
       </section>
       <section class="cv-section">
-        <span class="section-index">Teaching experience</span>
-        <div class="cv-record"><time>Spring 2026</time><div><h2>Instructor · CISC 1100 E01, Structures of Computer Science</h2><p>Fordham University. Discrete structures, logic, relations, functions, combinatorics, graph theory, and computer-based lab work.</p></div></div>
-        <div class="cv-record"><time>Fall 2025</time><div><h2>Instructor · CISC 1100 R03, Structures of Computer Science</h2><p>Fordham University. Set theory, logic, Boolean algebra, recursion, graphs, and rigorous problem solving.</p></div></div>
+        <span class="section-index">Teaching</span>
+        <p>I taught CISC 1100, Structures of Computer Science, at Fordham in Fall 2025 and Spring 2026, helping students turn formal ideas into clear computational reasoning.</p>
+        ${teachingCourses.map((course) => `<div class="cv-record"><time>${course.term}</time><div><h2>Instructor · ${course.code}, Structures of Computer Science</h2><p>Fordham University. ${course.desc}</p></div></div>`).join('')}
       </section>
       <section class="cv-section">
         <span class="section-index">Research expertise</span>
@@ -754,35 +612,17 @@ const cvContent = () => `
       <section class="cv-section">
         <span class="section-index">Professional service</span>
         <h2>Selected peer-review service</h2>
-        <p>Information Fusion · IEEE Transactions on Network and Service Management · Scientific Reports · Artificial Intelligence Review · Signal, Image and Video Processing · The Journal of Supercomputing · Cluster Computing · IEEE WCCI 2024 · IJCNN 2025</p>
+        <p>${reviewedVenues.join(' · ')}</p>
       </section>
       <section class="cv-section cv-publications">
-        <div class="cv-section-heading"><div><span class="section-index">Publications</span><h2>Complete publication record</h2></div><p>${profileStats.published} published works · ${profileStats.preprints} preprints</p></div>
-        <ol class="cv-publication-list">${cvPublicationList}</ol>
+        <div class="cv-section-heading"><div><span class="section-index">Publications</span><h2>Publication record</h2></div><p>${profileStats.published} published works · ${profileStats.preprints} preprints · ${profileStats.firstAuthor} first-author</p></div>
+        <p><a class="text-link" href="/publications/">View the complete publication index <span class="arrow" aria-hidden="true">→</span></a> · <a href="/data/publications.bib">BibTeX</a> · <a href="/data/publications.json">JSON</a></p>
       </section>
       <section class="cv-section cv-links">
-        <span class="section-index">Profiles</span>
+        <span class="section-index">Contact</span>
+        <p class="contact-email"><a href="mailto:${site.email}">${site.email}</a></p>
         <p><a href="${profileLinks.scholar}">Google Scholar ↗</a><a href="${profileLinks.github}">GitHub ↗</a><a href="${profileLinks.linkedin}">LinkedIn ↗</a><a href="${profileLinks.fordham}">Fordham Ph.D. directory ↗</a></p>
       </section>
-    </div>
-  </section>`;
-
-const newsContent = () => `
-  ${pageHero({
-    label: 'News',
-    title: 'Research milestones.',
-    lead: 'Selected publication and conference updates from my work in AI security, computer vision, language, and multimodal learning.'
-  })}
-  <section class="section--tight">
-    <div class="container">
-      <ol class="news-list">
-        <li class="news-item"><time datetime="2026-07-10">Jul 2026</time><a href="https://doi.org/10.1109/TNSM.2026.3710874">ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection published in IEEE Transactions on Network and Service Management</a><span class="tag">Publication</span></li>
-        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1016/j.bspc.2026.110397">MS-GBANet: Multiscale graph convolution with boundary attention for medical image segmentation published in Biomedical Signal Processing and Control</a><span class="tag">Publication</span></li>
-        <li class="news-item"><time datetime="2026">2026</time><a href="https://doi.org/10.1109/TII.2026.3658027">A Resource-Efficient Blockchain With Delegated Fault-Tolerance for Manufacturing Nodes published in IEEE Transactions on Industrial Informatics</a><span class="tag">Publication</span></li>
-        <li class="news-item"><time datetime="2026-04">Apr 2026</time><a href="https://doi.org/10.1007/978-3-032-18474-0_8">Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J published in LNCS</a><span class="tag">Publication</span></li>
-        <li class="news-item"><time datetime="2026-01">Jan 2026</time><a href="https://doi.org/10.1007/s44443-025-00354-2">MTAGEC published in Journal of King Saud University Computer and Information Sciences</a><span class="tag">Publication</span></li>
-        <li class="news-item"><time datetime="2025">2025</time><a href="https://doi.org/10.1109/GLOBECOM59602.2025.11431718">Two-stage LLM-enhanced DDoS framework published at IEEE GLOBECOM 2025</a><span class="tag">Conference</span></li>
-      </ol>
     </div>
   </section>`;
 
@@ -824,6 +664,26 @@ const errorContent = () => `
     </div>
   </section>`;
 
+const redirectPage = ({ route, output, targetRoute, targetLabel }) => ({
+  route,
+  output,
+  title: `This Page Has Moved | Ali Alfatemi`,
+  description: `This page has moved to ${absoluteUrl(targetRoute)}.`,
+  active: '',
+  canonicalOverride: absoluteUrl(targetRoute),
+  extraHead: `<meta http-equiv="refresh" content="0; url=${targetRoute}">`,
+  structuredData: breadcrumbData(route, `${targetLabel} (moved)`),
+  content: `
+  <section class="section redirect-page">
+    <div class="narrow">
+      <p class="eyebrow">Page moved</p>
+      <h1>This content now lives at ${escapeHtml(targetLabel)}.</h1>
+      <p class="lead">You should be redirected automatically. If nothing happens, continue below.</p>
+      <div class="button-row"><a class="button button--primary" href="${targetRoute}">Go to ${escapeHtml(targetLabel)} <span class="arrow" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>`
+});
+
 const pages = [
   {
     route: '/',
@@ -862,45 +722,12 @@ const pages = [
     extraHead: '<link rel="alternate" type="application/json" href="/data/publications.json" title="Structured publication data">'
   },
   {
-    route: '/projects/',
-    output: 'projects/index.html',
-    title: 'AI Research Projects | Ali Alfatemi',
-    description: 'Selected projects by Ali Alfatemi connecting machine learning research with cybersecurity, DDoS defense, computer vision, and multimodal systems.',
-    active: 'projects',
-    content: projectsContent(),
-    extraHead: '<link rel="alternate" type="application/json" href="/data/projects.json" title="Structured project data">'
-  },
-  {
-    route: '/academic/',
-    output: 'academic/index.html',
-    title: 'Academic Profile | Ali Alfatemi',
-    description: 'Education, research, teaching, intellectual property, and peer-review service of Fordham University Ph.D. candidate Ali Alfatemi.',
-    active: 'academic',
-    content: academicContent()
-  },
-  {
-    route: '/teaching/',
-    output: 'teaching/index.html',
-    title: 'Teaching | Ali Alfatemi — Computer Science at Fordham',
-    description: 'Ali Alfatemi’s computer science teaching at Fordham University, including CISC 1100 course topics, learning priorities, and instructional approach.',
-    active: 'teaching',
-    content: teachingContent()
-  },
-  {
-    route: '/cv/',
-    output: 'cv/index.html',
-    title: 'Curriculum Vitae | Ali Alfatemi',
-    description: 'View or download Ali Alfatemi’s curriculum vitae, including research, teaching, publications, patent, and professional service.',
-    active: 'cv',
-    content: cvContent()
-  },
-  {
-    route: '/news/',
-    output: 'news/index.html',
-    title: 'News | Ali Alfatemi',
-    description: 'Selected updates from Ali Alfatemi on AI research publications, conference work, teaching, and professional milestones.',
-    active: 'news',
-    content: newsContent()
+    route: '/profile/',
+    output: 'profile/index.html',
+    title: 'Profile | Ali Alfatemi',
+    description: 'The complete profile and web CV of Fordham University Ph.D. candidate Ali Alfatemi: education, teaching, patent, peer-review service, and publication record.',
+    active: 'profile',
+    content: profileContent()
   },
   {
     route: '/contact/',
@@ -919,7 +746,12 @@ const pages = [
     content: errorContent(),
     noFooter: true,
     extraHead: ''
-  }
+  },
+  redirectPage({ route: '/academic/', output: 'academic/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/teaching/', output: 'teaching/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/cv/', output: 'cv/index.html', targetRoute: '/profile/', targetLabel: 'Profile' }),
+  redirectPage({ route: '/projects/', output: 'projects/index.html', targetRoute: '/research/', targetLabel: 'Research' }),
+  redirectPage({ route: '/news/', output: 'news/index.html', targetRoute: '/publications/', targetLabel: 'Publications' })
 ];
 
 for (const page of pages) {
