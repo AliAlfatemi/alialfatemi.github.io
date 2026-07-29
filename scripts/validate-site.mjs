@@ -7,14 +7,18 @@ const htmlFiles = [
   'index.html',
   'research/index.html',
   'publications/index.html',
-  'projects/index.html',
-  'academic/index.html',
-  'teaching/index.html',
-  'cv/index.html',
-  'news/index.html',
+  'profile/index.html',
   'contact/index.html',
   '404.html'
 ];
+const redirectFiles = [
+  ['academic/index.html', '/profile/'],
+  ['teaching/index.html', '/profile/'],
+  ['cv/index.html', '/profile/'],
+  ['projects/index.html', '/research/'],
+  ['news/index.html', '/publications/']
+];
+const allHtmlFiles = [...htmlFiles, ...redirectFiles.map(([file]) => file)];
 
 const errors = [];
 const titles = new Map();
@@ -27,7 +31,7 @@ const removedPublication = {
   title: 'Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators'
 };
 const publicContentFiles = [
-  ...htmlFiles,
+  ...allHtmlFiles,
   'robots.txt',
   'sitemap.xml',
   'data/publications.json',
@@ -40,7 +44,9 @@ const forbiddenPublicContent = [
   ['internal figure-rights note', /Figure provenance/i],
   ['removed publication title', new RegExp(removedPublication.title, 'i')],
   ['removed publication id', new RegExp(removedPublication.id, 'i')],
-  ['removed publication-audit link', /(?:href=["']\/docs\/)?publication-audit(?:-[^"'\s<]*)?/i]
+  ['removed publication-audit link', /(?:href=["']\/docs\/)?publication-audit(?:-[^"'\s<]*)?/i],
+  ['JavaScript email reveal', /data-reveal-email/i],
+  ['CV PDF reference (website is the CV, no PDF is published)', /ali-alfatemi-cv\.pdf/i]
 ];
 
 const recordUnique = (map, value, file, label) => {
@@ -56,16 +62,7 @@ const internalTarget = (url) => {
   return path.join(root, path.extname(relative) ? relative : relative, path.extname(relative) ? '' : 'index.html');
 };
 
-for (const file of htmlFiles) {
-  const html = await readFile(path.join(root, file), 'utf8');
-  htmlByFile.set(file, html);
-  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
-  const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
-  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
-  recordUnique(titles, title, file, 'title');
-  recordUnique(descriptions, description, file, 'meta description');
-  recordUnique(canonicals, canonical, file, 'canonical URL');
-
+const structuralCheck = async (file, html) => {
   const h1Count = (html.match(/<h1(?:\s|>)/g) || []).length;
   if (h1Count !== 1) errors.push(`${file}: expected one h1, found ${h1Count}`);
   if (html.includes('href="#"')) errors.push(`${file}: contains placeholder href="#"`);
@@ -90,6 +87,31 @@ for (const file of htmlFiles) {
     if (!url.startsWith('/') || url.startsWith('//')) continue;
     try { await access(internalTarget(url)); }
     catch { errors.push(`${file}: missing internal target ${url}`); }
+  }
+};
+
+for (const file of htmlFiles) {
+  const html = await readFile(path.join(root, file), 'utf8');
+  htmlByFile.set(file, html);
+  const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+  const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+  recordUnique(titles, title, file, 'title');
+  recordUnique(descriptions, description, file, 'meta description');
+  recordUnique(canonicals, canonical, file, 'canonical URL');
+  await structuralCheck(file, html);
+}
+
+for (const [file, targetRoute] of redirectFiles) {
+  const html = await readFile(path.join(root, file), 'utf8');
+  htmlByFile.set(file, html);
+  await structuralCheck(file, html);
+  if (!html.includes(`<meta http-equiv="refresh" content="0; url=${targetRoute}">`)) {
+    errors.push(`${file}: missing meta-refresh redirect to ${targetRoute}`);
+  }
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+  if (!canonical || !canonical.endsWith(targetRoute)) {
+    errors.push(`${file}: canonical does not point to ${targetRoute}`);
   }
 }
 
@@ -178,15 +200,26 @@ for (const publication of publicationData) {
   if (!bibtex.includes(`{${publication.id},`)) errors.push(`data/publications.bib: missing ${publication.id}`);
 }
 
-for (const required of ['robots.txt', 'sitemap.xml', 'images/favicon.svg', 'images/og-profile.png', 'data/publications.bib', 'cv/ali-alfatemi-cv.pdf']) {
+const sitemapXml = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
+for (const route of ['/', '/research/', '/publications/', '/profile/', '/contact/', '/academic/', '/teaching/', '/cv/', '/projects/', '/news/']) {
+  if (!sitemapXml.includes(`<loc>https://alialfatemi.github.io${route}</loc>`)) {
+    errors.push(`sitemap.xml: missing ${route}`);
+  }
+}
+
+for (const required of ['robots.txt', 'sitemap.xml', 'images/favicon.svg', 'images/og-profile.png', 'data/publications.bib']) {
   try { await access(path.join(root, required)); }
   catch { errors.push(`missing required output: ${required}`); }
 }
+try {
+  await access(path.join(root, 'cv/ali-alfatemi-cv.pdf'));
+  errors.push('cv/ali-alfatemi-cv.pdf exists but should not: the website is the CV, no PDF is published');
+} catch { /* expected: no CV PDF */ }
 
 if (errors.length) {
   console.error(`Validation failed with ${errors.length} issue${errors.length === 1 ? '' : 's'}:`);
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
 } else {
-  console.log(`Validated ${htmlFiles.length} pages, ${publicationData.length} publications, structured data, metadata, internal links, and image dimensions.`);
+  console.log(`Validated ${htmlFiles.length} pages, ${redirectFiles.length} redirect stubs, ${publicationData.length} publications, structured data, metadata, internal links, and image dimensions.`);
 }
