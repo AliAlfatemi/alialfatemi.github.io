@@ -714,7 +714,8 @@ const teachingContent = () => `
 
 const cvPublicationList = sortedPublications.map((publication) => {
   const record = publication.links.doi || publication.links.paper;
-  return `<li><span class="cv-publication-year">${publication.year}</span><div><strong>${escapeHtml(publication.title)}</strong><span>${emphasizeAli(publication.authors)}. <em>${escapeHtml(publication.venue)}</em>${publication.note ? ` · ${escapeHtml(publication.note)}` : ''}.</span>${record ? `<a href="${escapeHtml(record)}">Publication record <span aria-hidden="true">↗</span></a>` : ''}</div></li>`;
+  const note = publication.note ? ` · ${publication.note.replace(/\.$/, '')}` : '';
+  return `<li><span class="cv-publication-year">${publication.year}</span><div><strong>${escapeHtml(publication.title)}</strong><span>${emphasizeAli(publication.authors)}. <em>${escapeHtml(publication.venue)}</em>${escapeHtml(note)}.</span>${record ? `<a href="${escapeHtml(record)}">Publication record <span aria-hidden="true">↗</span></a>` : ''}</div></li>`;
 }).join('');
 
 const cvContent = () => `

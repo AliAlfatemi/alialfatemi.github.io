@@ -1001,13 +1001,13 @@ h3 {
 }
 
 .page-hero {
-  padding-block: clamp(2.5rem, 4.5vw, 4.25rem) clamp(2.75rem, 4.5vw, 4rem);
+  padding-block: clamp(2.1rem, 3.6vw, 3.2rem) clamp(2.35rem, 3.8vw, 3.35rem);
   border-bottom: 1px solid var(--line);
 }
 
 .breadcrumb {
   display: flex;
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.2rem;
   padding: 0;
   flex-wrap: wrap;
   gap: 0.55rem;
@@ -1032,9 +1032,9 @@ h3 {
 }
 
 .page-hero h1 {
-  max-width: 14ch;
+  max-width: 16ch;
   margin: 0.55rem 0 0;
-  font-size: clamp(2.8rem, 5.2vw, 4.75rem);
+  font-size: clamp(2.55rem, 4.6vw, 4.15rem);
 }
 
 .page-hero .lead {
@@ -1335,6 +1335,11 @@ h3 {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+}
+
+.projects-section,
+.cv-document {
+  padding-block: clamp(2.75rem, 4.5vw, 4.25rem);
 }
 
 .project-card {
@@ -2124,7 +2129,7 @@ h3 {
 }
 
 .cv-summary {
-  max-width: var(--measure);
+  max-width: none;
   color: var(--ink-soft);
   font-size: 1.02rem;
 }
@@ -2320,6 +2325,10 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .page-hero-grid {
+    gap: 1.5rem;
+  }
+
   .page-hero-copy {
     max-width: 42rem;
     padding-top: 0;
@@ -2434,6 +2443,23 @@ h3 {
 
   .brand-name {
     font-size: 0.95rem;
+  }
+
+  .hero-stats div {
+    padding-right: 0.45rem;
+  }
+
+  .hero-stats div + div {
+    padding-left: 0.45rem;
+  }
+
+  .hero-stats dd {
+    font-size: 1.08rem;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-stats dt {
+    font-size: 0.56rem;
   }
 
   .hero {
@@ -2661,6 +2687,7 @@ h3 {
   }
 
   body::before,
+  .skip-link,
   .site-header,
   .site-footer,
   .filter-panel,
