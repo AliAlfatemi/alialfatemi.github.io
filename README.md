@@ -6,16 +6,13 @@ This repository contains a zero-dependency, statically generated academic and in
 
 Primary positioning:
 
-> AI researcher for resilient and trustworthy systems.
+> Machine learning that keeps detecting when the data, the hardware, or the trust runs out.
 
 Supporting value proposition:
 
-> I develop machine learning systems for DDoS detection and network defense, then extend those ideas across multimodal intelligence, computer vision, and data-efficient AI.
+> I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.
 
-The site presents one coherent research identity with two entry paths:
-
-- Academic visitors move from the research agenda to publications, teaching, service, patent activity, and CV materials.
-- Industry visitors move from practical problems to system stories, methods, evaluation logic, code, and role-oriented contact.
+The site presents one coherent research identity for two audiences reading the same four pages: academic search committees and postdoc PIs move from the homepage's verified record to `/research/`, `/publications/`, and `/profile/`; industry recruiters move from the same record to research areas, case studies, and role-oriented contact.
 
 ## Implementation overview
 
@@ -30,7 +27,7 @@ The site is generated as plain HTML, CSS, and JavaScript so its core content rem
 - Generic or mismatched “AI” artwork is not used in the new interface.
 - Authentic research figures are displayed with `object-fit: contain`, descriptive alt text, intrinsic dimensions, and lazy loading below the fold.
 - Runtime visual dependencies, typewriter effects, particles, card tilt, and the O(n²) canvas loop are removed.
-- The new header, filters, theme control, email reveal, focus states, keyboard navigation, and reduced-motion behavior are accessible by design.
+- The header, filters, focus states, keyboard navigation, and reduced-motion behavior are accessible by design.
 
 ## Sitemap and information architecture
 
@@ -87,13 +84,12 @@ The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `
 
 - Skip link, semantic navigation, `aria-current`, labelled form controls, live result count, and visible focus styles.
 - Keyboard-operable mobile navigation with Escape handling and focus return.
-- Text-based theme control with an accessible changing label.
 - The institutional email is plain, visible text with a `mailto:` link everywhere it appears (footer, `/contact/`, `/profile/`) — no JavaScript reveal.
+- The publication matrix on `/` is a real `<table>` with `scope`/`abbr` attributes and per-cell visually-hidden counts, not a decorative graphic.
 - Critical hero copy rendered without JavaScript.
 - All publications remain visible when JavaScript is disabled.
-- System fonts and no third-party JavaScript or CSS.
-- Optimized 720×960 portrait and 1,400-pixel research pipeline derivative.
-- Intrinsic image dimensions, lazy loading, async decoding, and a single eager portrait.
+- Self-hosted, subsetted variable fonts and no third-party JavaScript, CSS, or font CDN.
+- Intrinsic image dimensions, lazy loading, and async decoding on every image.
 - Reduced-motion and print styles.
 
 ## Local development

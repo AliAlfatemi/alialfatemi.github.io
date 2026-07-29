@@ -1215,10 +1215,6 @@ h3 {
   text-align: center;
 }
 
-.cv-document {
-  padding-block: clamp(2.75rem, 4.5vw, 4.25rem);
-}
-
 .project-facts {
   display: grid;
   margin: 1.25rem 0 0;
@@ -1297,162 +1293,31 @@ h3 {
   text-decoration: underline;
 }
 
-/* Curriculum vitae */
-.cv-document {
-  border-block: 1px solid var(--line);
-  background: color-mix(in srgb, var(--surface-alt) 42%, transparent);
-}
-
-.cv-container {
-  padding: clamp(1.75rem, 4vw, 3.25rem);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
+/* Profile */
 .cv-print-header {
   display: none;
 }
 
-.cv-section + .cv-section {
-  margin-top: 2.25rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--line);
+.profile-simple .lead {
+  margin-bottom: 0.5rem;
 }
 
-.cv-summary {
-  display: grid;
-  max-width: none;
-  align-items: start;
-  grid-template-columns: minmax(13rem, 4fr) minmax(0, 8fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
+.profile-block {
+  margin-top: 2.75rem;
 }
 
-.cv-summary h2 {
-  margin: 0.45rem 0 0;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  letter-spacing: -0.025em;
-  line-height: 1.1;
-  text-transform: none;
+.profile-block .section-index {
+  display: block;
+  margin-bottom: 0.65rem;
 }
 
-.cv-summary > p {
-  margin-bottom: 0;
+.profile-block p {
+  max-width: var(--measure);
   color: var(--ink-soft);
-  font-size: 1.03rem;
 }
 
-.cv-section h2 {
-  margin-bottom: 1rem;
-  color: var(--primary-strong);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.cv-record {
-  display: grid;
-  padding-block: 1rem;
-  border-top: 1px solid var(--line);
-  grid-template-columns: 11rem minmax(0, 1fr);
-  gap: 1.5rem;
-  break-inside: avoid;
-}
-
-.cv-record:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.cv-record time {
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.69rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-}
-
-.cv-record h2 {
-  margin-bottom: 0.3rem;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 1.08rem;
-  font-weight: 750;
-  letter-spacing: -0.01em;
-  line-height: 1.35;
-  text-transform: none;
-}
-
-.cv-record p {
-  margin-bottom: 0.2rem;
-  color: var(--ink-soft);
-  font-size: 0.91rem;
-}
-
-.cv-skill-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.55rem;
-}
-
-.cv-skill-grid span {
-  display: flex;
-  min-height: 3.5rem;
-  padding: 0.75rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  align-items: center;
-  background: var(--surface-raised);
-  color: var(--ink-soft);
-  font-size: 0.82rem;
-  font-weight: 650;
-  line-height: 1.35;
-}
-
-.cv-section-heading {
-  display: flex;
-  margin-bottom: 1rem;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.cv-section-heading h2 {
-  margin: 0.4rem 0 0;
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  letter-spacing: -0.025em;
-  text-transform: none;
-}
-
-.cv-section-heading > p {
-  margin-bottom: 0;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-
-.cv-links p {
-  display: flex;
-  margin-bottom: 0;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
-}
-
-.cv-links a {
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.cv-summary {
-  max-width: none;
-  color: var(--ink-soft);
-  font-size: 1.02rem;
+.profile-block p + p {
+  margin-top: 0.5rem;
 }
 
 .site-footer {
@@ -1718,14 +1583,6 @@ h3 {
   .research-aside {
     grid-column: 2;
   }
-
-  .cv-summary {
-    grid-template-columns: 1fr;
-  }
-
-  .cv-skill-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 42rem) {
@@ -1847,21 +1704,6 @@ h3 {
     gap: 0.2rem;
   }
 
-  .cv-container {
-    padding: 1.35rem;
-  }
-
-  .cv-record {
-    grid-template-columns: 1fr;
-    gap: 0.3rem;
-  }
-
-  .cv-section-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
@@ -1950,22 +1792,6 @@ h3 {
     text-decoration: none;
   }
 
-  .cv-document {
-    overflow: visible;
-    border: 0;
-    border-radius: 0;
-    background: #fff;
-    box-shadow: none;
-  }
-
-  .cv-container {
-    width: 100%;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
   .cv-print-header {
     display: grid;
     margin-bottom: 5mm;
@@ -1999,53 +1825,16 @@ h3 {
     font-size: 8pt;
   }
 
-  .cv-section + .cv-section {
+  .profile-simple .lead {
+    font-size: 10pt;
+  }
+
+  .profile-block {
     margin-top: 4mm;
-    padding-top: 3.5mm;
-  }
-
-  .cv-summary {
-    grid-template-columns: minmax(35mm, 4fr) minmax(0, 8fr);
-    gap: 5mm;
-  }
-
-  .cv-summary h2,
-  .cv-section-heading h2 {
-    font-size: 14pt;
-  }
-
-  .cv-summary > p {
-    font-size: 8.7pt;
-  }
-
-  .cv-record {
-    padding-block: 2.5mm;
-    grid-template-columns: 34mm minmax(0, 1fr);
-    gap: 4mm;
-  }
-
-  .cv-record h2 {
-    font-size: 9pt;
-  }
-
-  .cv-skill-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.5mm;
-  }
-
-  .cv-skill-grid span {
-    min-height: 0;
-    padding: 2mm;
-    font-size: 7.2pt;
-  }
-
-  .cv-section h2 {
-    margin-bottom: 2.5mm;
-    color: var(--primary-strong);
-    font-size: 8pt;
-  }
-
-  .cv-section {
     break-inside: avoid;
+  }
+
+  .profile-block p {
+    font-size: 9pt;
   }
 }

@@ -621,51 +621,45 @@ const profileContent = () => `
   ${pageHero({
     label: 'Profile',
     title: 'Education, teaching, and professional record.',
-    lead: 'This page is the complete CV: doctoral research, teaching, intellectual property, peer-review service, and the full publication record.',
+    lead: 'A short summary of my doctoral research, teaching, patent, service, and publication record.',
     aside: heroStats([
       ['Ph.D.', 'Computer science'],
       ['2 terms', 'Course instruction'],
       ['1', 'Granted patent']
     ], 'Profile record')
   })}
-  <section class="section cv-document" id="cv-document">
-    <div class="container cv-container">
+  <section class="section">
+    <div class="narrow profile-simple">
       <header class="cv-print-header"><div><p class="cv-print-name">Ali Alfatemi</p><p>Ph.D. Candidate · AI/ML Researcher · Instructor</p></div><div><a href="mailto:${site.email}">${site.email}</a><span>New York, NY</span></div></header>
-      <section class="cv-section cv-summary">
-        <div><span class="section-index">Profile</span><h2>Machine learning for resilient, trustworthy systems</h2></div>
-        <p>Ph.D. Candidate in Computer Science at Fordham University developing machine-learning methods for DDoS detection and network defense, with connected research in trustworthy AI, computer vision, language, and multimodal intelligence.</p>
-      </section>
-      <section class="cv-section">
-        <span class="section-index">Education</span>
-        <div class="cv-record"><time>Expected Spring 2027</time><div><h2>Ph.D. Candidate in Computer Science</h2><p>Fordham University · New York, New York</p><p>Focus: AI for network security, machine learning, large language models, computer vision, and multimodal systems.</p></div></div>
-      </section>
-      <section class="cv-section">
+
+      <p class="lead">Ph.D. Candidate in Computer Science at Fordham University, expected Spring 2027. I develop machine-learning methods for DDoS detection and network defense, with connected research in trustworthy AI, computer vision, language, and multimodal intelligence.</p>
+
+      <div class="profile-block">
         <span class="section-index">Teaching</span>
-        <p>I taught CISC 1100, Structures of Computer Science, at Fordham in Fall 2025 and Spring 2026, helping students turn formal ideas into clear computational reasoning.</p>
-        ${teachingCourses.map((course) => `<div class="cv-record"><time>${course.term}</time><div><h2>Instructor · ${course.code}, Structures of Computer Science</h2><p>Fordham University. ${course.desc}</p></div></div>`).join('')}
-      </section>
-      <section class="cv-section">
-        <span class="section-index">Research expertise</span>
-        <div class="cv-skill-grid"><span>AI for network security</span><span>DDoS detection and mitigation</span><span>Trustworthy and data-efficient AI</span><span>Large language models</span><span>Computer vision</span><span>Multimodal learning</span><span>Federated learning</span><span>Explainable AI</span></div>
-      </section>
-      <section class="cv-section">
-        <span class="section-index">Intellectual property</span>
-        <div class="cv-record"><time>Granted · active</time><div><h2>Cancer subtype identification via multi-omics data integration</h2><p>Chinese patent CN113537358B. Co-inventors: Hongmin Cai and Ali Alfatemi. <a href="https://patents.google.com/patent/CN113537358B/en">Patent record ↗</a></p></div></div>
-      </section>
-      <section class="cv-section">
-        <span class="section-index">Professional service</span>
-        <h2>Selected peer-review service</h2>
+        <p>I taught CISC 1100, Structures of Computer Science, at Fordham in Fall 2025 and Spring 2026.</p>
+        <p>${teachingCourses.map((course) => `<strong>${course.term}</strong> · Instructor, ${course.code}`).join('<br>')}</p>
+      </div>
+
+      <div class="profile-block">
+        <span class="section-index">Patent</span>
+        <p>Chinese patent CN113537358B, “Cancer subtype identification via multi-omics data integration.” Co-inventors: Hongmin Cai and Ali Alfatemi. <a href="https://patents.google.com/patent/CN113537358B/en">Patent record ↗</a></p>
+      </div>
+
+      <div class="profile-block">
+        <span class="section-index">Peer review</span>
         <p>${reviewedVenues.join(' · ')}</p>
-      </section>
-      <section class="cv-section cv-publications">
-        <div class="cv-section-heading"><div><span class="section-index">Publications</span><h2>Publication record</h2></div><p>${profileStats.published} published works · ${profileStats.preprints} preprints · ${profileStats.firstAuthor} first-author</p></div>
-        <p><a class="text-link" href="/publications/">View the complete publication index <span class="arrow" aria-hidden="true">→</span></a> · <a href="/data/publications.bib">BibTeX</a> · <a href="/data/publications.json">JSON</a></p>
-      </section>
-      <section class="cv-section cv-links">
+      </div>
+
+      <div class="profile-block">
+        <span class="section-index">Publications</span>
+        <p>${profileStats.published} published works · ${profileStats.preprints} preprints · ${profileStats.firstAuthor} first-author. <a class="text-link" href="/publications/">View the complete publication index <span class="arrow" aria-hidden="true">→</span></a></p>
+      </div>
+
+      <div class="profile-block">
         <span class="section-index">Contact</span>
         <p class="contact-email"><a href="mailto:${site.email}">${site.email}</a></p>
-        <p><a href="${profileLinks.scholar}">Google Scholar ↗</a><a href="${profileLinks.github}">GitHub ↗</a><a href="${profileLinks.linkedin}">LinkedIn ↗</a><a href="${profileLinks.fordham}">Fordham Ph.D. directory ↗</a></p>
-      </section>
+        <p><a href="${profileLinks.scholar}">Google Scholar ↗</a> · <a href="${profileLinks.github}">GitHub ↗</a> · <a href="${profileLinks.linkedin}">LinkedIn ↗</a> · <a href="${profileLinks.fordham}">Fordham Ph.D. directory ↗</a></p>
+      </div>
     </div>
   </section>`;
 
