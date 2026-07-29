@@ -10,8 +10,7 @@
     <link rel="canonical" href="https://alialfatemi.github.io/research/">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="sitemap" href="/sitemap.xml" type="application/xml">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f3">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081215">
+    <meta name="theme-color" content="#eef1ec">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ali Alfatemi — AI Researcher">
     <meta property="og:title" content="Research | Ali Alfatemi — AI Security, DDoS &amp; Multimodal AI">
@@ -26,15 +25,6 @@
     <meta name="twitter:description" content="Research by Ali Alfatemi on machine learning for network security, DDoS detection, trustworthy AI, computer vision, multimodal learning, and edge systems.">
     <meta name="twitter:image" content="https://alialfatemi.github.io/images/og-profile.png">
     <meta name="twitter:image:alt" content="Ali Alfatemi — AI researcher in cybersecurity, machine learning, and multimodal intelligence">
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('theme');
-          const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : preferred;
-        } catch { document.documentElement.dataset.theme = 'light'; }
-      })();
-    </script>
     <link rel="stylesheet" href="/css/styles.css">
 
     <script type="application/ld+json">{
@@ -73,9 +63,6 @@
         <li><a class="nav-contact" href="/contact/" >Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-glyph" aria-hidden="true">D</span>
-        </button>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-menu" aria-expanded="false" aria-label="Open navigation menu">
           <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>
@@ -117,7 +104,7 @@
   <section class="section--tight" aria-label="Research themes">
     <div class="container">
       <article class="research-theme" id="network-security">
-        <div><span class="section-index">R·01</span><h2>AI for network security</h2></div>
+        <div><span class="section-index">10 works · 7 first-author</span><h2>AI for network security</h2></div>
         <div>
           <h3>Problem</h3><p>DDoS defense must identify hostile traffic under noisy measurements, shifting attack patterns, and the compute limits of edge and IoT systems.</p>
           <h3>Approach</h3><p>I study shallow and deep neural models, noise-aware learning, meta-learning, multi-model fusion, and LLM-enhanced reasoning for detection and mitigation.</p>
@@ -147,12 +134,12 @@
         <aside class="research-aside"><h3>Also in this area</h3><ul><li>Data-efficient ProtoMAML and dual-space prototypical detection methods.</li><li>Multi-model fusion for combinatorial DDoS classification.</li></ul><p><a class="text-link" href="/publications/?area=Network+Security">View all security publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="trustworthy-ai">
-        <div><span class="section-index">R·02</span><h2>Trustworthy and data-efficient AI</h2></div>
+        <div><span class="section-index">3 works · 0 first-author</span><h2>Trustworthy and data-efficient AI</h2></div>
         <div><h3>Problem</h3><p>Accuracy alone is not enough when learning systems face scarce labels, distribution shifts, privacy constraints, or decisions that need explanation.</p><h3>Approach</h3><p>My work considers robustness through controlled noise, few-shot and meta-learning, interpretable analysis, and trustworthy federated learning for distributed settings.</p></div>
         <aside class="research-aside"><h3>Relevant settings</h3><ul><li>Industrial IoT and federated learning.</li><li>Security operations and explainable mitigation.</li><li>Data-constrained model development.</li></ul><p><a class="text-link" href="/publications/?area=Trustworthy+AI">View trustworthy-AI publications <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="multimodal-ai">
-        <div><span class="section-index">R·03</span><h2>Multimodal and language intelligence</h2></div>
+        <div><span class="section-index">5 works · 1 first-author</span><h2>Multimodal and language intelligence</h2></div>
         <div>
           <h3>Problem</h3><p>Useful intelligent systems must align representations across modalities and produce outputs that remain coherent, grounded, and interpretable.</p>
           <h3>Approach</h3><p>I investigate vision–language encoder–decoder systems, LLM-assisted security analysis, and co-authored explainable grammatical-error-correction methods.</p>
@@ -171,7 +158,7 @@
         <aside class="research-aside"><h3>Also in this area</h3><ul><li>ViT and GPT-J integration for image captioning.</li><li>On-premise LLM reasoning for real-time DDoS mitigation.</li></ul><p><a class="text-link" href="/publications/?area=Language+%26+Multimodal+AI">View language and multimodal work <span class="arrow" aria-hidden="true">→</span></a></p></aside>
       </article>
       <article class="research-theme" id="computer-vision">
-        <div><span class="section-index">R·04</span><h2>Computer vision and applied AI</h2></div>
+        <div><span class="section-index">8 works · 5 first-author</span><h2>Computer vision and applied AI</h2></div>
         <div>
           <h3>Problem</h3><p>Visual classifiers often struggle when categories differ by subtle features or when background context changes between training and use.</p>
           <h3>Approach</h3><p>I study foreground-centric representation, fine-grained recognition, and data augmentation, while applying machine learning in healthcare, forecasting, and robotics collaborations.</p>

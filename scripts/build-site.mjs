@@ -408,7 +408,7 @@ const homeContent = () => {
     <div class="container">
       <div class="hero-copy reveal">
         <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
-        <h1>Ali Alfatemi <span class="hero-title">Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</span></h1>
+        <h1>Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</h1>
         <p class="lead">I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
         <p class="availability-badge"><span class="opportunity-dot" aria-hidden="true"></span><span><strong>On the 2026–27 academic job market</strong> · available Fall 2027</span></p>
         <div class="hero-actions">

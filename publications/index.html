@@ -10,8 +10,7 @@
     <link rel="canonical" href="https://alialfatemi.github.io/publications/">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="sitemap" href="/sitemap.xml" type="application/xml">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f3">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081215">
+    <meta name="theme-color" content="#eef1ec">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ali Alfatemi — AI Researcher">
     <meta property="og:title" content="Publications | Ali Alfatemi — AI &amp; Cybersecurity">
@@ -26,15 +25,6 @@
     <meta name="twitter:description" content="Explore Ali Alfatemi’s peer-reviewed papers and preprints in network security, DDoS detection, machine learning, computer vision, multimodal AI, and NLP.">
     <meta name="twitter:image" content="https://alialfatemi.github.io/images/og-profile.png">
     <meta name="twitter:image:alt" content="Ali Alfatemi — AI researcher in cybersecurity, machine learning, and multimodal intelligence">
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('theme');
-          const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : preferred;
-        } catch { document.documentElement.dataset.theme = 'light'; }
-      })();
-    </script>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="alternate" type="application/json" href="/data/publications.json" title="Structured publication data">
 
@@ -1449,9 +1439,6 @@
         <li><a class="nav-contact" href="/contact/" >Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-glyph" aria-hidden="true">D</span>
-        </button>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-menu" aria-expanded="false" aria-label="Open navigation menu">
           <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>
@@ -1558,7 +1545,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Journal article</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="vision-language-image-captioning-vit-gpt-j" data-publication data-year="2026" data-area="Language &amp; Multimodal AI" data-type="Conference paper" data-author="First author" data-search="Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J Ali Alfatemi, Mohamed Rahouti, Mohammed Aledhari, Nasir Ghani, Abdellah Chehri, Gwanggil Jeon Applied Imagery Pattern Recognition (AIPR 2025) Language &amp; Multimodal AI Published Conference paper">
@@ -1575,7 +1562,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="two-stage-llm-ddos-iot-edge" data-publication data-year="2025" data-area="Network Security" data-type="Conference paper" data-author="First author" data-search="A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks Ali Alfatemi, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Aiman Solyman IEEE GLOBECOM 2025 Network Security Published Conference paper">
@@ -1592,7 +1579,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="real-time-explainable-ddos-llms" data-publication data-year="2025" data-area="Network Security" data-type="Conference paper" data-author="Co-author" data-search="Enabling Real-Time, Explainable DDoS Mitigation via On-Premise Large Language Models and Flow Analysis Henok Wondimu, Ali Alfatemi, Mohamed Rahouti, Abdellah Chehri, Paweł Weichbroth, Nasir Ghani Procedia Computer Science Network Security Published Conference paper">
@@ -1626,7 +1613,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Journal article</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="foreground-centric-fine-grained-recognition" data-publication data-year="2025" data-area="Computer Vision" data-type="Journal article" data-author="First author" data-search="Foreground-Centric learning improves robustness in fine-grained visual recognition Ali Alfatemi, Mohamed Rahouti, Majjed Al-Qatf, Senthil Kumar Jagatheesaperumal Signal, Image and Video Processing Computer Vision Published Journal article">
@@ -1643,7 +1630,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Journal article</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="multi-model-deep-learning-ddos-fusion" data-publication data-year="2025" data-area="Network Security" data-type="Journal article" data-author="First author" data-search="Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion and Combinatorial Analysis Ali Alfatemi, Mohamed Rahouti, D. Frank Hsu, Christina Schweikert, Nasir Ghani, Aiman Solyman, Mohammad I. Saryuddin Assaqty Journal of Network and Systems Management Network Security Published Journal article">
@@ -1660,7 +1647,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Journal article</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="robotic-navigation-blockchain" data-publication data-year="2025" data-area="Applied AI" data-type="Preprint" data-author="Co-author" data-search="Integrating Robotic Navigation with Blockchain: A Novel PoS-Based Approach for Heterogeneous Robotic Teams Nasim Paykari, Ali Alfatemi, Damian M. Lyons, Mohamed Rahouti arXiv Applied AI Preprint Preprint">
@@ -1694,7 +1681,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="deep-residual-neural-networks-ddos" data-publication data-year="2024" data-area="Network Security" data-type="Preprint" data-author="First author" data-search="Advancing DDoS Attack Detection: A Synergistic Approach Using Deep Residual Neural Networks and Synthetic Oversampling Ali Alfatemi, Mohamed Rahouti, Ruhul Amin, Sarah ALJamal, Kaiqi Xiong, Yufeng Xin arXiv Network Security Preprint Preprint">
@@ -1711,7 +1698,7 @@
       <div class="publication-side">
         <span class="status status--preprint">Preprint</span>
         <span class="tag">Preprint</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="ncaa-march-madness-forecasting" data-publication data-year="2024" data-area="Applied AI" data-type="Conference paper" data-author="First author" data-search="Advancing NCAA March Madness Forecasts Through Deep Learning and Combinatorial Fusion Analysis Ali Alfatemi, Mohamed Rahouti, D. Frank Hsu, Christina Schweikert Intelligent Systems Conference Applied AI Published Conference paper">
@@ -1728,7 +1715,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="trustworthy-federated-learning-industrial-iot" data-publication data-year="2024" data-area="Trustworthy AI" data-type="Journal article" data-author="Co-author" data-search="Enabling Trustworthy Federated Learning in Industrial IoT: Bridging the Gap Between Interpretability and Robustness Senthil Kumar Jagatheesaperumal, Mohamed Rahouti, Ali Alfatemi, Nasir Ghani, Vu Khanh Quy, Abdellah Chehri IEEE Internet of Things Magazine Trustworthy AI Published Journal article">
@@ -1762,7 +1749,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="wheeled-mobile-robot-control" data-publication data-year="2024" data-area="Applied AI" data-type="Preprint" data-author="Co-author" data-search="Optimizing Control Strategies for Wheeled Mobile Robots Using Fuzzy Type I and II Controllers and Parallel Distributed Compensation Nasim Paykari, Razieh Jokar, Ali Alfatemi, Damian Lyons, Mohamed Rahouti arXiv Applied AI Preprint Preprint">
@@ -1796,7 +1783,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="dual-space-prototypical-ddos" data-publication data-year="2024" data-area="Network Security" data-type="Conference paper" data-author="Co-author" data-search="Redefining DDoS Attack Detection Using a Dual-Space Prototypical Network-Based Approach Fernando Martinez, Mariyam Mapkar, Ali Alfatemi, Mohamed Rahouti, Yufeng Xin, Kaiqi Xiong, Nasir Ghani ICCCN Network Security Published Conference paper">
@@ -1830,7 +1817,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Conference paper</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
     <li class="publication-row" id="bidirectional-attention-grammar-correction" data-publication data-year="2024" data-area="Language &amp; Multimodal AI" data-type="Journal article" data-author="Co-author" data-search="Toward Utilizing Bidirectional Multi-head Attention Technique for Automatic Correction of Grammatical Errors Zeinab Mahmoud, Natalia Kryvinska, Mohammed Abdalsalm, Aiman Solyman, Ali Alfatemi, Ahmad Musyafa IAENG IJCS Language &amp; Multimodal AI Published Journal article">
@@ -1932,7 +1919,7 @@
       <div class="publication-side">
         <span class="status status--published">Published</span>
         <span class="tag">Journal article</span>
-        <span class="publication-authorship">First author</span>
+        <span class="publication-authorship publication-authorship--first">First author</span>
       </div>
     </li>
       </ol>

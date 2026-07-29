@@ -10,8 +10,7 @@
     <link rel="canonical" href="https://alialfatemi.github.io/">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="sitemap" href="/sitemap.xml" type="application/xml">
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f7f3">
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#081215">
+    <meta name="theme-color" content="#eef1ec">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ali Alfatemi — AI Researcher">
     <meta property="og:title" content="Ali Alfatemi | AI Researcher in Cybersecurity &amp; Multimodal AI">
@@ -26,15 +25,6 @@
     <meta name="twitter:description" content="Ali Alfatemi is a Fordham University Ph.D. candidate developing machine learning for DDoS defense, network security, computer vision, and multimodal AI.">
     <meta name="twitter:image" content="https://alialfatemi.github.io/images/og-profile.png">
     <meta name="twitter:image:alt" content="Ali Alfatemi — AI researcher in cybersecurity, machine learning, and multimodal intelligence">
-    <script>
-      (() => {
-        try {
-          const saved = localStorage.getItem('theme');
-          const preferred = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : preferred;
-        } catch { document.documentElement.dataset.theme = 'light'; }
-      })();
-    </script>
     <link rel="stylesheet" href="/css/styles.css">
 
     <script type="application/ld+json">{
@@ -116,9 +106,6 @@
         <li><a class="nav-contact" href="/contact/" >Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span class="theme-glyph" aria-hidden="true">D</span>
-        </button>
         <button class="nav-toggle" type="button" data-nav-toggle aria-controls="primary-menu" aria-expanded="false" aria-label="Open navigation menu">
           <span class="nav-toggle-lines" aria-hidden="true"></span>
         </button>
@@ -128,53 +115,76 @@
 <main id="main-content">
   <section class="hero">
     <div class="container">
-      <div class="hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
-          <h1>Ali Alfatemi <span class="hero-title">Machine learning for resilient, trustworthy systems.</span></h1>
-          <p class="lead">I develop machine learning for DDoS detection and network defense, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
-          <p class="opportunity-line"><span class="opportunity-dot" aria-hidden="true"></span><span>Open to research collaborations and postdoctoral, faculty, Research Scientist, Applied Scientist, and AI security roles.</span></p>
-          <div class="hero-actions">
-            <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
-          </div>
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
+        <h1>Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</h1>
+        <p class="lead">I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
+        <p class="availability-badge"><span class="opportunity-dot" aria-hidden="true"></span><span><strong>On the 2026–27 academic job market</strong> · available Fall 2027</span></p>
+        <div class="hero-actions">
+          <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <aside class="hero-visual reveal" aria-label="Research profile portrait and working method">
-          <div class="portrait-frame">
-            <img src="/images/ali-960.jpg" width="720" height="960" alt="Ali Alfatemi working at a table with a research paper and laptop" fetchpriority="high" decoding="async">
-            <div class="portrait-label">
-              <strong>Research → systems</strong>
-              <span>New York · Security · Machine intelligence</span>
-            </div>
-          </div>
-          <ol class="signal-strip" aria-label="Research workflow">
-            <li class="signal-step"><span>01</span><strong>Detect</strong></li>
-            <li class="signal-step"><span>02</span><strong>Reason</strong></li>
-            <li class="signal-step"><span>03</span><strong>Deploy</strong></li>
-          </ol>
-        </aside>
       </div>
-      <dl class="evidence-rail reveal" aria-label="Profile highlights">
-        <div class="evidence-item"><dt class="meta-label">Affiliation</dt><dd><strong>Computer Science, Fordham University</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Research record</dt><dd><strong>21 published works · 5 preprints</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Lead authorship</dt><dd><strong>13 first-author works</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Profile</dt><dd><a href="https://scholar.google.com/citations?user=5INwJxIAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a></dd></div>
+      <dl class="evidence-rail reveal" aria-label="Verified record">
+        <div class="evidence-item"><dt class="meta-label">Publications</dt><dd><strong>26</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">First-author</dt><dd><strong>13</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">IEEE Transactions</dt><dd><strong>3</strong></dd></div>
+        <div class="evidence-item"><dt class="meta-label">Granted patent</dt><dd><strong>1</strong></dd></div>
       </dl>
+      <div class="record-section reveal">
+        <h2 class="record-heading" id="record-heading">The record, 2022–2026</h2>
+
+  <div class="matrix-wrap">
+    <table class="record-matrix">
+      <caption class="visually-hidden">Publication record by year and research area. Filled marks are first-author works; outline marks are co-author works.</caption>
+      <thead>
+        <tr>
+          <th scope="col"><span class="visually-hidden">Year</span></th>
+          <th scope="col" abbr="Network Security">Net. Sec.</th><th scope="col" abbr="Trustworthy AI">Trust</th><th scope="col" abbr="Language &amp; Multimodal AI">Lang.</th><th scope="col" abbr="Computer Vision">Vision</th><th scope="col" abbr="Applied AI">Applied</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <th scope="row">2026</th>
+          <td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span></span><span class="visually-hidden">Network Security, 2026: 1 first-author</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Trustworthy AI, 2026: 1 co-author</span></td><td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Language &amp; Multimodal AI, 2026: 1 first-author, 1 co-author</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Computer Vision, 2026: 1 co-author</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Applied AI, 2026: none</span></td>
+        </tr>
+        <tr>
+          <th scope="row">2025</th>
+          <td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Network Security, 2025: 4 first-author, 1 co-author</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Trustworthy AI, 2025: none</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Language &amp; Multimodal AI, 2025: none</span></td><td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span></span><span class="visually-hidden">Computer Vision, 2025: 1 first-author</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Applied AI, 2025: 1 co-author</span></td>
+        </tr>
+        <tr>
+          <th scope="row">2024</th>
+          <td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Network Security, 2024: 2 first-author, 1 co-author</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Trustworthy AI, 2024: 2 co-author</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Language &amp; Multimodal AI, 2024: 1 co-author</span></td><td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--first" aria-hidden="true"></span></span><span class="visually-hidden">Computer Vision, 2024: 2 first-author</span></td><td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Applied AI, 2024: 1 first-author, 1 co-author</span></td>
+        </tr>
+        <tr>
+          <th scope="row">2023</th>
+          <td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Network Security, 2023: 1 co-author</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Trustworthy AI, 2023: none</span></td><td><span class="matrix-marks"><span class="mark mark--co" aria-hidden="true"></span><span class="mark mark--co" aria-hidden="true"></span></span><span class="visually-hidden">Language &amp; Multimodal AI, 2023: 2 co-author</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Computer Vision, 2023: none</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Applied AI, 2023: none</span></td>
+        </tr>
+        <tr>
+          <th scope="row">2022</th>
+          <td><span class="matrix-marks"></span><span class="visually-hidden">Network Security, 2022: none</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Trustworthy AI, 2022: none</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Language &amp; Multimodal AI, 2022: none</span></td><td><span class="matrix-marks"></span><span class="visually-hidden">Computer Vision, 2022: none</span></td><td><span class="matrix-marks"><span class="mark mark--first" aria-hidden="true"></span></span><span class="visually-hidden">Applied AI, 2022: 1 first-author</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="matrix-legend"><span><span class="mark mark--first" aria-hidden="true"></span> First author</span><span><span class="mark mark--co" aria-hidden="true"></span> Co-author</span></p>
+      </div>
     </div>
   </section>
 
   <section class="section" aria-labelledby="research-heading">
     <div class="container">
       <div class="section-heading reveal">
-        <div><span class="section-index">Research agenda / 01</span><h2 id="research-heading">Four connected lines of inquiry</h2></div>
+        <div><span class="section-index">Research agenda</span><h2 id="research-heading">Four connected lines of inquiry</h2></div>
         <div><p>The unifying question is practical: how can learning systems remain useful when data, compute, and trust are constrained?</p></div>
       </div>
       <div class="theme-grid">
-        <article class="theme-card reveal"><span class="theme-number">R·01</span><h3>AI for network security</h3><p>Detection and mitigation methods for DDoS attacks across edge, IoT, and computational social systems.</p><a class="text-link" href="/research/#network-security">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·02</span><h3>Trustworthy and data-efficient learning</h3><p>Robust, interpretable, and resource-aware learning, including meta-learning and federated settings.</p><a class="text-link" href="/research/#trustworthy-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·03</span><h3>Multimodal and language intelligence</h3><p>Vision–language integration, explainable grammatical error correction, and LLM-enhanced analysis.</p><a class="text-link" href="/research/#multimodal-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
-        <article class="theme-card reveal"><span class="theme-number">R·04</span><h3>Computer vision and applied AI</h3><p>Foreground-centric recognition and learning across healthcare, forecasting, robotics, and visual understanding.</p><a class="text-link" href="/research/#computer-vision">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">10 works</span><h3>AI for network security</h3><p>Detection and mitigation methods for DDoS attacks across edge, IoT, and computational social systems.</p><a class="text-link" href="/research/#network-security">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">3 works</span><h3>Trustworthy and data-efficient learning</h3><p>Robust, interpretable, and resource-aware learning, including meta-learning and federated settings.</p><a class="text-link" href="/research/#trustworthy-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">5 works</span><h3>Multimodal and language intelligence</h3><p>Vision–language integration, explainable grammatical error correction, and LLM-enhanced analysis.</p><a class="text-link" href="/research/#multimodal-ai">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
+        <article class="theme-card reveal"><span class="theme-number">8 works</span><h3>Computer vision and applied AI</h3><p>Foreground-centric recognition and learning across healthcare, forecasting, robotics, and visual understanding.</p><a class="text-link" href="/research/#computer-vision">Explore this research area <span class="arrow" aria-hidden="true">→</span></a></article>
       </div>
     </div>
   </section>
@@ -182,7 +192,7 @@
   <section class="section section--surface" aria-labelledby="selected-work-heading">
     <div class="container">
       <div class="section-heading reveal">
-        <div><span class="section-index">Selected work / 02</span><h2 id="selected-work-heading">Representative publications</h2></div>
+        <div><span class="section-index">Selected work</span><h2 id="selected-work-heading">Representative publications</h2></div>
         <div><p>Selected work is presented by research question and contribution. The complete index clearly separates published work from preprints.</p><p><a class="text-link" href="/publications/">Browse all publications <span class="arrow" aria-hidden="true">→</span></a></p></div>
       </div>
 
@@ -192,6 +202,7 @@
         <span class="status status--published">Published</span>
         <span class="tag">2025</span>
         <span class="tag">Network Security</span>
+        <span class="tag authorship-tag authorship-tag--first">First author</span>
       </div>
       <h3>Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems</h3>
       <p class="authors"><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Mohammed Aledhari, Gwanggil Jeon</p>
@@ -211,6 +222,7 @@
         <span class="status status--published">Published</span>
         <span class="tag">2025</span>
         <span class="tag">Computer Vision</span>
+        <span class="tag authorship-tag authorship-tag--first">First author</span>
       </div>
       <h3>Foreground-Centric learning improves robustness in fine-grained visual recognition</h3>
       <p class="authors"><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Majjed Al-Qatf, Senthil Kumar Jagatheesaperumal</p>
@@ -231,6 +243,7 @@
         <span class="status status--published">Published</span>
         <span class="tag">2026</span>
         <span class="tag">Language &amp; Multimodal AI</span>
+        <span class="tag authorship-tag">Co-author</span>
       </div>
       <h3>MTAGEC: Multi-Task Arabic Grammatical Error Correction as a sequence generation with synthetic data</h3>
       <p class="authors">Zeinab Mahmoud, Marco Zappatore, Natalia Kryvinska, Mohammed Abdalsalam, <strong>Ali Alfatemi</strong>, Aiman Solyman</p>
