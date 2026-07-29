@@ -17,18 +17,16 @@ The site presents one coherent research identity with two entry paths:
 - Academic visitors move from the research agenda to publications, teaching, service, patent activity, and CV materials.
 - Industry visitors move from practical problems to system stories, methods, evaluation logic, code, and role-oriented contact.
 
-## Audit of the previous site
+## Implementation overview
 
-The previous implementation was a single 1,982-line page built from runtime Tailwind, Google Fonts, Font Awesome, a JavaScript typewriter, a continuously animated neural canvas, glass cards, mouse-driven tilt, and more than twenty equally weighted publication cards.
-
-The redesign addresses these issues:
+The site is generated as plain HTML, CSS, and JavaScript so its core content remains fast, crawlable, and usable without client-side rendering. The implementation provides:
 
 - Important content now has stable, crawlable URLs instead of hash anchors.
 - The core value proposition exists in source HTML rather than being typed by JavaScript.
 - Published work and preprints have explicit, distinct statuses.
 - The broken grammar-paper link and obsolete GLOBECOM program link are replaced with official records.
-- A verified 2026 IEEE Transactions on Industrial Informatics paper missing from the old site is included.
-- Stale Summer 2026 internship language and temporary classroom logistics no longer lead the profile.
+- A complete 26-record publication index with explicit publication status.
+- Current research, teaching, and professional material without temporary classroom logistics.
 - Generic or mismatched “AI” artwork is not used in the new interface.
 - Authentic research figures are displayed with `object-fit: contain`, descriptive alt text, intrinsic dimensions, and lazy loading below the fold.
 - Runtime visual dependencies, typewriter effects, particles, card tilt, and the O(n²) canvas loop are removed.
@@ -42,11 +40,11 @@ The redesign addresses these issues:
 | `/research/` | Four connected research themes organized by problem, approach, contribution, and application |
 | `/publications/` | Complete static publication index with progressive search and filters for year, area, type, and authorship |
 | `/projects/` | Research-to-system stories covering problem, system, methods, evaluation, and relevance |
-| `/academic/` | Current appointment, teaching record, patent activity, reviewing, and verified profile links |
+| `/academic/` | Current position, teaching record, patent activity, reviewing, and profile links |
 | `/teaching/` | Permanent teaching profile without stale classroom logistics |
-| `/cv/` | Accessible HTML overview and honest download placeholders until source PDFs are supplied |
-| `/news/` | Select publication and teaching milestones only |
-| `/contact/` | Collaboration and role pathways, protected institutional email, and verified profiles |
+| `/cv/` | Accessible HTML curriculum vitae and downloadable PDF |
+| `/news/` | Selected publication and conference milestones |
+| `/contact/` | Collaboration and role pathways, protected institutional email, and profile links |
 | `/404.html` | Branded recovery page with useful next paths |
 
 ## Design concept
@@ -68,11 +66,11 @@ The complete token and component implementation is in `css/styles.css`.
 
 - `data/publications.json` is the canonical structured publication index.
 - `data/projects.json` contains the project-story model.
-- `data/publications.bib` is generated from the verified full author strings in the publication index.
-- `docs/publication-audit-2026-07-29.md` records the title-by-title Scholar and publisher reconciliation completed for the production audit.
+- `data/publications.bib` is generated from the full author strings in the publication index.
 - `scripts/build-site.mjs` contains shared layout and page copy, then generates all checked-in HTML, `robots.txt`, `sitemap.xml`, and BibTeX.
+- `cv/ali-alfatemi-cv.pdf` is the downloadable PDF counterpart to the accessible HTML CV.
 
-Publication statuses are intentionally limited to `Published` and `Preprint` until a supplied CV or publisher record supports more specific states. Several legacy records still contain abbreviated author strings; the public index flags this limitation instead of fabricating author order.
+The publication index contains 26 records. Statuses are limited to `Published` and `Preprint`, and each entry uses a complete author string, canonical source link, and stable slug.
 
 ## SEO and structured data
 
@@ -86,16 +84,16 @@ Every indexable page includes:
 - Semantic landmarks and one H1.
 - JSON-LD breadcrumbs.
 
-The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `CollegeOrUniversity` graph. The publications page adds a `ScholarlyArticle` entity for every published paper and preprint, with full authorship, status, venue, canonical record, and DOI metadata where available. Verified profile URLs are connected through `sameAs`; ORCID is intentionally omitted until ownership is confirmed.
+The homepage includes a linked `Person`, `ProfilePage`, `WebSite`, and Fordham `CollegeOrUniversity` graph. The publications page adds a `ScholarlyArticle` entity for every published paper and preprint, with full authorship, status, venue, canonical record, and DOI metadata where available. Profile URLs are connected through `sameAs`.
 
-`robots.txt`, `sitemap.xml`, `.nojekyll`, and a custom 404 are generated automatically. A comment in the shared head marks where to add the Google Search Console verification meta tag.
+`robots.txt`, `sitemap.xml`, `.nojekyll`, and a custom 404 are generated automatically.
 
 ## Accessibility and performance
 
 - Skip link, semantic navigation, `aria-current`, labelled form controls, live result count, and visible focus styles.
 - Keyboard-operable mobile navigation with Escape handling and focus return.
 - Text-based theme control with an accessible changing label.
-- Email reveal that avoids publishing the complete address in source HTML.
+- Email reveal on the contact page and a direct institutional address in the downloadable CV.
 - Critical hero copy rendered without JavaScript.
 - All publications remain visible when JavaScript is disabled.
 - System fonts and no third-party JavaScript or CSS.
@@ -115,7 +113,7 @@ python3 -m http.server 4173
 
 Then open `http://127.0.0.1:4173/`.
 
-`npm run check` verifies page count, unique metadata, canonical URLs, one H1 per page, JSON-LD parsing, internal targets, image dimensions, secure publication links, sitemap, robots, favicon, social image, and BibTeX output.
+`npm run check` verifies page count, unique metadata, canonical URLs, one H1 per page, JSON-LD parsing, internal targets, image dimensions, secure publication links, the 26-record publication data set, the downloadable CV, sitemap, robots, favicon, social image, and BibTeX output. It also rejects internal editorial notices and removed publication data if they reappear in generated public files.
 
 ## GitHub Pages deployment
 
@@ -130,22 +128,6 @@ This is the username repository `AliAlfatemi/alialfatemi.github.io`, so it needs
 7. After deployment, verify `/robots.txt`, `/sitemap.xml`, `/404.html`, the homepage, and the publication filters.
 8. Add the Search Console verification token, submit `https://alialfatemi.github.io/sitemap.xml`, and validate the JSON-LD with Schema.org or Google’s Rich Results tooling.
 
-## Information to verify before final publication
-
-- `[INFORMATION NEEDED]` Upload the current academic CV PDF.
-- `[INFORMATION NEEDED]` Upload an industry résumé PDF if a separate version exists.
-- `[INFORMATION NEEDED]` Confirm previous degrees, institutions, fields, and dates.
-- `[INFORMATION NEEDED]` Confirm dissertation title, advisor, laboratory, and exact expected graduation wording.
-- `[INFORMATION NEEDED]` Confirm the exact teaching appointment and role for CISC 1100.
-- `[INFORMATION NEEDED]` Confirm reviewer activity and whether all listed venues should remain public.
-- `[INFORMATION NEEDED]` Confirm ORCID ownership before adding `0009-0004-7635-5403`.
-- `[INFORMATION NEEDED]` Provide awards, grants, talks, mentoring, memberships, and research statement only if they should be published.
-- `[INFORMATION NEEDED]` Restore full canonical author lists for legacy entries that still contain ellipses or “et al.”
-- `[INFORMATION NEEDED]` Resolve whether the cryptocurrency arXiv entry should remain associated with Ali when the final conference metadata does not list him.
-- `[INFORMATION NEEDED]` Confirm reuse rights and fidelity for paper-derived figures and website-created conceptual diagrams.
-- `[INFORMATION NEEDED]` Replace the candid portrait with a professional 4:5 portrait when available.
-- `[INFORMATION NEEDED]` Reconfirm current availability language before each recruiting cycle.
-
 ## Major improvements and rationale
 
-The rebuild prioritizes credibility over spectacle. It creates durable topic pages, moves evidence close to the hero, converts publications into a useful research index, makes applied capability legible to industry visitors, distinguishes factual status, removes fragile visual dependencies, and documents every remaining information gap. The result is faster, more accessible, easier to maintain, and substantially clearer to professors, research directors, recruiters, and collaborators.
+The rebuild prioritizes credibility over spectacle. It creates durable topic pages, moves evidence close to the hero, converts publications into a useful research index, makes applied capability legible to industry visitors, distinguishes factual status, and removes fragile visual dependencies. The result is faster, more accessible, easier to maintain, and substantially clearer to professors, research directors, recruiters, and collaborators.

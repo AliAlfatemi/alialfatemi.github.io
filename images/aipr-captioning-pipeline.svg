@@ -107,7 +107,7 @@
       "A model describes visual content using aligned image and language representations."
     </text>
     <text x="600" y="610" text-anchor="middle" font-size="15" font-weight="700" fill="#92400e">
-      Evaluation: BLEU, ROUGE, METEOR, CIDEr
+      Evaluation: ROUGE
     </text>
   </g>
 

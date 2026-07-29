@@ -21,6 +21,27 @@ const titles = new Map();
 const descriptions = new Map();
 const canonicals = new Map();
 const htmlByFile = new Map();
+const expectedPublicationCount = 26;
+const removedPublication = {
+  id: 'cryptocurrency-price-forecasting-xgboost',
+  title: 'Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators'
+};
+const publicContentFiles = [
+  ...htmlFiles,
+  'robots.txt',
+  'sitemap.xml',
+  'data/publications.json',
+  'data/publications.bib',
+  'data/projects.json'
+];
+const forbiddenPublicContent = [
+  ['internal information-request marker', /INFORMATION NEEDED/i],
+  ['internal bibliographic note', /Bibliographic integrity note/i],
+  ['internal figure-rights note', /Figure provenance/i],
+  ['removed publication title', new RegExp(removedPublication.title, 'i')],
+  ['removed publication id', new RegExp(removedPublication.id, 'i')],
+  ['removed publication-audit link', /(?:href=["']\/docs\/)?publication-audit(?:-[^"'\s<]*)?/i]
+];
 
 const recordUnique = (map, value, file, label) => {
   if (!value) return errors.push(`${file}: missing ${label}`);
@@ -72,11 +93,24 @@ for (const file of htmlFiles) {
   }
 }
 
+for (const file of publicContentFiles) {
+  const content = htmlByFile.get(file) ?? await readFile(path.join(root, file), 'utf8');
+  for (const [label, pattern] of forbiddenPublicContent) {
+    if (pattern.test(content)) errors.push(`${file}: contains ${label}`);
+  }
+}
+
 const publicationData = JSON.parse(await readFile(path.join(root, 'data/publications.json'), 'utf8'));
 const statuses = new Set(['Published', 'Preprint']);
 const ids = new Set();
 const publicationTitles = new Set();
 const publicationHtml = htmlByFile.get('publications/index.html');
+if (publicationData.length !== expectedPublicationCount) {
+  errors.push(`data/publications.json: expected ${expectedPublicationCount} records, found ${publicationData.length}`);
+}
+if (publicationData.some((publication) => publication.id === removedPublication.id || publication.title === removedPublication.title)) {
+  errors.push('data/publications.json: contains the removed publication');
+}
 for (const publication of publicationData) {
   if (ids.has(publication.id)) errors.push(`data/publications.json: duplicate id ${publication.id}`);
   ids.add(publication.id);
@@ -133,6 +167,9 @@ if (!publicationLdMatch) {
 }
 
 const bibtex = await readFile(path.join(root, 'data/publications.bib'), 'utf8');
+if (bibtex.includes(removedPublication.id) || bibtex.includes(removedPublication.title)) {
+  errors.push('data/publications.bib: contains the removed publication');
+}
 const bibtexCount = (bibtex.match(/^@/gm) || []).length;
 if (bibtexCount !== publicationData.length) {
   errors.push(`data/publications.bib: expected ${publicationData.length} records, found ${bibtexCount}`);
@@ -141,7 +178,7 @@ for (const publication of publicationData) {
   if (!bibtex.includes(`{${publication.id},`)) errors.push(`data/publications.bib: missing ${publication.id}`);
 }
 
-for (const required of ['robots.txt', 'sitemap.xml', 'images/favicon.svg', 'images/og-profile.png', 'data/publications.bib']) {
+for (const required of ['robots.txt', 'sitemap.xml', 'images/favicon.svg', 'images/og-profile.png', 'data/publications.bib', 'cv/ali-alfatemi-cv.pdf']) {
   try { await access(path.join(root, required)); }
   catch { errors.push(`missing required output: ${required}`); }
 }

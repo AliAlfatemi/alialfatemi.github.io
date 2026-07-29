@@ -66,8 +66,8 @@
       "paper": "https://ieeexplore.ieee.org/document/11230065",
       "doi": "https://doi.org/10.1109/TCSS.2025.3620674"
     },
-    "image": "images/ddos-paper-diagram-thumb.jpg",
-    "imageAlt": "Compact diagram of a DDoS traffic and defense workflow",
+    "image": "images/picpip.png",
+    "imageAlt": "DDoS threat model with coordinated botnet traffic, legitimate clients, victim services, and defensive filtering",
     "note": "Early Access, pp. 1–14."
   },
   {
@@ -145,8 +145,8 @@
       "paper": "https://link.springer.com/chapter/10.1007/978-3-032-18474-0_8",
       "doi": "https://doi.org/10.1007/978-3-032-18474-0_8"
     },
-    "image": "images/VisionTGPTJ.png",
-    "imageAlt": "Vision-Language Integration for Image Captioning using Vision Transformers and GPT-J figure",
+    "image": "images/aipr-captioning-pipeline.svg",
+    "imageAlt": "Conceptual vision-language pipeline connecting a Vision Transformer encoder to a GPT-J decoder",
     "note": "AIPR 2025 proceedings, LNCS 16446, pp. 101–114; published in 2026."
   },
   {
@@ -166,25 +166,6 @@
     "image": "images/twostege.png",
     "imageAlt": "Two-stage LLM-enhanced DDoS detection framework figure",
     "note": "CISS Symposium, pp. 7–12."
-  },
-  {
-    "id": "cryptocurrency-price-forecasting-xgboost",
-    "title": "Cryptocurrency Price Forecasting Using XGBoost Regressor and Technical Indicators",
-    "authors": "Abdelatif Hafid, Maad Ebrahim, Ali Alfatemi, Mohamed Rahouti, Diogo Oliveira",
-    "year": 2024,
-    "venue": "arXiv",
-    "type": "Preprint",
-    "status": "Preprint",
-    "area": "Applied AI",
-    "firstAuthor": false,
-    "featured": false,
-    "links": {
-      "paper": "https://arxiv.org/abs/2407.11786",
-      "doi": "https://doi.org/10.48550/arXiv.2407.11786"
-    },
-    "image": "images/crypto-xgboost-prediction.png",
-    "imageAlt": "Prediction vs actual plot for cryptocurrency price forecasting",
-    "note": "arXiv:2407.11786. Ali is listed on this preprint but not on the final IPCCC 2024 version; this record is intentionally preprint-only."
   },
   {
     "id": "protomaml-ddos-detection",
@@ -258,8 +239,8 @@
       "paper": "https://arxiv.org/abs/2401.03116",
       "doi": "https://doi.org/10.48550/arXiv.2401.03116"
     },
-    "image": "images/ddos_abstract.png",
-    "imageAlt": "Advancing DDoS",
+    "image": "images/ddos-paper-diagram-thumb.jpg",
+    "imageAlt": "Deep residual DDoS detection pipeline with preprocessing, synthetic oversampling, residual blocks, pooling, and classification",
     "note": "arXiv:2401.03116."
   },
   {
@@ -409,7 +390,7 @@
     },
     "image": "images/Robotic.png",
     "imageAlt": "Robotic Navigation",
-    "note": "arXiv:2505.15954, posted in 2025; the work was presented at UR 2024, but no proceedings-paper DOI has been verified."
+    "note": "arXiv:2505.15954, posted in 2025; presented at UR 2024."
   },
   {
     "id": "dual-space-prototypical-ddos",

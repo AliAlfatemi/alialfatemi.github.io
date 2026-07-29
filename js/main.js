@@ -37,6 +37,7 @@
       navButton.setAttribute('aria-expanded', String(open));
       navButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
       navMenu.dataset.open = String(open);
+      if (open) window.requestAnimationFrame(() => navMenu.querySelector('a')?.focus());
     });
 
     navMenu.addEventListener('click', (event) => {
@@ -160,15 +161,25 @@
 
   document.querySelectorAll('[data-copy-citation]').forEach((button) => {
     button.addEventListener('click', async () => {
-      const target = document.querySelector(button.dataset.copyCitation || '');
-      if (!target) return;
+      const citation = button.dataset.copyCitation?.trim();
+      const status = document.querySelector('[data-copy-status]');
+      if (!citation) return;
       try {
-        await navigator.clipboard.writeText(target.textContent.trim());
+        await navigator.clipboard.writeText(citation);
         const original = button.textContent;
         button.textContent = 'Copied';
+        if (status) status.textContent = 'Citation copied to the clipboard.';
         window.setTimeout(() => { button.textContent = original; }, 1600);
       } catch {
-        target.focus();
+        const field = document.createElement('textarea');
+        field.value = citation;
+        field.setAttribute('readonly', '');
+        field.className = 'visually-hidden';
+        document.body.append(field);
+        field.select();
+        const copied = document.execCommand('copy');
+        field.remove();
+        if (status) status.textContent = copied ? 'Citation copied to the clipboard.' : 'Citation could not be copied automatically.';
       }
     });
   });
