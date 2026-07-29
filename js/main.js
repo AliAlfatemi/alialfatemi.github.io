@@ -2,25 +2,6 @@
   const root = document.documentElement;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const setTheme = (theme, persist = true) => {
-    root.dataset.theme = theme;
-    if (persist) localStorage.setItem('theme', theme);
-    document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
-      const next = theme === 'dark' ? 'light' : 'dark';
-      const glyph = button.querySelector('.theme-glyph');
-      if (glyph) glyph.textContent = theme === 'dark' ? 'L' : 'D';
-      button.setAttribute('aria-label', `Switch to ${next} theme`);
-      button.setAttribute('title', `Switch to ${next} theme`);
-    });
-  };
-
-  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
-    button.addEventListener('click', () => {
-      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
-    });
-  });
-  setTheme(root.dataset.theme || 'light', false);
-
   const navButton = document.querySelector('[data-nav-toggle]');
   const navMenu = document.querySelector('[data-nav-menu]');
 
