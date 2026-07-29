@@ -3,7 +3,10 @@
     "allow": [
       "Bash(grep -oE \"^[<>] \\\\.[a-zA-Z0-9_:.,\\(\\) -]+\\\\{\")",
       "Bash(grep -v \"^> $\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(pkill -f \"http.server 4176\")",
+      "Bash(git add *)",
+      "Bash(git reset *)"
     ]
   }
 }

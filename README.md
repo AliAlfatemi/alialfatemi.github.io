@@ -49,16 +49,12 @@ The site is four content pages. Every fact lives on exactly one page; other page
 
 ## Design concept
 
-The visual concept is **Signal & Evidence**: a research dossier combining scientific-journal typography, premium lab restraint, and product-grade clarity.
+The visual concept is **The Record**: the publication data has real shape — 26 works, a first/co-author split, a five-area spread, a five-year trajectory — and the homepage puts that structure in the hero instead of paraphrasing it in prose. The signature element is a hand-built (no chart library) year-by-area matrix table, styled after the detection/confusion-matrix outputs the underlying research itself produces: filled marks are first-author works, outline marks are co-author works.
 
-- Display typography: Iowan Old Style / Palatino / Georgia system stack.
-- Interface typography: native system sans stack.
-- Metadata typography: native monospace stack.
-- Light theme: warm paper, midnight ink, mineral teal, restrained copper.
-- Dark theme: deep blue-black surfaces, high-contrast off-white, luminous teal, warm copper.
-- Layout: asymmetric editorial grids, thin evidence rules, restrained radii, and minimal shadow.
-- Motion: optional short reveal transitions only; all motion respects `prefers-reduced-motion`.
-- Visual evidence: the portrait and research diagrams replace decorative AI imagery.
+- Typography: [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) for headings, UI, and body copy; [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) for metadata, DOIs, dates, and the matrix. Both are self-hosted as single variable-weight (400–700) woff2 files, Latin subset only, in `fonts/` — no Google Fonts CDN or other external request at runtime. See `fonts/README.md`.
+- Palette: warm paper and near-black ink, with a single reserved dark-ochre accent used only to mark what's verified — first authorship, availability, links, focus rings — never decoratively. A muted sage marks the secondary/co-author/preprint state. No dark theme; the site is intentionally one committed identity rather than a toggle between two.
+- Layout: a plain, disciplined grid with hairline rules and minimal shadow. No sequential numbering on non-sequential content — the four research themes are labeled by their real publication counts, not "01–04."
+- Motion: a single short reveal-on-scroll transition, always respecting `prefers-reduced-motion`. Nothing loops, nothing triggers repeatedly.
 
 The complete token and component implementation is in `css/styles.css`.
 
