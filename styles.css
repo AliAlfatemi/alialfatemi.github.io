@@ -106,7 +106,6 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .entry-links a { font-size: .7rem; font-style: normal; font-weight: 750; text-decoration: none; }
 .publication-entry:target { margin-inline: -.55rem; padding-inline: .55rem; background: var(--accent-soft); }
 
-.publication-note { padding: .62rem .75rem; border-left: 2px solid var(--accent); background: var(--surface); color: var(--muted); font-size: .78rem; }
 .record-count { flex: 0 0 auto; color: var(--muted-2); font-family: var(--mono); font-size: .66rem; letter-spacing: .04em; text-transform: uppercase; }
 .section-intro { max-width: 62ch; margin: -.25rem 0 .8rem; color: var(--muted); font-size: .78rem; }
 .preprint-list .publication-entry time { color: var(--muted-2); }
