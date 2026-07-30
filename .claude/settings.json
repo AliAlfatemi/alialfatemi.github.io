@@ -18,7 +18,8 @@
       "Bash(rm -f /tmp/audit.js)",
       "Bash(git rm *)",
       "Bash(rm -f \"images/ali.jpg\" \"images/og-profile.svg\" \"images/pic2.jpeg\" \"images/pipeline.png\")",
-      "Bash(rmdir docs *)"
+      "Bash(rmdir docs *)",
+      "Bash(awk '{print \"images/ now: \" $1}')"
     ]
   }
 }
