@@ -38,6 +38,11 @@
 - Teaching Fellow — Fordham University (2025–present)
 - AI Summer Research Fellow — Fordham University (Summer 2025)
 
+## Teaching
+
+- [CISC 1100 syllabus — Fall 2025](https://alialfatemi.github.io/syllabi/cisc-1100-fall-2025.pdf): Structures of Computer Science, Fordham University.
+- [CISC 1100 syllabus — Spring 2026](https://alialfatemi.github.io/syllabi/cisc-1100-spring-2026.pdf): Structures of Computer Science, Fordham University.
+
 ## Selected Publications
 
 - ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection — IEEE Transactions on Network and Service Management, 2026

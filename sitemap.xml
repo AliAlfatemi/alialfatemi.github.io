@@ -12,4 +12,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://alialfatemi.github.io/syllabi/cisc-1100-fall-2025.pdf</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
+  <url>
+    <loc>https://alialfatemi.github.io/syllabi/cisc-1100-spring-2026.pdf</loc>
+    <lastmod>2026-07-30</lastmod>
+  </url>
 </urlset>
