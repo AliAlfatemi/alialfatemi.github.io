@@ -56,6 +56,9 @@ button { color: inherit; font: inherit; }
 .menu-toggle { display: none; }
 
 .page-shell { display: grid; width: min(calc(100% - 2.5rem), var(--max)); margin-inline: auto; padding-block: 2rem 4rem; align-items: start; grid-template-columns: 13.75rem minmax(0, 1fr); gap: 3rem; }
+.error-shell { width: min(calc(100% - 2.5rem), 45rem); min-height: calc(100vh - 3.375rem); margin-inline: auto; padding-block: clamp(4rem, 13vh, 8rem); }
+.error-shell h1 { max-width: none; }
+.error-shell > p:not(.eyebrow) { max-width: 56ch; margin: 0 0 .8rem; color: var(--muted); }
 .profile-sidebar { position: sticky; top: 4.75rem; min-width: 0; }
 .identity-row { display: block; }
 .portrait { width: 10.5rem; aspect-ratio: 1; border: 1px solid var(--rule); border-radius: 50%; object-fit: cover; object-position: 50% 23%; }
