@@ -86,7 +86,7 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .resume-button { display: flex; min-height: 2.75rem; padding: .65rem .8rem; border: 1px solid var(--accent); background: var(--accent); align-items: center; justify-content: center; gap: .45rem; color: var(--bg); font-size: .75rem; font-weight: 780; line-height: 1.25; text-align: center; text-decoration: none; }
 .resume-button:hover { filter: brightness(1.08); }
 .text-actions { display: flex; margin-top: .9rem; flex-wrap: wrap; gap: .55rem 1rem; }
-.text-actions a, .section-header > a, .section-actions a, .focus-row > a, .project-actions a { font-size: .75rem; font-weight: 750; }
+.text-actions a, .section-header > a, .section-actions a, .focus-row > a { font-size: .75rem; font-weight: 750; }
 
 .content-section { margin-top: 1.35rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
 .section-header { display: flex; margin-bottom: .8rem; align-items: flex-end; justify-content: space-between; gap: 1rem; }
@@ -124,11 +124,6 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .practice-feature > div p { margin: 0 0 .65rem; font-size: .84rem; }
 .practice-feature > div strong { color: var(--text-strong); }
 .practice-feature .practice-meta { color: var(--muted); font-family: var(--mono); font-size: .66rem; line-height: 1.55; }
-.practice-feature > div .stack-label { margin: .7rem 0 .3rem; color: var(--muted-2); font-family: var(--mono); font-size: .62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
-.tech-stack { display: flex; margin: 0; padding: 0; flex-wrap: wrap; gap: .3rem; list-style: none; }
-.tech-stack li { padding: .16rem .4rem; border: 1px solid var(--rule); background: var(--surface); color: var(--text); font-family: var(--mono); font-size: .62rem; line-height: 1.45; }
-.project-actions { display: flex; margin-top: .75rem; flex-wrap: wrap; gap: .4rem 1rem; }
-.project-actions a { text-decoration: none; }
 
 .record-list { margin: 0; border-top: 1px solid var(--rule); }
 .record-list > div { display: grid; padding: .7rem 0; border-bottom: 1px solid var(--rule); grid-template-columns: 6rem 1fr; gap: 1rem; }
