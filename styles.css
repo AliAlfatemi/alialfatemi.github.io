@@ -82,9 +82,6 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .intro > p:not(.eyebrow):not(.availability) { max-width: 68ch; margin: 0 0 .75rem; }
 .availability { display: flex; margin: 1rem 0 0; padding: .62rem .75rem; border: 1px solid var(--rule); background: var(--surface); align-items: center; gap: .55rem; color: var(--muted); font-size: .78rem; }
 .availability span { width: .42rem; height: .42rem; border-radius: 50%; background: var(--signal); }
-.resume-actions { display: grid; max-width: 20rem; margin-top: .9rem; grid-template-columns: minmax(0, 1fr); }
-.resume-button { display: flex; min-height: 2.75rem; padding: .65rem .8rem; border: 1px solid var(--accent); background: var(--accent); align-items: center; justify-content: center; gap: .45rem; color: var(--bg); font-size: .75rem; font-weight: 780; line-height: 1.25; text-align: center; text-decoration: none; }
-.resume-button:hover { filter: brightness(1.08); }
 .text-actions { display: flex; margin-top: .9rem; flex-wrap: wrap; gap: .55rem 1rem; }
 .text-actions a, .section-header > a, .section-actions a, .focus-row > a { font-size: .75rem; font-weight: 750; }
 
@@ -174,7 +171,6 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
   .section-header > a { align-self: flex-start; }
   .section-actions { justify-content: flex-start; }
   .record-count { align-self: flex-start; }
-  .resume-actions { grid-template-columns: 1fr; }
   .focus-row { grid-template-columns: 1fr; gap: .3rem; }
   .focus-row > a { justify-self: start; }
   .publication-entry { grid-template-columns: 1fr; gap: .18rem; }
