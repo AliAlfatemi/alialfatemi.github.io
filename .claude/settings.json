@@ -6,7 +6,16 @@
       "Bash(python3 -c ' *)",
       "Bash(pkill -f \"http.server 4176\")",
       "Bash(git add *)",
-      "Bash(git reset *)"
+      "Bash(git reset *)",
+      "Bash(grep -n \"profile-simple\\\\|profile-block\\\\|</div>\\\\s*$\" \"/Users/alialfatemi/Desktop/Files/personal website/alialfatemi.github.io/scripts/build-site.mjs\")",
+      "Bash(export NODE_PATH=\"/Users/alialfatemi/.npm/_npx/e41f203b7505f1fb/node_modules\")",
+      "Bash(node /tmp/audit.js http://127.0.0.1:4178/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-home.png 1440 1000)",
+      "Bash(node /tmp/audit.js http://127.0.0.1:4178/profile/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-profile.png 1440 1000)",
+      "Bash(node /tmp/audit.js http://127.0.0.1:4178/research/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-research.png 1440 1000)",
+      "Bash(node /tmp/audit.js http://127.0.0.1:4178/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-home-mobile.png 390 900)",
+      "Bash(node /tmp/audit.js http://127.0.0.1:4178/profile/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-profile-mobile.png 390 900)",
+      "Bash(pkill -f \"http.server 4178\")",
+      "Bash(rm -f /tmp/audit.js)"
     ]
   }
 }

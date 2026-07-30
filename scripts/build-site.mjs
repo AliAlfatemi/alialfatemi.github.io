@@ -629,7 +629,8 @@ const profileContent = () => `
     ], 'Profile record')
   })}
   <section class="section">
-    <div class="narrow profile-simple">
+    <div class="container">
+    <div class="profile-simple">
       <header class="cv-print-header"><div><p class="cv-print-name">Ali Alfatemi</p><p>Ph.D. Candidate · AI/ML Researcher · Instructor</p></div><div><a href="mailto:${site.email}">${site.email}</a><span>New York, NY</span></div></header>
 
       <p class="lead">Ph.D. Candidate in Computer Science at Fordham University, expected Spring 2027. I develop machine-learning methods for DDoS detection and network defense, with connected research in trustworthy AI, computer vision, language, and multimodal intelligence.</p>
@@ -660,6 +661,7 @@ const profileContent = () => `
         <p class="contact-email"><a href="mailto:${site.email}">${site.email}</a></p>
         <p><a href="${profileLinks.scholar}">Google Scholar ↗</a> · <a href="${profileLinks.github}">GitHub ↗</a> · <a href="${profileLinks.linkedin}">LinkedIn ↗</a> · <a href="${profileLinks.fordham}">Fordham Ph.D. directory ↗</a></p>
       </div>
+    </div>
     </div>
   </section>`;
 
