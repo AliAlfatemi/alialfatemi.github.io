@@ -3,7 +3,8 @@
 > Computer Science Ph.D. Candidate at Fordham University (New York, NY).
 > Developing robust and efficient machine-learning systems for network security,
 > computer vision, and multimodal intelligence. 27 research works including
-> 13 first-author papers, 3 IEEE Transactions, and 1 patent.
+> 22 published papers, 5 preprints, 13 first-author works, 3 IEEE Transactions,
+> and 1 patent.
 > Graduating May 2027. Available for postdoctoral positions, assistant professor
 > and faculty research roles, as well as Research Scientist, Applied Scientist,
 > and Machine Learning Engineer positions in industry.
@@ -32,7 +33,7 @@
 - Ph.D. in Computer Science — Fordham University, New York (expected May 2027)
 - M.S. in Computer Science — South China University of Technology, Guangzhou (2021)
 
-## Current Positions
+## Academic Appointments & Experience
 
 - Teaching Fellow — Fordham University (2025–present)
 - AI Summer Research Fellow — Fordham University (Summer 2025)
@@ -60,7 +61,6 @@
 
 - [Homepage](https://alialfatemi.github.io/)
 - [Full Publication List](https://alialfatemi.github.io/publications/)
-- [Curriculum Vitae](https://alialfatemi.github.io/cv/)
 - [Google Scholar](https://scholar.google.com/citations?user=5INwJxIAAAAJ)
 - [ORCID](https://orcid.org/0009-0004-7635-5403)
 - [GitHub](https://github.com/AliAlfatemi)
