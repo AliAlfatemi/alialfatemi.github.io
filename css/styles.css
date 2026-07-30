@@ -458,8 +458,15 @@ h3 {
   padding-block: clamp(3.5rem, 6.5vw, 5.75rem) 2rem;
 }
 
+.hero-grid {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 7fr) minmax(15rem, 4fr);
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
 .hero-copy {
-  max-width: 46rem;
+  max-width: 42rem;
 }
 
 .hero h1 {
@@ -582,19 +589,21 @@ h3 {
 
 .evidence-rail {
   display: grid;
-  margin-top: clamp(2.5rem, 4.5vw, 3.75rem);
-  border-block: 1px solid var(--line);
-  grid-template-columns: repeat(4, 1fr);
+  margin-top: 0;
+  padding: 0.25rem 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
 }
 
 .evidence-item {
-  min-height: 6.5rem;
-  padding: 1rem 1.1rem 1.1rem 0;
+  min-height: 0;
+  padding: 1.1rem 0;
 }
 
 .evidence-item + .evidence-item {
-  padding-left: 1.1rem;
-  border-left: 1px solid var(--line);
+  padding-left: 0;
+  border-top: 1px solid var(--line);
 }
 
 .evidence-item strong,
@@ -1544,7 +1553,8 @@ h3 {
 
   .section-heading,
   .page-hero-grid,
-  .contact-grid {
+  .contact-grid,
+  .hero-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1557,17 +1567,12 @@ h3 {
     padding-top: 0;
   }
 
+  .hero-copy {
+    max-width: none;
+  }
+
   .evidence-rail {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .evidence-item:nth-child(3) {
-    padding-left: 0;
-    border-left: 0;
-  }
-
-  .evidence-item:nth-child(n + 3) {
-    border-top: 1px solid var(--line);
+    margin-top: 0.5rem;
   }
 
   .feature-paper {

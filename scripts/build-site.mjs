@@ -406,23 +406,25 @@ const homeContent = () => {
   return `
   <section class="hero">
     <div class="container">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
-        <h1>Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</h1>
-        <p class="lead">I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
-        <p class="availability-badge"><span class="opportunity-dot" aria-hidden="true"></span><span><strong>On the 2026–27 academic job market</strong> · available Fall 2027</span></p>
-        <div class="hero-actions">
-          <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Fordham University · Ph.D. Candidate</p>
+          <h1>Machine learning that keeps detecting when the data, the hardware, or the trust runs out.</h1>
+          <p class="lead">I build systems that identify hostile network traffic under noisy observations, small compute budgets, and scarce labeled attack data, with connected work in trustworthy AI, computer vision, and multimodal intelligence.</p>
+          <p class="availability-badge"><span class="opportunity-dot" aria-hidden="true"></span><span><strong>On the 2026–27 academic job market</strong> · available Fall 2027</span></p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="/research/">Explore My Research <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button--secondary" href="/profile/">Full profile <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="button button--text" href="/contact/">Discuss a Role or Collaboration <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
         </div>
+        <dl class="evidence-rail reveal" aria-label="Verified record">
+          <div class="evidence-item"><dt class="meta-label">Publications</dt><dd><strong>${profileStats.publications}</strong></dd></div>
+          <div class="evidence-item"><dt class="meta-label">First-author</dt><dd><strong>${profileStats.firstAuthor}</strong></dd></div>
+          <div class="evidence-item"><dt class="meta-label">IEEE Transactions</dt><dd><strong>${profileStats.ieeeTransactions}</strong></dd></div>
+          <div class="evidence-item"><dt class="meta-label">Granted patent</dt><dd><strong>${patentCount}</strong></dd></div>
+        </dl>
       </div>
-      <dl class="evidence-rail reveal" aria-label="Verified record">
-        <div class="evidence-item"><dt class="meta-label">Publications</dt><dd><strong>${profileStats.publications}</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">First-author</dt><dd><strong>${profileStats.firstAuthor}</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">IEEE Transactions</dt><dd><strong>${profileStats.ieeeTransactions}</strong></dd></div>
-        <div class="evidence-item"><dt class="meta-label">Granted patent</dt><dd><strong>${patentCount}</strong></dd></div>
-      </dl>
       <div class="record-section reveal">
         <h2 class="record-heading" id="record-heading">The record, ${profileStats.yearRange}</h2>
         ${matrixTable()}
