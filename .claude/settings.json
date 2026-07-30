@@ -15,7 +15,10 @@
       "Bash(node /tmp/audit.js http://127.0.0.1:4178/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-home-mobile.png 390 900)",
       "Bash(node /tmp/audit.js http://127.0.0.1:4178/profile/ /private/tmp/claude-501/-Users-alialfatemi-Desktop-Files-personal-website-alialfatemi-github-io/93bea116-90a1-4e82-8d6a-2dc069a3f75c/scratchpad/shots/polish-profile-mobile.png 390 900)",
       "Bash(pkill -f \"http.server 4178\")",
-      "Bash(rm -f /tmp/audit.js)"
+      "Bash(rm -f /tmp/audit.js)",
+      "Bash(git rm *)",
+      "Bash(rm -f \"images/ali.jpg\" \"images/og-profile.svg\" \"images/pic2.jpeg\" \"images/pipeline.png\")",
+      "Bash(rmdir docs *)"
     ]
   }
 }
