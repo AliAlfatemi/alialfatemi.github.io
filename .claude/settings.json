@@ -19,7 +19,15 @@
       "Bash(git rm *)",
       "Bash(rm -f \"images/ali.jpg\" \"images/og-profile.svg\" \"images/pic2.jpeg\" \"images/pipeline.png\")",
       "Bash(rmdir docs *)",
-      "Bash(awk '{print \"images/ now: \" $1}')"
+      "Bash(awk '{print \"images/ now: \" $1}')",
+      "Bash(node /tmp/wide.js http://127.0.0.1:4179/ __TRACKED_VAR__/fixed-2560-home.png 2560 950)",
+      "Bash(node /tmp/wide.js http://127.0.0.1:4179/ __TRACKED_VAR__/fixed-1440-home.png 1440 950)",
+      "Bash(node /tmp/wide.js http://127.0.0.1:4179/ __TRACKED_VAR__/fixed-mobile-home.png 390 900)",
+      "Bash(node /tmp/wide.js http://127.0.0.1:4179/ __TRACKED_VAR__/fixed-tablet-home.png 800 900)",
+      "Bash(node /tmp/section.js http://127.0.0.1:4179/ __TRACKED_VAR__/fixed-2560-pubs.png 2560 1100)",
+      "Bash(pkill -f \"http.server 4179\")",
+      "Bash(rm -f /tmp/wide.js /tmp/section.js)",
+      "Bash(node -e ' *)"
     ]
   }
 }

@@ -18,7 +18,7 @@
   --shadow: 0 18px 48px rgb(20 32 31 / 0.08);
   --font-body: "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --max-width: 76rem;
+  --max-width: 84rem;
   --measure: 64ch;
   --radius-sm: 0.375rem;
   --radius: 0.75rem;
@@ -1571,10 +1571,6 @@ h3 {
     max-width: none;
   }
 
-  .evidence-rail {
-    margin-top: 0.5rem;
-  }
-
   .feature-paper {
     grid-template-columns: 1fr;
   }
@@ -1640,20 +1636,9 @@ h3 {
     width: auto;
   }
 
-  .evidence-rail,
   .theme-grid,
   .research-flow {
     grid-template-columns: 1fr;
-  }
-
-  .evidence-item,
-  .evidence-item + .evidence-item,
-  .evidence-item:nth-child(3) {
-    min-height: 0;
-    padding: 1.1rem 0;
-    border-top: 0;
-    border-bottom: 1px solid var(--line);
-    border-left: 0;
   }
 
   .theme-card,
