@@ -1,0 +1,72 @@
+# Ali Alfatemi — AI Researcher in Network Security, Computer Vision & Multimodal AI
+
+> Computer Science Ph.D. Candidate at Fordham University (New York, NY).
+> Developing robust and efficient machine-learning systems for network security,
+> computer vision, and multimodal intelligence. 27 research works including
+> 13 first-author papers, 3 IEEE Transactions, and 1 patent.
+> Graduating May 2027. Available for postdoctoral positions, assistant professor
+> and faculty research roles, as well as Research Scientist, Applied Scientist,
+> and Machine Learning Engineer positions in industry.
+
+## Research Areas
+
+- **AI for Network Security**: Lightweight, noise-tolerant, data-efficient, and LLM-enhanced models for flow-level DDoS detection across edge, IoT, and resource-constrained networks.
+- **Robust and Data-Efficient Machine Learning**: Learning strategies for noisy, imbalanced, or limited data using augmentation, meta-learning, compact architectures, and multi-model decision fusion.
+- **Computer Vision and Multimodal AI**: Foreground-centric fine-grained recognition and vision–language generation that reduce background bias, capture subtle visual differences, and produce context-aware descriptions.
+
+## Key Skills & Expertise
+
+- Deep Learning, Machine Learning, Neural Network Architectures
+- DDoS Attack Detection, Network Intrusion Detection, Cybersecurity AI
+- Large Language Models (LLMs), LLM-Enhanced Security Analysis
+- Computer Vision, Object Detection, Image Classification, YOLO
+- Vision-Language Models, Image Captioning, Multimodal AI
+- Meta-Learning, Few-Shot Learning, Prototypical Networks
+- Data Augmentation, GAN-based Augmentation, Noise Tolerance
+- Federated Learning, Trustworthy AI, Explainable AI
+- Python, PyTorch, TensorFlow, Scikit-learn
+- Bioinformatics, Multi-omics Data Integration
+
+## Education
+
+- Ph.D. in Computer Science — Fordham University, New York (expected May 2027)
+- M.S. in Computer Science — South China University of Technology, Guangzhou (2021)
+
+## Current Positions
+
+- Teaching Fellow — Fordham University (2025–present)
+- AI Summer Research Fellow — Fordham University (Summer 2025)
+
+## Selected Publications
+
+- ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection — IEEE Transactions on Network and Service Management, 2026
+- A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks — IEEE GLOBECOM 2025
+- Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition — Signal, Image and Video Processing, 2025
+- Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J — AIPR 2025, LNCS 16446
+- Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks — IEEE Transactions on Computational Social Systems, 2025
+- ProtoMAML: A Hybrid Meta-Learning Approach for Data-Efficient DDoS Attack Detection — IWCMC 2025
+- Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion — Journal of Network and Systems Management, 2025
+- Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold — BMC Medical Informatics, 2022
+
+## Professional Service
+
+- Peer reviewer for IEEE TNSM, Information Fusion, Scientific Reports, IJCNN 2025
+
+## Patent
+
+- CN113537358B — Cancer subtype identification via multi-omics data integration
+
+## Links
+
+- [Homepage](https://alialfatemi.github.io/)
+- [Full Publication List](https://alialfatemi.github.io/publications/)
+- [Curriculum Vitae](https://alialfatemi.github.io/cv/)
+- [Google Scholar](https://scholar.google.com/citations?user=5INwJxIAAAAJ)
+- [ORCID](https://orcid.org/0009-0004-7635-5403)
+- [GitHub](https://github.com/AliAlfatemi)
+- [LinkedIn](https://www.linkedin.com/in/ali-alfatemi/)
+
+## Contact
+
+- Email: aalfatemi@fordham.edu
+- Location: New York, NY
