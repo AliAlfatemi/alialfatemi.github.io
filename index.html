@@ -20,36 +20,85 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://alialfatemi.github.io/#person",
-    "name": "Ali Alfatemi",
-    "url": "https://alialfatemi.github.io/",
-    "image": "https://alialfatemi.github.io/images/ali-headshot.jpg",
-    "description": "Computer Science Ph.D. Candidate at Fordham University researching robust and efficient AI for network security, computer vision, and multimodal systems.",
-    "email": "aalfatemi@fordham.edu",
-    "jobTitle": "Ph.D. Candidate in Computer Science",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Fordham University"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "South China University of Technology"
-    },
-    "sameAs": [
-      "https://scholar.google.com/citations?user=5INwJxIAAAAJ",
-      "https://orcid.org/0009-0004-7635-5403",
-      "https://github.com/AliAlfatemi",
-      "https://www.linkedin.com/in/ali-alfatemi/"
-    ],
-    "knowsAbout": [
-      "AI for network security",
-      "DDoS detection",
-      "data-efficient machine learning",
-      "computer vision",
-      "vision-language models",
-      "multimodal artificial intelligence",
-      "large language models"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://alialfatemi.github.io/#website",
+        "url": "https://alialfatemi.github.io/",
+        "name": "Ali Alfatemi",
+        "description": "Research profile and publication record for Ali Alfatemi.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://alialfatemi.github.io/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://alialfatemi.github.io/#profile",
+        "url": "https://alialfatemi.github.io/",
+        "name": "Ali Alfatemi — AI Researcher in Security, Vision and Multimodal AI",
+        "description": "Computer Science Ph.D. Candidate at Fordham University researching robust and efficient AI for network security, computer vision, and multimodal systems.",
+        "isPartOf": { "@id": "https://alialfatemi.github.io/#website" },
+        "mainEntity": { "@id": "https://alialfatemi.github.io/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://alialfatemi.github.io/#person",
+        "name": "Ali Alfatemi",
+        "url": "https://alialfatemi.github.io/",
+        "mainEntityOfPage": { "@id": "https://alialfatemi.github.io/#profile" },
+        "image": "https://alialfatemi.github.io/images/ali-headshot.jpg",
+        "description": "Computer Science Ph.D. Candidate at Fordham University researching robust and efficient AI for network security, computer vision, and multimodal systems.",
+        "email": "aalfatemi@fordham.edu",
+        "jobTitle": "Ph.D. Candidate in Computer Science",
+        "affiliation": { "@id": "https://www.fordham.edu/#organization" },
+        "worksFor": { "@id": "https://www.fordham.edu/#organization" },
+        "alumniOf": { "@id": "https://www.scut.edu.cn/en/#organization" },
+        "hasOccupation": [
+          {
+            "@type": "Occupation",
+            "name": "AI/ML Researcher",
+            "description": "Research in AI for network security, data-efficient machine learning, computer vision, and multimodal intelligence."
+          },
+          {
+            "@type": "Occupation",
+            "name": "Teaching Fellow",
+            "description": "Teaching Fellow in Computer Science at Fordham University."
+          }
+        ],
+        "subjectOf": { "@id": "https://alialfatemi.github.io/publications/#page" },
+        "identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "ORCID",
+          "value": "0009-0004-7635-5403",
+          "url": "https://orcid.org/0009-0004-7635-5403"
+        },
+        "sameAs": [
+          "https://scholar.google.com/citations?user=5INwJxIAAAAJ",
+          "https://orcid.org/0009-0004-7635-5403",
+          "https://github.com/AliAlfatemi",
+          "https://www.linkedin.com/in/ali-alfatemi/"
+        ],
+        "knowsAbout": [
+          "AI for network security",
+          "DDoS detection",
+          "data-efficient machine learning",
+          "computer vision",
+          "vision-language models",
+          "multimodal artificial intelligence",
+          "large language models"
+        ]
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "@id": "https://www.fordham.edu/#organization",
+        "name": "Fordham University",
+        "url": "https://www.fordham.edu/"
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "@id": "https://www.scut.edu.cn/en/#organization",
+        "name": "South China University of Technology",
+        "url": "https://www.scut.edu.cn/en/"
+      }
     ]
   }
   </script>
