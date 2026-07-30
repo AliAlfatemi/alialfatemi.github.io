@@ -3,11 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0d1114">
-  <title>Compact Academic Profile — Ali Alfatemi</title>
-  <meta name="description" content="Private compact academic website concept for Ali Alfatemi.">
-  <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
+  <title>Ali Alfatemi — AI &amp; Network Security Researcher</title>
+  <meta name="description" content="Ali Alfatemi is a Fordham University Ph.D. Candidate researching robust machine learning for network security, trustworthy AI, and multimodal intelligence.">
+  <link rel="canonical" href="https://alialfatemi.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ali Alfatemi — AI &amp; Network Security Researcher">
+  <meta property="og:description" content="Machine learning for resilient networked systems, trustworthy AI, and multimodal intelligence.">
+  <meta property="og:url" content="https://alialfatemi.github.io/">
+  <meta property="og:image" content="https://alialfatemi.github.io/images/og-profile.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./styles.css">
   <script src="./script.js" defer></script>
 </head>
@@ -22,10 +29,9 @@
       </button>
       <div class="nav-links" id="primary-menu" data-menu hidden>
         <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
+        <a href="publications/">Publications</a>
         <a href="#practice">Projects</a>
-        <a href="#academic">Teaching</a>
-        <a href="../../cv/">CV</a>
+        <a href="#academic">Academic</a>
         <a href="#contact">Contact</a>
       </div>
       <button class="theme-toggle" type="button" aria-label="Switch to light theme" data-theme-toggle><span aria-hidden="true">◐</span></button>
@@ -35,7 +41,7 @@
   <div class="page-shell" id="top">
     <aside class="profile-sidebar" aria-label="Ali Alfatemi profile summary">
       <div class="identity-row">
-        <img class="portrait" src="../../images/ali-headshot.jpg" width="480" height="640" alt="Formal portrait of Ali Alfatemi">
+        <img class="portrait" src="images/ali-headshot.jpg" width="480" height="640" alt="Formal portrait of Ali Alfatemi">
         <div class="identity-copy">
           <p class="profile-name">Ali Alfatemi</p>
           <p class="profile-title">Ph.D. Candidate in Computer Science</p>
@@ -74,7 +80,7 @@
         <p class="availability"><span aria-hidden="true"></span>On the 2026–27 academic job market · available Fall 2027</p>
         <div class="text-actions">
           <a href="#research">Explore research</a>
-          <a href="#publications">View publications</a>
+          <a href="publications/">View publications</a>
           <a href="#contact">Discuss a collaboration</a>
         </div>
       </section>
@@ -82,23 +88,23 @@
       <section class="content-section" id="research" aria-labelledby="research-title">
         <header class="section-header">
           <div><p class="section-kicker">Research</p><h2 id="research-title">Focus areas</h2></div>
-          <a href="../../research/">Full research agenda <span aria-hidden="true">→</span></a>
+          <a href="publications/">Related publications <span aria-hidden="true">→</span></a>
         </header>
         <div class="focus-list">
           <article class="focus-row">
             <h3>Adaptive network defense</h3>
             <p>DDoS detection and mitigation for edge and IoT systems using noise-aware learning, meta-learning, model fusion, and language-model embeddings.</p>
-            <a href="../../research/#network-security" aria-label="Read about adaptive network defense">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#shallownet-flow-level-ddos" aria-label="Read a publication about adaptive network defense">Read <span aria-hidden="true">→</span></a>
           </article>
           <article class="focus-row">
             <h3>Trustworthy and efficient learning</h3>
             <p>Robust, interpretable, and resource-aware methods for systems facing distribution shift, privacy constraints, limited labels, or limited compute.</p>
-            <a href="../../research/#trustworthy-ai" aria-label="Read about trustworthy and efficient learning">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#trustworthy-federated-learning-industrial-iot" aria-label="Read a publication about trustworthy and efficient learning">Read <span aria-hidden="true">→</span></a>
           </article>
           <article class="focus-row">
             <h3>Multimodal and visual intelligence</h3>
             <p>Foreground-centric recognition, vision–language systems, and explainable language models that connect predictions with useful evidence.</p>
-            <a href="../../research/#multimodal-ai" aria-label="Read about multimodal and visual intelligence">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#vision-language-image-captioning-vit-gpt-j" aria-label="Read a publication about multimodal and visual intelligence">Read <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </section>
@@ -106,16 +112,25 @@
       <section class="content-section" id="publications" aria-labelledby="publications-title">
         <header class="section-header">
           <div><p class="section-kicker">Selected work</p><h2 id="publications-title">Recent publications</h2></div>
-          <a href="../../publications/">All 26 works <span aria-hidden="true">→</span></a>
+          <a href="publications/">All 26 works <span aria-hidden="true">→</span></a>
         </header>
         <div class="publication-list">
-          <article class="publication-entry">
+          <article class="publication-entry" id="shallownet-selected">
             <time datetime="2026">2026</time>
             <div>
-              <h3>MTAGEC: Multi-Task Arabic Grammatical Error Correction as a sequence generation with synthetic data</h3>
-              <p>Zeinab Mahmoud, Marco Zappatore, Natalia Kryvinska, Mohammed Abdalsalam, <strong>Ali Alfatemi</strong>, Aiman Solyman</p>
-              <p class="venue">Journal of King Saud University Computer and Information Sciences</p>
-              <p class="entry-links"><a href="https://link.springer.com/article/10.1007/s44443-025-00354-2">Paper</a><a href="https://doi.org/10.1007/s44443-025-00354-2">DOI</a><a href="https://github.com/Zainabobied/MTAGEC">Code</a></p>
+              <h3>ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection</h3>
+              <p><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Abdellah Chehri, Zakirul Alam Bhuiyan</p>
+              <p class="venue">IEEE Transactions on Network and Service Management · Vol. 23, pp. 5940–5949</p>
+              <p class="entry-links"><a href="https://ieeexplore.ieee.org/document/11603907">Paper</a><a href="https://doi.org/10.1109/TNSM.2026.3710874">DOI</a></p>
+            </div>
+          </article>
+          <article class="publication-entry" id="two-stage-selected">
+            <time datetime="2025">2025</time>
+            <div>
+              <h3>A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks</h3>
+              <p><strong>Ali Alfatemi</strong>, Mohamed Rahouti, Zakirul Alam Bhuiyan, Abdellah Chehri, Aiman Solyman</p>
+              <p class="venue">IEEE GLOBECOM 2025 · CISS Symposium, pp. 7–12</p>
+              <p class="entry-links"><a href="https://ieeexplore.ieee.org/document/11431718">Paper</a><a href="https://doi.org/10.1109/GLOBECOM59602.2025.11431718">DOI</a></p>
             </div>
           </article>
           <article class="publication-entry">
@@ -142,11 +157,11 @@
       <section class="content-section" id="practice" aria-labelledby="practice-title">
         <header class="section-header">
           <div><p class="section-kicker">Research in practice</p><h2 id="practice-title">From field images to reliable recognition</h2></div>
-          <a href="../../projects/">Project index <span aria-hidden="true">→</span></a>
+          <a href="publications/#foreground-centric-fine-grained-recognition">Publication record <span aria-hidden="true">→</span></a>
         </header>
         <div class="practice-feature">
           <figure>
-            <img src="../../images/pipeline-1400.jpg" width="1400" height="510" loading="lazy" alt="Foreground-centric recognition pipeline from field images to isolated subjects and classification">
+            <img src="images/pipeline-1400.jpg" width="1400" height="510" loading="lazy" alt="Foreground-centric recognition pipeline from field images to isolated subjects and classification">
             <figcaption>Paper figure · foreground-centric recognition pipeline</figcaption>
           </figure>
           <div>
@@ -160,7 +175,7 @@
       <section class="content-section" id="academic" aria-labelledby="academic-title">
         <header class="section-header">
           <div><p class="section-kicker">Academic record</p><h2 id="academic-title">Education, teaching, and invention</h2></div>
-          <a href="../../profile/">Full profile <span aria-hidden="true">→</span></a>
+          <a href="https://www.fordham.edu/academics/departments/computer-and-information-science/faculty-and-administration/phd-students/">Fordham profile <span aria-hidden="true">↗</span></a>
         </header>
         <dl class="record-list">
           <div><dt>Education</dt><dd><strong>Ph.D. Candidate, Computer Science</strong><span>Fordham University · Expected Spring 2027</span></dd></div>
@@ -176,7 +191,7 @@
         <a class="email-link" href="mailto:aalfatemi@fordham.edu">aalfatemi@fordham.edu <span aria-hidden="true">→</span></a>
       </section>
 
-      <footer class="page-footer"><span>© Ali Alfatemi</span><span>Compact academic concept · private preview</span></footer>
+      <footer class="page-footer"><span>© Ali Alfatemi</span><span>AI · Security · Vision</span></footer>
     </main>
   </div>
 </body>
