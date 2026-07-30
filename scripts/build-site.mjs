@@ -30,51 +30,6 @@ const researchAreas = [
 
 const areaCount = (areaName) => publications.filter((publication) => publication.area === areaName).length;
 
-const matrixYears = [...new Set(publicationYears)].sort((a, b) => b - a);
-const publicationMatrix = matrixYears.map((year) => ({
-  year,
-  cells: researchAreas.map(([, area]) => {
-    const items = publications.filter((publication) => publication.year === year && publication.area === area);
-    return {
-      area,
-      first: items.filter((publication) => publication.firstAuthor).length,
-      co: items.filter((publication) => !publication.firstAuthor).length
-    };
-  })
-}));
-
-const matrixCell = (year, cell) => {
-  const marks = [...Array(cell.first).fill('first'), ...Array(cell.co).fill('co')]
-    .map((kind) => `<span class="mark mark--${kind}" aria-hidden="true"></span>`)
-    .join('');
-  const parts = [];
-  if (cell.first) parts.push(`${cell.first} first-author`);
-  if (cell.co) parts.push(`${cell.co} co-author`);
-  const description = parts.length ? parts.join(', ') : 'none';
-  return `<td><span class="matrix-marks">${marks}</span><span class="visually-hidden">${escapeHtml(cell.area)}, ${year}: ${description}</span></td>`;
-};
-
-const matrixTable = () => `
-  <div class="matrix-wrap">
-    <table class="record-matrix">
-      <caption class="visually-hidden">Publication record by year and research area. Filled marks are first-author works; outline marks are co-author works.</caption>
-      <thead>
-        <tr>
-          <th scope="col"><span class="visually-hidden">Year</span></th>
-          ${researchAreas.map(([, area, short]) => `<th scope="col" abbr="${escapeHtml(area)}">${escapeHtml(short)}</th>`).join('')}
-        </tr>
-      </thead>
-      <tbody>
-        ${publicationMatrix.map((row) => `
-        <tr>
-          <th scope="row">${row.year}</th>
-          ${row.cells.map((cell) => matrixCell(row.year, cell)).join('')}
-        </tr>`).join('')}
-      </tbody>
-    </table>
-  </div>
-  <p class="matrix-legend"><span><span class="mark mark--first" aria-hidden="true"></span> First author</span><span><span class="mark mark--co" aria-hidden="true"></span> Co-author</span></p>`;
-
 const site = {
   url: 'https://alialfatemi.github.io',
   name: 'Ali Alfatemi',
@@ -242,7 +197,7 @@ const head = ({ route, title, description, structuredData, extraHead = '', canon
     <link rel="canonical" href="${canonical}">
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="sitemap" href="/sitemap.xml" type="application/xml">
-    <meta name="theme-color" content="#eef1ec">
+    <meta name="theme-color" content="#f8fafc">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Ali Alfatemi — AI Researcher">
     <meta property="og:title" content="${escapeHtml(title)}">
@@ -424,10 +379,6 @@ const homeContent = () => {
           <div class="evidence-item"><dt class="meta-label">IEEE Transactions</dt><dd><strong>${profileStats.ieeeTransactions}</strong></dd></div>
           <div class="evidence-item"><dt class="meta-label">Granted patent</dt><dd><strong>${patentCount}</strong></dd></div>
         </dl>
-      </div>
-      <div class="record-section reveal">
-        <h2 class="record-heading" id="record-heading">The record, ${profileStats.yearRange}</h2>
-        ${matrixTable()}
       </div>
     </div>
   </section>
