@@ -48,7 +48,7 @@
         "url": "https://alialfatemi.github.io/",
         "name": "Ali Alfatemi — AI Researcher in Security, Vision and Multimodal AI",
         "description": "Computer Science Ph.D. Candidate at Fordham University researching robust and efficient AI for network security, computer vision, and multimodal systems.",
-        "dateModified": "2026-07-30",
+        "dateModified": "2026-07-31",
         "isPartOf": { "@id": "https://alialfatemi.github.io/#website" },
         "mainEntity": { "@id": "https://alialfatemi.github.io/#person" }
       },
@@ -166,7 +166,7 @@
         <a href="#academic">Academic</a>
         <a href="#contact">Contact</a>
       </div>
-      <button class="theme-toggle" type="button" aria-label="Switch to light theme" data-theme-toggle><span aria-hidden="true">◐</span></button>
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false" data-theme-toggle><span aria-hidden="true">◐</span></button>
     </nav>
   </header>
 
@@ -182,7 +182,7 @@
       </div>
 
       <details class="profile-details" data-profile-details open>
-        <summary>Profile links &amp; record</summary>
+        <summary>Details and links</summary>
         <dl class="profile-facts">
           <div><dt>Location</dt><dd>New York, NY</dd></div>
           <div><dt>Email</dt><dd><a href="mailto:aalfatemi@fordham.edu">aalfatemi@fordham.edu</a></dd></div>
@@ -197,10 +197,8 @@
         </nav>
 
         <div class="profile-evidence" role="group" aria-label="Research record summary">
-          <p><strong>22</strong> published · <strong>5</strong> preprints</p>
-          <p><strong>12</strong> first-author published · <strong>1</strong> first-author preprint</p>
-          <p><strong>2</strong> first-author IEEE Transactions · <strong>1</strong> coauthored</p>
-          <p><strong>1</strong> granted patent</p>
+          <p><strong>22</strong> peer-reviewed publications</p>
+          <p><strong>5</strong> preprints · <strong>1</strong> granted patent</p>
         </div>
       </details>
     </aside>
@@ -209,9 +207,9 @@
       <section class="intro" aria-labelledby="intro-title">
         <p class="eyebrow">Ph.D. Candidate · AI/ML Researcher</p>
         <h1 id="intro-title">Robust AI for security, vision, and intelligent systems.</h1>
-        <p>I am a Computer Science Ph.D. Candidate at Fordham University developing robust and efficient machine-learning systems for network security, computer vision, and multimodal intelligence. My first-author work spans lightweight and noise-tolerant DDoS detection, LLM-enhanced network analysis, foreground-centric recognition, and vision–language generation.</p>
-        <p>I connect rigorous experiments with reproducible software—from data-efficient network-defense models to end-to-end visual-recognition pipelines. I am seeking postdoctoral and faculty research positions, as well as Research Scientist, Applied Scientist, and Machine Learning Engineer roles.</p>
-        <p class="availability"><span aria-hidden="true"></span>Open to academic and industry research roles · Available May 2027</p>
+        <p>I am a Computer Science Ph.D. candidate at Fordham University developing robust and efficient machine-learning systems for network security, computer vision, and multimodal intelligence. My research spans lightweight and noise-tolerant DDoS detection, data-efficient learning, LLM-enhanced network analysis, foreground-centric visual recognition, and vision–language generation.</p>
+        <p>My work combines empirical evaluation with research software, from data-efficient network-defense models to end-to-end visual-recognition pipelines.</p>
+        <p class="availability"><span aria-hidden="true"></span>Seeking academic and industry research roles · Available May 2027</p>
         <div class="text-actions">
           <a href="#research">Explore research</a>
           <a href="#practice">View featured system</a>
@@ -228,17 +226,17 @@
           <article class="focus-row">
             <h3>AI for network security</h3>
             <p>Lightweight, noise-tolerant, data-efficient, and LLM-enhanced models for flow-level DDoS detection across edge, IoT, and resource-constrained networks.</p>
-            <a href="publications/#shallownet-flow-level-ddos" aria-label="Read a publication about AI for network security">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#shallownet-flow-level-ddos" aria-label="Read a publication about AI for network security">Paper <span aria-hidden="true">→</span></a>
           </article>
           <article class="focus-row">
             <h3>Robust and data-efficient machine learning</h3>
             <p>Learning strategies for noisy, imbalanced, or limited data using augmentation, meta-learning, compact architectures, and multi-model decision fusion.</p>
-            <a href="publications/#protomaml-ddos-detection" aria-label="Read a publication about robust and data-efficient machine learning">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#protomaml-ddos-detection" aria-label="Read a publication about robust and data-efficient machine learning">Paper <span aria-hidden="true">→</span></a>
           </article>
           <article class="focus-row">
             <h3>Computer vision and multimodal AI</h3>
             <p>Foreground-centric fine-grained recognition and vision–language generation that reduce background bias, capture subtle visual differences, and produce context-aware descriptions.</p>
-            <a href="publications/#vision-language-image-captioning-vit-gpt-j" aria-label="Read a publication about computer vision and multimodal AI">Read <span aria-hidden="true">→</span></a>
+            <a href="publications/#vision-language-image-captioning-vit-gpt-j" aria-label="Read a publication about computer vision and multimodal AI">Paper <span aria-hidden="true">→</span></a>
           </article>
         </div>
       </section>
@@ -254,7 +252,7 @@
             <figcaption>YOLO11-Seg → foreground crops → YOLO11-Cls</figcaption>
           </figure>
           <div>
-            <p><strong>warbler_yolo</strong> turns unannotated field images into a reproducible fine-grained recognition workflow. It segments and crops foreground subjects, creates standardized data splits, then trains and evaluates a YOLO11 classifier through a reusable command-line pipeline.</p>
+            <p><strong>warbler_yolo</strong> turns unannotated field images into an end-to-end fine-grained recognition workflow. It segments and crops foreground subjects, creates standardized data splits, then trains and evaluates a YOLO11 classifier through a command-line pipeline.</p>
             <p class="practice-meta">Prepare · Segment · Crop · Split · Train · Evaluate</p>
           </div>
         </div>
@@ -310,7 +308,7 @@
 
       <section class="content-section" id="academic" aria-labelledby="academic-title">
         <header class="section-header">
-          <div><p class="section-kicker">Academic record</p><h2 id="academic-title">Education, appointments, and invention</h2></div>
+          <div><p class="section-kicker">Academic record</p><h2 id="academic-title">Education, appointments, and service</h2></div>
         </header>
         <dl class="record-list">
           <div><dt>Ph.D.</dt><dd><strong>Computer Science</strong><span>Fordham University · Expected May 2027</span></dd></div>

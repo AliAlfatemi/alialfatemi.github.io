@@ -3,11 +3,9 @@
 > Computer Science Ph.D. Candidate at Fordham University (New York, NY).
 > Developing robust and efficient machine-learning systems for network security,
 > computer vision, and multimodal intelligence. The record presented here includes
-> 22 published papers and 5 preprints: 12 first-author published papers, 1 first-author
-> preprint, 2 first-author IEEE Transactions articles, 1 coauthored IEEE Transactions
-> article, and 1 granted patent.
-> Graduating May 2027. Available for postdoctoral positions, assistant professor
-> and faculty research roles, as well as Research Scientist, Applied Scientist,
+> 22 peer-reviewed publications, 5 preprints, and 1 granted patent.
+> Ph.D. expected May 2027; available for postdoctoral and faculty appointments,
+> as well as Research Scientist, Applied Scientist,
 > and Machine Learning Engineer positions in industry.
 
 ## Research Areas
@@ -48,11 +46,11 @@
 
 - ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection — IEEE Transactions on Network and Service Management, 2026
 - A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks — IEEE GLOBECOM 2025
-- Foreground-Centric Learning Improves Robustness in Fine-Grained Visual Recognition — Signal, Image and Video Processing, 2025
+- Foreground-Centric learning improves robustness in fine-grained visual recognition — Signal, Image and Video Processing, 2025
 - Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J — AIPR 2025, LNCS 16446
-- Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks — IEEE Transactions on Computational Social Systems, 2025
-- ProtoMAML: A Hybrid Meta-Learning Approach for Data-Efficient DDoS Attack Detection — IWCMC 2025
-- Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion — Journal of Network and Systems Management, 2025
+- Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems — IEEE Transactions on Computational Social Systems, 2025
+- ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection — IWCMC 2025
+- Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion and Combinatorial Analysis — Journal of Network and Systems Management, 2025
 - Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold — BMC Medical Informatics, 2022
 
 ## Professional Service

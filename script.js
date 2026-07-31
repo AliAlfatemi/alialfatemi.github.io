@@ -13,6 +13,7 @@
     if (!themeButton) return;
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     themeButton.setAttribute('aria-label', `Switch to ${next} theme`);
+    themeButton.setAttribute('aria-pressed', String(root.dataset.theme === 'light'));
   };
 
   updateThemeLabel();
