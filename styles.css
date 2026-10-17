@@ -112,6 +112,7 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .entry-links a { font-size: .74rem; font-style: normal; font-weight: 750; text-decoration: none; }
 .entry-links a:hover, .section-header > a:hover, .section-actions a:hover, .focus-row > a:hover { text-decoration: underline; }
 .publication-entry:target { margin-inline: -.55rem; padding-inline: .55rem; background: var(--accent-soft); }
+.publication-summary { padding-top: .12rem; color: var(--text) !important; }
 
 .record-count { flex: 0 0 auto; color: var(--muted-2); font-family: var(--mono); font-size: .7rem; letter-spacing: .04em; text-transform: uppercase; }
 .section-intro { max-width: 62ch; margin: -.25rem 0 .8rem; color: var(--muted); font-size: .78rem; }
@@ -126,6 +127,24 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .practice-feature > div p { margin: 0 0 .65rem; font-size: .84rem; }
 .practice-feature > div strong { color: var(--text-strong); }
 .practice-feature .practice-meta { color: var(--muted); font-family: var(--mono); font-size: .7rem; line-height: 1.55; }
+
+.value-grid { display: grid; border-block: 1px solid var(--rule); grid-template-columns: repeat(3, 1fr); }
+.value-grid article { padding: .85rem .9rem .9rem 0; }
+.value-grid article + article { padding-left: .9rem; border-left: 1px solid var(--rule); }
+.value-grid h3, .project-card h3 { margin: 0 0 .3rem; color: var(--text-strong); font-size: .94rem; line-height: 1.35; }
+.value-grid p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.skill-line { display: flex; margin: .7rem 0 0; flex-wrap: wrap; gap: .38rem; }
+.skill-line span { padding: .22rem .48rem; border: 1px solid var(--rule); background: var(--surface); color: var(--muted); font-family: var(--mono); font-size: .66rem; }
+
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; }
+.project-card { display: flex; min-width: 0; padding: .9rem; border: 1px solid var(--rule); background: var(--surface); flex-direction: column; }
+.project-card p { margin: 0 0 .55rem; color: var(--muted); font-size: .8rem; line-height: 1.52; }
+.project-card .project-label { margin-bottom: .24rem; color: var(--signal); font-family: var(--mono); font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.project-card .project-meta { margin-top: auto; padding-top: .25rem; color: var(--muted-2); font-family: var(--mono); font-size: .66rem; }
+.project-card .entry-links { margin: 0; }
+.project-card figure { margin: -.9rem -.9rem .78rem; }
+.project-card img { width: 100%; aspect-ratio: 14 / 5.1; padding: .45rem; border-bottom: 1px solid var(--rule); background: #f7f7f3; object-fit: contain; }
+.project-card figcaption { padding: .3rem .9rem 0; color: var(--muted-2); font-family: var(--mono); font-size: .62rem; line-height: 1.4; text-transform: uppercase; }
 
 .record-list { margin: 0; border-top: 1px solid var(--rule); }
 .record-list > div { display: grid; padding: .7rem 0; border-bottom: 1px solid var(--rule); grid-template-columns: 6rem 1fr; gap: 1rem; }
@@ -163,6 +182,9 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
   .profile-links a { padding: 0; border: 0; gap: .25rem; }
   .profile-evidence { display: flex; margin-top: .75rem; padding-block: .55rem; flex-wrap: wrap; gap: .2rem 1rem; }
   h1 { font-size: 1.55rem; }
+  .value-grid { grid-template-columns: 1fr; }
+  .value-grid article { padding: .72rem 0; }
+  .value-grid article + article { padding-left: 0; border-top: 1px solid var(--rule); border-left: 0; }
 }
 
 @media (max-width: 38rem) {
@@ -180,6 +202,7 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
   .focus-row > a { justify-self: start; }
   .publication-entry { grid-template-columns: 1fr; gap: .18rem; }
   .practice-feature { grid-template-columns: 1fr; gap: .8rem; }
+  .project-grid { grid-template-columns: 1fr; }
   .record-list > div { grid-template-columns: 4.5rem 1fr; gap: .7rem; }
   .page-footer { align-items: flex-start; flex-direction: column; gap: .2rem; }
 }

@@ -1,31 +1,32 @@
-# Ali Alfatemi — AI Researcher in Network Security, Computer Vision & Multimodal AI
+# Ali Alfatemi — AI/ML Researcher Building Reliable Intelligent Systems
 
 > Computer Science Ph.D. Candidate at Fordham University (New York, NY).
-> Developing robust and efficient machine-learning systems for network security,
-> computer vision, and multimodal intelligence. The record presented here includes
-> 22 peer-reviewed publications, 5 preprints, and 1 granted patent.
+> Building practical machine-learning systems across security, computer vision,
+> language, medical imaging, robotics, blockchain, bioinformatics, and forecasting.
+> The record presented here includes 31 publications and 1 granted patent.
 > Ph.D. expected May 2027; available for postdoctoral and faculty appointments,
 > as well as Research Scientist, Applied Scientist,
 > and Machine Learning Engineer positions in industry.
 
 ## Research Areas
 
-- **AI for Network Security**: Lightweight, noise-tolerant, data-efficient, and LLM-enhanced models for flow-level DDoS detection across edge, IoT, and resource-constrained networks.
-- **Robust and Data-Efficient Machine Learning**: Learning strategies for noisy, imbalanced, or limited data using augmentation, meta-learning, compact architectures, and multi-model decision fusion.
-- **Computer Vision and Multimodal AI**: Foreground-centric fine-grained recognition and vision–language generation that reduce background bias, capture subtle visual differences, and produce context-aware descriptions.
+- **Reliable and Efficient Machine Learning**: Compact models, robust learning, synthetic data, meta-learning, decision fusion, and methods for limited, noisy, or imbalanced data.
+- **Security and Autonomous Systems**: Learning-based cyber defense, reinforcement learning, symbolic safeguards, edge and IoT intelligence, robotics, and trustworthy distributed systems.
+- **Vision and Multimodal Intelligence**: Fine-grained recognition, medical image segmentation, vision–language generation, object detection, and boundary-aware visual learning.
+- **Language, Health, and Data Applications**: Arabic grammatical error correction, multi-omics patient subgrouping, autism diagnostics, sports forecasting, and cryptocurrency modeling.
 
 ## Key Skills & Expertise
 
 - Deep Learning, Machine Learning, Neural Network Architectures
-- DDoS Attack Detection, Network Intrusion Detection, Cybersecurity AI
-- Large Language Models (LLMs), LLM-Enhanced Security Analysis
-- Computer Vision, Object Detection, Image Classification, YOLO
-- Vision-Language Models, Image Captioning, Multimodal AI
+- Reinforcement Learning, Neuro-Symbolic AI, Explainable AI
+- Network Security, Autonomous Cyber Defense, Edge and IoT Intelligence
+- Computer Vision, Medical Image Segmentation, Object Detection, Image Classification
+- Large Language Models, Natural Language Processing, Vision-Language Models, Multimodal AI
 - Meta-Learning, Few-Shot Learning, Prototypical Networks
 - Data Augmentation, GAN-based Augmentation, Noise Tolerance
-- Federated Learning, Trustworthy AI, Explainable AI
+- Federated Learning, Distributed Machine Learning, Trustworthy AI
 - Python, PyTorch, TensorFlow, Scikit-learn
-- Bioinformatics, Multi-omics Data Integration
+- Bioinformatics, Multi-omics Data Integration, Forecasting, Blockchain Systems
 
 ## Education
 
@@ -36,6 +37,7 @@
 
 - Teaching Fellow — Fordham University (2025–present)
 - AI Summer Research Fellow — Fordham University (Summer 2025)
+- Student Research Intern — Tsinghua Shenzhen International Graduate School (2021–2022)
 
 ## Teaching
 
@@ -44,13 +46,10 @@
 
 ## Selected Publications
 
-- ShallowNet: A Lightweight Neural Network Approach for Efficient Flow-Level DDoS Detection — IEEE Transactions on Network and Service Management, 2026
-- A Two-Stage LLM-Enhanced DDoS Detection Framework for Next-Generation IoT and Edge Networks — IEEE GLOBECOM 2025
-- Foreground-Centric learning improves robustness in fine-grained visual recognition — Signal, Image and Video Processing, 2025
+- Sentinel: A Neuro-Symbolic Co-Evolutionary Framework for Trustworthy Network and Service Management Against DDoS Attacks — IEEE Transactions on Network and Service Management, 2026
+- HTGBNet: A Hybrid Transformer Graph Network with Boundary Awareness for Brain Image Segmentation — IEEE ICIP, 2026
+- Trustworthy Distributed Machine Learning in Cloud-Edge-IoT Systems: A Heterogeneity-Aware Survey of Security, Privacy, and Robustness — IEEE Internet of Things Journal, 2026
 - Vision-Language Integration for Image Captioning Using Vision Transformers and GPT-J — AIPR 2025, LNCS 16446
-- Enhancing DDoS Detection for Edge Networks With Noise-Tolerant Shallow Neural Networks in Computational Social Systems — IEEE Transactions on Computational Social Systems, 2025
-- ProtoMAML: A Hybrid Meta-Learning Approach Integrating Prototypical Networks for Data-Efficient DDoS Attack Detection — IWCMC 2025
-- Identifying Distributed Denial of Service Attacks Through Multi-Model Deep Learning Fusion and Combinatorial Analysis — Journal of Network and Systems Management, 2025
 - Patient Subgrouping with Distinct Survival Rates via Integration of Multiomics Data on a Grassmann Manifold — BMC Medical Informatics, 2022
 
 ## Professional Service
@@ -69,6 +68,7 @@
 - [ORCID](https://orcid.org/0009-0004-7635-5403)
 - [GitHub](https://github.com/AliAlfatemi)
 - [LinkedIn](https://www.linkedin.com/in/ali-alfatemi/)
+- [DBLP](https://dblp.org/pid/325/2184.html)
 
 ## Contact
 
