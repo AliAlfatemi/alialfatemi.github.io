@@ -285,10 +285,36 @@
           <article class="project-card project-card-visual">
             <p class="project-label">Autonomous cyber defense</p>
             <h3>Sentinel</h3>
-            <p>A reproducible neuro-symbolic reinforcement-learning system for autonomous DDoS mitigation, combining PPO-based control with symbolic safety constraints and interpretable policy extraction.</p>
-            <figure>
-              <img src="images/sentinel-architecture.svg" width="1400" height="620" loading="lazy" alt="Sentinel architecture: network traffic state flows through a multi-head PPO defender and symbolic safety shield to safe DDoS mitigation, with co-evolutionary training and decision-tree rule extraction">
-              <figcaption>PPO defender → safety shield → safe mitigation · co-evolution → interpretable rules</figcaption>
+            <p class="project-description">A reproducible neuro-symbolic reinforcement-learning system for autonomous DDoS mitigation, combining PPO-based control with symbolic safety constraints and interpretable policy extraction.</p>
+            <figure class="project-figure sentinel-figure">
+              <a class="project-media sentinel-visual" href="publications/#sentinel-neuro-symbolic-ddos" aria-label="Read the Sentinel publication and architecture details">
+                <span class="sentinel-flow" aria-hidden="true">
+                  <span class="sentinel-node sentinel-node-input">
+                    <svg viewBox="0 0 32 32"><path d="M5 23h4V12H5zm9 0h4V7h-4zm9 0h4V16h-4z"/></svg>
+                    <small>Observe</small><strong>Traffic</strong>
+                  </span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="sentinel-node sentinel-node-policy">
+                    <svg viewBox="0 0 32 32"><path d="M7 10l8 6-8 6m10-12l8 6-8 6M15 16h2"/></svg>
+                    <small>Decide</small><strong>PPO policy</strong>
+                  </span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="sentinel-node sentinel-node-shield">
+                    <svg viewBox="0 0 32 32"><path d="M16 4l10 4v7c0 6.5-4.2 10.5-10 13-5.8-2.5-10-6.5-10-13V8zm-5 11l3.5 3.5L21 12"/></svg>
+                    <small>Verify</small><strong>Safety shield</strong>
+                  </span>
+                  <span class="flow-arrow" aria-hidden="true">→</span>
+                  <span class="sentinel-node sentinel-node-action">
+                    <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="7" rx="2"/><rect x="5" y="18" width="22" height="7" rx="2"/><path d="M9 10.5h.1M9 21.5h.1M14 10.5h9M14 21.5h9"/></svg>
+                    <small>Act</small><strong>Mitigate</strong>
+                  </span>
+                </span>
+                <span class="sentinel-support" aria-hidden="true">
+                  <span><b>↻</b> Adaptive attacker + Hall of Fame</span>
+                  <span><b>├</b> Policy → decision-tree rules</span>
+                </span>
+              </a>
+              <figcaption>Observe → decide → verify → mitigate</figcaption>
             </figure>
             <p class="project-meta">Reinforcement learning · Safety shields · Explainability</p>
             <p class="entry-links"><a href="https://github.com/AliAlfatemi/sentinel-ddos">Code</a><a href="publications/#sentinel-neuro-symbolic-ddos">Publication</a></p>
@@ -296,9 +322,11 @@
           <article class="project-card project-card-visual">
             <p class="project-label">Fine-grained computer vision</p>
             <h3>warbler_yolo</h3>
-            <p>An end-to-end workflow that prepares field imagery, segments subjects, creates standardized splits, and trains and evaluates a species classifier.</p>
-            <figure>
-              <img src="images/pipeline-1400.jpg" width="1400" height="510" loading="lazy" alt="YOLO11 pipeline that segments birds from field images and classifies their species">
+            <p class="project-description">An end-to-end workflow that prepares field imagery, segments subjects, creates standardized splits, and trains and evaluates a species classifier.</p>
+            <figure class="project-figure warbler-figure">
+              <a class="project-media" href="publications/#foreground-centric-fine-grained-recognition" aria-label="Read the warbler_yolo publication and pipeline details">
+                <img src="images/pipeline-1400.jpg" width="1400" height="510" loading="lazy" alt="YOLO11 pipeline that segments birds from field images and classifies their species">
+              </a>
               <figcaption>YOLO11-Seg → foreground crops → YOLO11-Cls</figcaption>
             </figure>
             <p class="project-meta">Prepare · Segment · Crop · Split · Train · Evaluate</p>
