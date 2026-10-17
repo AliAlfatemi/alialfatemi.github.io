@@ -25,7 +25,7 @@
 - Meta-Learning, Few-Shot Learning, Prototypical Networks
 - Data Augmentation, GAN-based Augmentation, Noise Tolerance
 - Federated Learning, Distributed Machine Learning, Trustworthy AI
-- Python, PyTorch, TensorFlow, Scikit-learn
+- Python, PyTorch, Scikit-learn
 - Bioinformatics, Multi-omics Data Integration, Forecasting, Blockchain Systems
 
 ## Education
