@@ -3,7 +3,7 @@
 > Computer Science Ph.D. Candidate at Fordham University (New York, NY).
 > Building practical machine-learning systems across security, computer vision,
 > language, medical imaging, robotics, blockchain, bioinformatics, and forecasting.
-> The record presented here includes 31 publications and 1 granted patent.
+> The record presented here includes 30 publications and 1 granted patent.
 > Ph.D. expected May 2027; open to industry and academic roles, including
 > Research Scientist, Applied Scientist, Machine Learning Engineer,
 > postdoctoral, and faculty positions.
@@ -13,7 +13,7 @@
 - **Reliable and Efficient Machine Learning**: Compact models, robust learning, synthetic data, meta-learning, decision fusion, and methods for limited, noisy, or imbalanced data.
 - **Security and Autonomous Systems**: Learning-based cyber defense, reinforcement learning, symbolic safeguards, edge and IoT intelligence, robotics, and trustworthy distributed systems.
 - **Vision and Multimodal Intelligence**: Fine-grained recognition, medical image segmentation, vision–language generation, object detection, and boundary-aware visual learning.
-- **Language, Health, and Data Applications**: Arabic grammatical error correction, multi-omics patient subgrouping, autism diagnostics, sports forecasting, and cryptocurrency modeling.
+- **Language, Health, and Data Applications**: Arabic grammatical error correction, multi-omics patient subgrouping, autism diagnostics, sports forecasting, and applied data modeling.
 
 ## Key Skills & Expertise
 
