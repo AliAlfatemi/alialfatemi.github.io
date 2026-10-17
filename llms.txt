@@ -4,9 +4,9 @@
 > Building practical machine-learning systems across security, computer vision,
 > language, medical imaging, robotics, blockchain, bioinformatics, and forecasting.
 > The record presented here includes 31 publications and 1 granted patent.
-> Ph.D. expected May 2027; available for postdoctoral and faculty appointments,
-> as well as Research Scientist, Applied Scientist,
-> and Machine Learning Engineer positions in industry.
+> Ph.D. expected May 2027; open to industry and academic roles, including
+> Research Scientist, Applied Scientist, Machine Learning Engineer,
+> postdoctoral, and faculty positions.
 
 ## Research Areas
 

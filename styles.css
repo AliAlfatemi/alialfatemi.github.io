@@ -142,9 +142,9 @@ h1 { max-width: 25ch; margin: .5rem 0 .85rem; color: var(--text-strong); font-si
 .project-card .project-label { margin-bottom: .24rem; color: var(--signal); font-family: var(--mono); font-size: .65rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
 .project-card .project-meta { margin-top: auto; padding-top: .25rem; color: var(--muted-2); font-family: var(--mono); font-size: .66rem; }
 .project-card .entry-links { margin: 0; }
-.project-card figure { margin: -.9rem -.9rem .78rem; }
-.project-card img { width: 100%; aspect-ratio: 14 / 5.1; padding: .45rem; border-bottom: 1px solid var(--rule); background: #f7f7f3; object-fit: contain; }
-.project-card figcaption { padding: .3rem .9rem 0; color: var(--muted-2); font-family: var(--mono); font-size: .62rem; line-height: 1.4; text-transform: uppercase; }
+.project-card figure { margin: .15rem 0 .7rem; }
+.project-card img { display: block; width: 100%; height: auto; padding: .45rem; border: 1px solid var(--rule); background: #f7f7f3; object-fit: contain; }
+.project-card figcaption { padding-top: .32rem; color: var(--muted-2); font-family: var(--mono); font-size: .62rem; line-height: 1.4; text-transform: uppercase; }
 
 .record-list { margin: 0; border-top: 1px solid var(--rule); }
 .record-list > div { display: grid; padding: .7rem 0; border-bottom: 1px solid var(--rule); grid-template-columns: 6rem 1fr; gap: 1rem; }
