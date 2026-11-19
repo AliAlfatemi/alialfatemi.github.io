@@ -22,8 +22,9 @@
   <meta name="twitter:image" content="https://alialfatemi.github.io/images/og-profile.jpg">
   <meta name="twitter:image:alt" content="Ali Alfatemi — AI and machine-learning researcher">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=traffic-demo-1">
   <script src="./script.js" defer></script>
+  <script src="./ddos-demo.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -219,9 +220,108 @@
         <p>I work across the full research cycle—from problem formulation and model design to rigorous evaluation, publication, and reproducible software. My record includes efficient and trustworthy learning, reinforcement learning, multimodal generation, fine-grained recognition, blockchain systems, bioinformatics, and forecasting.</p>
         <p class="availability"><span aria-hidden="true"></span>Open to industry and academic roles · Available May 2027</p>
         <div class="text-actions">
+          <a href="#ddos-demo">Try the interactive demo <span aria-hidden="true">↘</span></a>
           <a href="publications/">Browse all publications</a>
           <a href="#practice">Explore research software</a>
           <a href="#contact">Discuss an opportunity</a>
+        </div>
+      </section>
+
+      <section class="content-section ddos-section" id="ddos-demo" aria-labelledby="ddos-title" data-ddos-demo>
+        <header class="section-header">
+          <div><p class="section-kicker">Interactive traffic lab</p><h2 id="ddos-title">DDoS defense in motion.</h2></div>
+          <a href="publications/#sentinel-neuro-symbolic-ddos">Explore the research <span aria-hidden="true">↗</span></a>
+        </header>
+        <p class="section-intro">Increase the attack traffic, switch on mitigation, and watch the service recover.</p>
+        <div class="traffic-lab" data-mode="normal" data-running="true">
+          <div class="demo-toolbar">
+            <span class="demo-live"><i aria-hidden="true"></i> Browser simulation</span>
+            <span class="demo-status" data-demo-status role="status">Normal traffic</span>
+            <button class="demo-pause" type="button" data-demo-pause aria-pressed="false" aria-label="Pause simulation">Pause <span aria-hidden="true">Ⅱ</span></button>
+          </div>
+          <div class="demo-stages" role="group" aria-label="Simulation scenarios">
+            <button type="button" data-demo-scenario="normal" aria-pressed="true"><span>01</span> Normal</button>
+            <button type="button" data-demo-scenario="attack" aria-pressed="false"><span>02</span> DDoS surge</button>
+            <button type="button" data-demo-scenario="protected" aria-pressed="false"><span>03</span> Protected</button>
+          </div>
+          <div class="demo-network">
+            <svg class="ddos-scene" viewBox="0 0 720 290" role="img" aria-labelledby="network-title network-desc">
+              <title id="network-title">Interactive DDoS traffic and mitigation simulation</title>
+              <desc id="network-desc">Teal packets represent legitimate users. Orange packets represent attack traffic. Traffic converges on an edge filter and an application server. With mitigation enabled, most attack packets are diverted before reaching the service.</desc>
+              <defs>
+                <pattern id="traffic-grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#28404c" stroke-opacity=".25" stroke-width=".6"/></pattern>
+                <radialGradient id="traffic-halo"><stop stop-color="#55d8cf" stop-opacity=".12"/><stop offset="1" stop-color="#55d8cf" stop-opacity="0"/></radialGradient>
+              </defs>
+              <rect width="720" height="290" fill="url(#traffic-grid)"/>
+              <ellipse cx="480" cy="130" rx="210" ry="130" fill="url(#traffic-halo)"/>
+              <g class="demo-routes" fill="none">
+                <path class="route-good" d="M104 68C220 68 240 130 346 130"/>
+                <path class="route-good" d="M112 102C220 102 240 130 346 130"/>
+                <path class="route-good" d="M104 136C220 136 240 130 346 130"/>
+                <path class="route-bad" d="M104 208C225 208 245 130 346 130"/>
+                <path class="route-bad" d="M112 240C225 240 245 130 346 130"/>
+                <path class="route-bad" d="M160 225C245 225 255 130 346 130"/>
+                <path class="route-service" d="M410 130H595"/>
+                <path class="route-drop" d="M378 163Q378 236 502 236"/>
+              </g>
+              <g class="demo-clients">
+                <text x="30" y="29" class="scene-label">LEGITIMATE USERS</text>
+                <g transform="translate(72 68)"><rect x="-18" y="-12" width="36" height="24" rx="5"/><path d="M-8 18H8M0 12V18"/></g>
+                <g transform="translate(80 102)"><rect x="-18" y="-12" width="36" height="24" rx="5"/><path d="M-8 18H8M0 12V18"/></g>
+                <g transform="translate(72 136)"><rect x="-18" y="-12" width="36" height="24" rx="5"/><path d="M-8 18H8M0 12V18"/></g>
+              </g>
+              <g class="demo-attackers">
+                <text x="30" y="185" class="scene-label">ATTACK SOURCES</text>
+                <g transform="translate(72 208)"><rect x="-17" y="-10" width="34" height="20" rx="4"/><path d="M-8 0H8M-4-4L0 0-4 4M4-4L8 0 4 4"/></g>
+                <g transform="translate(80 240)"><rect x="-17" y="-10" width="34" height="20" rx="4"/><path d="M-8 0H8M-4-4L0 0-4 4M4-4L8 0 4 4"/></g>
+                <g transform="translate(128 225)"><rect x="-17" y="-10" width="34" height="20" rx="4"/><path d="M-8 0H8M-4-4L0 0-4 4M4-4L8 0 4 4"/></g>
+              </g>
+              <g class="demo-filter" transform="translate(378 130)">
+                <circle class="filter-halo" r="47"/>
+                <circle class="filter-ring" r="37"/>
+                <path class="filter-shell" d="M0-31 28-15V16L0 32-28 16V-15Z"/>
+                <path class="filter-shield" d="M0-16 13-11V0C13 10 0 17 0 17S-13 10-13 0V-11Z"/>
+                <path class="filter-check" d="m-7 0 5 5 10-11"/>
+              </g>
+              <text x="378" y="197" text-anchor="middle" class="scene-title">Edge filter</text>
+              <text x="378" y="214" text-anchor="middle" class="scene-caption" data-filter-label>Bypass</text>
+              <g class="demo-server" transform="translate(630 130)">
+                <circle class="server-halo" r="62"/>
+                <rect class="server-body" x="-35" y="-44" width="70" height="88" rx="9"/>
+                <path d="M-35-15H35M-35 15H35"/>
+                <path class="server-slots" d="M-7-29H20M-7 0H20M-7 29H20"/>
+                <circle class="server-led" cx="-21" cy="-29" r="3"/><circle class="server-led" cx="-21" cy="0" r="3"/><circle class="server-led" cx="-21" cy="29" r="3"/>
+              </g>
+              <text x="630" y="197" text-anchor="middle" class="scene-title">Application</text>
+              <text x="630" y="214" text-anchor="middle" class="scene-caption" data-service-label>Service healthy</text>
+              <g class="demo-discard" transform="translate(520 236)"><rect x="-14" y="-14" width="28" height="28" rx="7"/><path d="m-5-5 10 10m0-10-10 10"/></g>
+              <text x="547" y="240" class="scene-caption">Filtered</text>
+              <g data-demo-packets aria-hidden="true"></g>
+            </svg>
+            <div class="demo-legend"><span><i class="legend-good"></i>Legitimate</span><span><i class="legend-bad"></i>Attack</span><span><i class="legend-filter"></i>Filtered</span></div>
+          </div>
+          <div class="demo-metrics" aria-label="Modeled service metrics">
+            <div><span>Incoming load</span><strong data-metric="incoming">48</strong><small>requests / s</small></div>
+            <div><span>Filtered</span><strong data-metric="blocked">0</strong><small>requests / s</small></div>
+            <div><span>Queue delay</span><strong data-metric="delay">0</strong><small>milliseconds</small></div>
+            <div><span>User throughput</span><strong data-metric="goodput">48</strong><small>requests / s</small></div>
+          </div>
+          <div class="demo-chart-wrap">
+            <div class="demo-chart-heading"><span>Traffic over time</span><span><i class="chart-offered"></i> Incoming <i class="chart-admitted"></i> Admitted <i class="chart-capacity"></i> Capacity</span></div>
+            <svg class="demo-chart" viewBox="0 0 672 76" preserveAspectRatio="none" role="img" aria-label="Recent incoming and admitted traffic compared with server capacity">
+              <path class="chart-grid" d="M0 15H672M0 44H672M0 73H672"/>
+              <path class="chart-capacity-line" d="M0 56.7H672"/>
+              <path class="chart-offered-line" data-chart-offered d="M0 66H672"/>
+              <path class="chart-admitted-line" data-chart-admitted d="M0 66H672"/>
+            </svg>
+          </div>
+          <div class="demo-controls">
+            <label class="demo-intensity" for="attack-intensity"><span>Attack intensity <output id="attack-intensity-value" for="attack-intensity">75%</output></span><input id="attack-intensity" type="range" min="0" max="100" step="1" value="75" data-demo-intensity></label>
+            <button class="demo-guard" type="button" role="switch" aria-checked="false" data-demo-guard><span class="demo-switch" aria-hidden="true"></span>Mitigation</button>
+            <button class="demo-replay" type="button" data-demo-replay><span aria-hidden="true">↻</span> Replay scenario</button>
+          </div>
+          <p class="demo-caption">Illustrative FIFO queue model · server capacity 120 requests/s · <span data-demo-story>Normal → attack → mitigation</span></p>
+          <noscript><p class="demo-caption">Enable JavaScript to use the interactive simulation.</p></noscript>
         </div>
       </section>
 
